@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+
+
+  <meta name="generator" content="Hexo 6.3.0">
+
+  
+
+  
+
+  
+    <meta name="author" content="A1ent">
+  
+
+  
+
+  
+
+  <title>Unity脚本的生命周期 | A1ent</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/QvQ.ico">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
+  
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(/103962364_p0.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          A1ent
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="/">首页</a></li>
+        
+          <li class="navbar-list-item"><a target="_blank" rel="noopener" href="https://kyori.xyz/2021/07/081144.html">Fiexblack主题链接</a></li>
+        
+          <li class="navbar-list-item"><a target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2021.3/ScriptReference/index.html">Unity手册</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">Unity脚本的生命周期</h1>
+          <h2 class="title-sub-wrap">
+            <strong>A1ent</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2023-01-29T09:05:06.000Z" itemprop="datePublished">2023-01-29</time>
+          </h2>
+          
+          
+          <ul class="wrap-list dark">
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="/tags/Unity/">🏷️ Unity</a></li>
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h2 id="1-Unity的生命周期"><a href="#1-Unity的生命周期" class="headerlink" title="1.Unity的生命周期"></a>1.Unity的生命周期</h2><h3 id="1-1-新版生命周期图表"><a href="#1-1-新版生命周期图表" class="headerlink" title="1.1 新版生命周期图表"></a>1.1 新版生命周期图表</h3><p><a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/Manual/ExecutionOrder.html">生命周期官方文档</a></p>
+<img src="../_posts/monobehaviour_flowchart.jpg"  >
+
+<h3 id="1-2-加载第一个场景"><a href="#1-2-加载第一个场景" class="headerlink" title="1.2 加载第一个场景"></a>1.2 加载第一个场景</h3><p>场景开始时将调用以下函数（为场景中的每个对象调用一次）。</p>
+<ul>
+<li><strong>Awake：</strong>始终在任何 Start 函数之前并在实例化预制件之后调用此函数。（如果游戏对象在启动期间处于非活动状态，则在激活之后才会调用 Awake。）</li>
+<li><strong>OnEnable：</strong>（仅在对象处于激活状态时调用）在启用对象后立即调用此函数。在创建 MonoBehaviour 实例时（例如加载关卡或实例化具有脚本组件的游戏对象时）会执行此调用。</li>
+</ul>
+<p>请注意，对于添加到场景中的对象，在为任何对象调用 Start 和 Update 等函数之前，会为_所有_ 脚本调用 Awake 和 OnEnable 函数。当然，在游戏运行过程中实例化对象时，不能强制执行此调用。</p>
+<h3 id="1-3-Editor"><a href="#1-3-Editor" class="headerlink" title="1.3 Editor"></a>1.3 Editor</h3><ul>
+<li><strong>Reset：</strong>调用 Reset 可以在脚本首次附加到对象时以及使用 <em>Reset</em> 命令时初始化脚本的属性。</li>
+<li><strong>OnValidate：</strong>每当设置脚本的属性时都会调用 OnValidate，包括反序列化对象时，这可能发生在不同的时间，例如在编辑器中打开场景时和域重新加载后。</li>
+</ul>
+<h3 id="1-4-在第一次帧更新之前"><a href="#1-4-在第一次帧更新之前" class="headerlink" title="1.4 在第一次帧更新之前"></a>1.4 在第一次帧更新之前</h3><ul>
+<li><strong>Start：</strong>仅当启用脚本实例后，才会在第一次帧更新之前调用 Start。</li>
+</ul>
+<p>对于场景资源中的对象，在为任何脚本调用 Update 等函数之前，将在所有脚本上调用 Start 函数。当然，在游戏运行过程中实例化对象时，不能强制执行此调用。</p>
+<h3 id="1-5-帧之间"><a href="#1-5-帧之间" class="headerlink" title="1.5 帧之间"></a>1.5 帧之间</h3><ul>
+<li><strong>OnApplicationPause：</strong>在帧的结尾处调用此函数（在正常帧更新之间有效检测到暂停）。在调用 <strong>OnApplicationPause</strong> 之后，将发出一个额外帧，从而允许游戏显示图形来指示暂停状态。</li>
+</ul>
+<h3 id="1-6-更新顺序"><a href="#1-6-更新顺序" class="headerlink" title="1.6 更新顺序"></a>1.6 更新顺序</h3><p>跟踪游戏逻辑和交互、动画、摄像机位置等的时候，可以使用一些不同事件。常见方案是在 <strong>Update</strong> 函数中执行大多数任务，但是也可以使用其他函数。</p>
+<ul>
+<li><strong>FixedUpdate：</strong>调用 <strong>FixedUpdate</strong> 的频度常常超过 <strong>Update</strong>。如果帧率很低，可以每帧调用该函数多次；如果帧率很高，可能在帧之间完全不调用该函数。在 <strong>FixedUpdate</strong> 之后将立即进行所有物理计算和更新。在 <strong>FixedUpdate</strong> 内应用运动计算时，无需将值乘以 <strong>Time.deltaTime</strong>。这是因为 <strong>FixedUpdate</strong> 的调用基于可靠的计时器（独立于帧率）。</li>
+<li><strong>Update：</strong>每帧调用一次 <strong>Update</strong>。这是用于帧更新的主要函数。</li>
+<li><strong>LateUpdate：</strong>每帧调用一次 <strong>LateUpdate__（在</strong> Update__ 完成后）。<strong>LateUpdate</strong> 开始时，在 <strong>Update</strong> 中执行的所有计算便已完成。<strong>LateUpdate</strong> 的常见用途是跟随第三人称摄像机。如果在 <strong>Update</strong> 内让角色移动和转向，可以在 <strong>LateUpdate</strong> 中执行所有摄像机移动和旋转计算。这样可以确保角色在摄像机跟踪其位置之前已完全移动。</li>
+</ul>
+<p>通常，不应依赖为不同的游戏对象调用相同事件函数的顺序 - 除非顺序明确记录或可设置。（如果需要对播放器循环进行更细粒度的控制，可以使用 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/LowLevel.PlayerLoop.html">PlayerLoop API</a>。）</p>
+<p>不能指定为同一 MonoBehaviour 子类的不同实例调用事件函数的顺序。例如，一个 MonoBehaviour 的 <strong>Update</strong> 函数可能会在另一个游戏对象（包括其父级或子级游戏对象）上的相同 MonoBehaviour 的 <strong>Update</strong> 函数之前或之后调用。</p>
+<p>可以指定一个 MonoBehaviour 子类的事件函数应在不同子类的事件函数之前调用（使用 Project Settings 窗口的 Script Execution Order 面板）。例如，如果有两个脚本，EngineBehaviour 和 SteeringBehaviour，可以设置 Script Execution Order，这样 EngineBehaviours 始终在 SteeringBehaviours 之前更新。</p>
+<h3 id="1-7-动画更新循环"><a href="#1-7-动画更新循环" class="headerlink" title="1.7 动画更新循环"></a>1.7 动画更新循环</h3><p>Unity 评估动画系统时，将调用以下函数和 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/Manual/Profiler.html">Profiler</a> 标记。</p>
+<ul>
+<li><p><strong>OnStateMachineEnter：</strong>在<strong>状态机更新 (State Machine Update)</strong> 步骤中，当控制器的状态机进行流经 Entry 状态的转换时，将在第一个更新帧上调用此回调。在转换到 <strong>StateMachine</strong> 子状态时不会调用此回调。</p>
+<p>仅当动画图中存在控制器组件（例如，<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorController.html"><strong>AnimatorController</strong></a>、<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/AnimatorOverrideController.html"><strong>AnimatorOverrideController</strong></a> 或 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorControllerPlayable.html"><strong>AnimatorControllerPlayable</strong></a>）时才会发生此回调。</p>
+<p><strong>注意：</strong>将此回调添加到 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/StateMachineBehaviour.html"><strong>StateMachineBehaviour</strong></a> 组件会禁用多线程的状态机评估。</p>
+</li>
+<li><p><strong>OnStateMachineExit：</strong>在<strong>状态机更新 (State Machine Update)</strong> 步骤中，当控制器的状态机进行流经 Exit 状态的转换时，将在最后一个更新帧上调用此回调。在转换到 <strong>StateMachine</strong> 子状态时不会调用此回调。</p>
+<p>仅当动画图中存在控制器组件（例如，<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorController.html"><strong>AnimatorController</strong></a>、<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/AnimatorOverrideController.html"><strong>AnimatorOverrideController</strong></a> 或 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorControllerPlayable.html"><strong>AnimatorControllerPlayable</strong></a>）时才会发生此回调。</p>
+<p><strong>注意：</strong>将此回调添加到 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/StateMachineBehaviour.html"><strong>StateMachineBehaviour</strong></a> 组件会禁用多线程的状态机评估。</p>
+</li>
+<li><p><strong>触发动画事件 (Fire Animation Events)：</strong>调用在上次更新时间和当前更新时间之间采样的所有剪辑中的所有动画事件。</p>
+</li>
+<li><p><strong>StateMachineBehaviour (OnStateEnter&#x2F;OnStateUpdate&#x2F;OnStateExit)：</strong>一个层最多可以有 3 个活动状态：当前状态、中断状态和下一个状态。使用一个定义 <strong>OnStateEnter</strong>、<strong>OnStateUpdate</strong> 或 <strong>OnStateExit</strong> 回调的 StateMachineBehaviour 组件为每个活动状态调用此函数。</p>
+<p>依次针对当前状态、中断状态和下一个状态调用此函数。</p>
+<p>仅当动画图中存在控制器组件（例如，<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorController.html"><strong>AnimatorController</strong></a>、<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/AnimatorOverrideController.html"><strong>AnimatorOverrideController</strong></a> 或 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorControllerPlayable.html"><strong>AnimatorControllerPlayable</strong></a>）时才会执行此步骤。</p>
+</li>
+<li><p><strong>OnAnimatorMove：</strong>在每个更新帧中为每个 Animator 组件调用一次此函数来修改根运动 (Root Motion)。</p>
+</li>
+<li><p><strong>StateMachineBehaviour(OnStateMove)：</strong>使用定义此回调的 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/StateMachineBehaviour.html"><strong>StateMachineBehaviour</strong></a> 在每个活动状态中调用此函数。</p>
+</li>
+<li><p><strong>OnAnimatorIK：</strong>设置动画 IK。为每个启用 <strong>IK pass</strong> 的 Animator Controller 层进行一次此调用。</p>
+<p>仅当使用人形骨架时才会执行此事件。</p>
+</li>
+<li><p><strong>StateMachineBehaviour(OnStateIK)：</strong>使用在启用 <strong>IK pass</strong> 的层上定义此回调的 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/StateMachineBehaviour.html"><strong>StateMachineBehaviour</strong></a> 组件在每个活动状态中调用此函数。</p>
+</li>
+<li><p><strong>WriteProperties：</strong>从主线程将所有其他动画属性写入场                                            <a href="#%E7%9B%AE%E5%BD%95">返回目录</a></p>
+</li>
+</ul>
+<h4 id="1-7-1有用的性能分析标记"><a href="#1-7-1有用的性能分析标记" class="headerlink" title="1.7.1有用的性能分析标记"></a>1.7.1有用的性能分析标记</h4><p><a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/Manual/ExecutionOrder.html#ScriptLifecycleFlowchart">脚本生命周期流程图</a>中显示的某些动画函数不是可以调用的事件函数；它们是 Unity 处理动画时调用的内部函数。</p>
+<p>这些函数具有 Profiler 标记，因此您可以使用 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/Manual/Profiler.html">Profiler</a> 查看 Unity 在帧中调用这些函数的时间。知道 Unity 调用这些函数的时间有助于准确了解所调用的事件函数的具体执行时间。</p>
+<p>例如，假设在 <strong>FireAnimationEvents</strong> 回调中调用 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animator.Play.html">Animator.Play</a>。如果知道只有在执行<strong>状态机更新 (State Machine Update)</strong> 和<strong>流程图 (Process Graph)</strong> 函数后才会触发 <strong>FireAnimationEvents</strong> 回调，就可以预期动画剪辑会在下一帧播放，而不是马上播放。</p>
+<ul>
+<li><p><strong>状态机更新 (State Machine Update)：</strong>在执行序列的此步骤中评估所有状态机。仅当动画图中存在控制器组件（例如，<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorController.html"><strong>AnimatorController</strong></a>、<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/AnimatorOverrideController.html"><strong>AnimatorOverrideController</strong></a> 或 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorControllerPlayable.html"><strong>AnimatorControllerPlayable</strong></a>）时才会发生此回调。</p>
+<p><strong>注意：</strong>状态机评估通常是多线程的，但添加某些回调（例如，<strong>OnStateMachineEnter</strong> 和 <strong>OnStateMachineExit</strong>）会禁用多线程。请参数上文的<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/Manual/ExecutionOrder.html#AnimationUpdateLoop">动画更新循环</a>以了解详细信息。</p>
+</li>
+<li><p><strong>ProcessGraph：</strong>评估所有动画图。此过程包括对需要评估的所有动画剪辑进行采样以及计算根运动 (Root Motion)。</p>
+</li>
+<li><p><strong>ProcessAnimation：</strong>混合动画图的结果。</p>
+</li>
+<li><p><strong>WriteTransforms：</strong>将所有动画变换从工作线程写入场景。</p>
+<p>如果一个人形骨架的多个层启用了 <strong>IK pass</strong>，则该人形骨架可以有多个 <strong>WriteTransforms</strong> 通道（请参阅<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/Manual/ExecutionOrder.html#ScriptLifecycleFlowchart">脚本生命周期流程图</a>）。</p>
+</li>
+</ul>
+<h3 id="1-8-Rendering"><a href="#1-8-Rendering" class="headerlink" title="1.8 Rendering"></a>1.8 Rendering</h3><ul>
+<li><strong>OnPreCull：</strong>在摄像机剔除场景之前调用。剔除操作将确定摄像机可以看到哪些对象。正好在进行剔除之前调用 OnPreCull。</li>
+<li><strong>OnBecameVisible&#x2F;OnBecameInvisible：</strong>对象变为对任何摄像机可见&#x2F;不可见时调用。</li>
+<li><strong>OnWillRenderObject：</strong>如果对象可见，则为每个摄像机调用<strong>一次</strong>。</li>
+<li><strong>OnPreRender：</strong>在摄像机开始渲染场景之前调用。</li>
+<li><strong>OnRenderObject：</strong>所有常规场景渲染完成之后调用。此时，可以使用 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/GL.html">GL</a> 类或 <a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Graphics.DrawMeshNow.html">Graphics.DrawMeshNow</a> 来绘制自定义几何形状。</li>
+<li><strong>OnPostRender：</strong>在摄像机完成场景渲染后调用。</li>
+<li><strong>OnRenderImage：</strong>在场景渲染完成后调用以允许对图像进行后处理，请参阅<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/2022.2/Manual/PostProcessingOverview.html">后期处理效果</a>。</li>
+<li><strong>OnGUI：</strong>每帧调用多次以响应 GUI 事件。首先处理布局和重新绘制事件，然后为每个输入事件处理布局和键盘&#x2F;鼠标事件。</li>
+<li><strong>OnDrawGizmos</strong> 用于在场景视图中绘制辅助图标以实现可视化。</li>
+</ul>
+<p><strong>Note:</strong> These callbacks only work with the Built-in Render Pipeline.</p>
+<h3 id="1-9-协程"><a href="#1-9-协程" class="headerlink" title="1.9 协程"></a>1.9 协程</h3><p>Update 函数返回后将运行正常协程更新。协程是一个可暂停执行 (yield) 直到给定的 YieldInstruction 达到完成状态的函数。 协程的不同用法：</p>
+<ul>
+<li><strong>yield</strong> 在下一帧上调用所有 Update 函数后，协程将继续。</li>
+<li><strong>yield WaitForSeconds</strong> 在为帧调用所有 Update 函数后，在指定的时间延迟后继续。</li>
+<li><strong>yield WaitForFixedUpdate</strong> 在所有脚本上调用所有 FixedUpdate 后继续。如果协同程序在 FixedUpdate 之前生成，那么它会在当前帧的 FixedUpdate 之后继续运行。</li>
+<li><strong>yield WWW</strong> 在 WWW 下载完成后继续。</li>
+<li><strong>yield StartCoroutine</strong> 将协程链接起来，并会等待 MyFunc 协程先完成。</li>
+</ul>
+<h3 id="1-10-销毁对象时"><a href="#1-10-销毁对象时" class="headerlink" title="1.10 销毁对象时"></a>1.10 销毁对象时</h3><ul>
+<li><strong>OnDestroy：</strong>对象存在的最后一帧完成所有帧更新之后，调用此函数（可能应 Object.Destroy 要求或在场景关闭时销毁该对象）。</li>
+</ul>
+<h3 id="1-11-退出时"><a href="#1-11-退出时" class="headerlink" title="1.11 退出时"></a>1.11 退出时</h3><p>在场景中的所有活动对象上调用以下函数：</p>
+<ul>
+<li><strong>OnApplicationQuit：</strong>在退出应用程序之前在所有游戏对象上调用此函数。在编辑器中，用户停止播放模式时，调用函数。</li>
+<li><strong>OnDisable：</strong>行为被禁用或处于非活动状态时，调用此函数。</li>
+</ul>
+<h3 id="主要的生命周期"><a href="#主要的生命周期" class="headerlink" title="主要的生命周期"></a>主要的生命周期</h3><p><strong>Reset :</strong> 用户第一次添加组件时或用户点击见组件面板上的Reset按钮时调用</p>
+<p><strong>OnAwake</strong>: 当脚本实例被载入时Awake被调用，一般可以在这个地方将当前脚本禁用:this.enable&#x3D;false，如果这样做了，则会直接跳转到OnDisable方法执行一次，然后其它的任何方法，都将不再被执行。如果当前脚本处于可用状态，则正常的执行顺序是继续向下执行OnEnable，当然我们可以在另外一个脚本中实现这个脚本组件的启动：this.enab&#x3D;true;</p>
+<p><strong>OnStart</strong>: Start仅在Update函数第一次被调用前调用。</p>
+<p><strong>OnUpdate</strong>：渲染一帧之前被调用。这里是大部分游戏行为代码被执行的地方，除了物理代码。</p>
+<p><strong>LateUpdate</strong>: 是在所有Update函数调用后被调用。这可用于调整脚本执行顺序。例如:当物体在Update里移动时，跟随物体的相机可以在LateUpdate里实现。如果后面写了Reset，则会又回到Update</p>
+<p><strong>OnGUI</strong>: 渲染和处理GUI事件时调用，当然，如果你使用了NGUI，这个生命周期的事情就不用考虑了。</p>
+<p><strong>FixedUpdate</strong>: 这个函数在每个物理时间步被调用一次。这是处理基于物理游戏行为的地方。常用于移动模型等操作。不受帧率影响，默认0.02s，如果卡帧了Update就不会再执行，而FixedUpdate则继续执行。</p>
+<p>Edit-&gt;preject setting -&gt;Time -&gt; (Inspector监测视图）Fixed Timestep 设置刷新时间</p>
+<p><strong>OnDisable</strong>: 当对象变为不可用或非激活状态时此函数被调用。这个时候，脚本并不会被销毁，在这个状态下，可以重新回到OnEnable状态（enable&#x3D;true）。</p>
+<p><strong>OnDestroy</strong>: 当MonoBehaviour将被销毁时，这个函数被调用。当前脚本的生命周期结束。</p>
+<p>建议一般在Awake中做一些初始化，在Start中获取游戏对象</p>
+<p>其他的生命周期：</p>
+<p><strong>OnPreCull</strong>:在相机剔除场景之前调用此函数。相机可见的对象取决于剔除。OnPreCull 函数调用发生在剔除之前。</p>
+<p><strong>OnBecameVisible&#x2F;OnBecameInvisible</strong>:在对象对于相机可见&#x2F;不可见时调用此函数。</p>
+<p><strong>OnWillRenderObject</strong>:如果对象可见，则为每个相机调用一次此函数。</p>
+<p><strong>OnPreRender</strong>:在相机开始渲染场景之前调用此函数。</p>
+<p><strong>OnRenderObject</strong>:在完成所有常规场景渲染后调用此函数。此时，可使用 GL 类或 Graphics.DrawMeshNow 绘制自定义几何图形。</p>
+<p><strong>OnPostRender</strong>:在相机完成场景渲染后调用此函数。</p>
+<p><strong>OnRenderImage</strong>（仅限专业版）：在完成场景渲染后调用此函数，以便对屏幕图像进行后处理。</p>
+<p><strong>OnGUI</strong>:在每帧上多次调用此函数，以响应 GUI 事件。程序首先将处理 Layout 和 Repaint 事件，然后再处理每个输入事件的 Layout 和 keyboard&#x2F;鼠标事件。</p>
+<p><strong>OnDrawGizmos</strong>: 用于在场景视图中绘制小图示 (Gizmos)，以实现可视化目的。</p>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2023/01/29/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">性能优化</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="/QvQ.ico" class="soft-size--round soft-style--box" alt="A1ent">
+    
+    
+      <h2>A1ent</h2>
+    
+    
+      <p>在这里记录自己学到的东西，顺便记录自己的实习</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>7</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        2
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        5
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+
+      
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+        <li class="categorys-list-item">
+          <a href="/categories/%E7%AE%97%E6%B3%95/">
+            算法 (2)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="/categories/Unity%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+            Unity性能优化 (1)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      <a href="/tags/Unity/" style="font-size: 20px;" class="tags-cloud-10">Unity</a> <a href="/tags/%E5%AF%BB%E8%B7%AF%E7%AE%97%E6%B3%95/" style="font-size: 10px;" class="tags-cloud-0">寻路算法</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;" class="tags-cloud-0">性能优化</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;" class="tags-cloud-0">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;" class="tags-cloud-0">设计模式</a>
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+          <a href="https://github.com/alent17" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+          <a href="https://space.bilibili.com/23379378?spm_id_from=333.1007.0.0" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-toc" class="icon" viewBox="0 0 1129 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" >
+<path d="M234.909 9.656a80.468 80.468 0 0 1 68.398 0 167.374 167.374 0 0 1 41.843 30.578l160.937 140.82h115.07l160.936-140.82a168.983 168.983 0 0 1 41.843-30.578A80.468 80.468 0 0 1 930.96 76.445a80.468 80.468 0 0 1-17.703 53.914 449.818 449.818 0 0 1-35.406 32.187 232.553 232.553 0 0 1-22.531 18.508h100.585a170.593 170.593 0 0 1 118.289 53.109 171.397 171.397 0 0 1 53.914 118.288v462.693a325.897 325.897 0 0 1-4.024 70.007 178.64 178.64 0 0 1-80.468 112.656 173.007 173.007 0 0 1-92.539 25.75h-738.7a341.186 341.186 0 0 1-72.421-4.024A177.835 177.835 0 0 1 28.91 939.065a172.202 172.202 0 0 1-27.36-92.539V388.662a360.498 360.498 0 0 1 0-66.789A177.03 177.03 0 0 1 162.487 178.64h105.414c-16.899-12.07-31.383-26.555-46.672-39.43a80.468 80.468 0 0 1-25.75-65.984 80.468 80.468 0 0 1 39.43-63.57M216.4 321.873a80.468 80.468 0 0 0-63.57 57.937 108.632 108.632 0 0 0 0 30.578v380.615a80.468 80.468 0 0 0 55.523 80.469 106.218 106.218 0 0 0 34.601 5.632h654.208a80.468 80.468 0 0 0 76.444-47.476 112.656 112.656 0 0 0 8.047-53.109v-354.06a135.187 135.187 0 0 0 0-38.625 80.468 80.468 0 0 0-52.304-54.719 129.554 129.554 0 0 0-49.89-7.242H254.22a268.764 268.764 0 0 0-37.82 0z m0 0" fill="#1296db" p-id="4420"></path><path d="M348.369 447.404a80.468 80.468 0 0 1 55.523 18.507 80.468 80.468 0 0 1 28.164 59.547v80.468a80.468 80.468 0 0 1-16.094 51.5 80.468 80.468 0 0 1-131.968-9.656 104.609 104.609 0 0 1-10.46-54.719v-80.468a80.468 80.468 0 0 1 70.007-67.593z m416.02 0a80.468 80.468 0 0 1 86.102 75.64v80.468a94.148 94.148 0 0 1-12.07 53.11 80.468 80.468 0 0 1-132.773 0 95.757 95.757 0 0 1-12.875-57.133V519.02a80.468 80.468 0 0 1 70.007-70.812z m0 0" fill="currentColor"></path></svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2023 <a href="/" target="_blank">A1ent</a></p>
+
+    
+
+    <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
