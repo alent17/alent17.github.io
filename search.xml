@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>A*算法</title>
+    <url>/2023/01/29/A-%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="A-算法"><a href="#A-算法" class="headerlink" title="A*算法"></a>A*算法</h2><p>对比了上面几种算法，最后终于可以讲解本文的重点：A*算法了。</p>
+<p>下面的描述我们将看到，A*算法实际上是综合上面这些算法的特点于一身的。</p>
+<p>A*算法通过下面这个函数来计算每个节点的优先级。</p>
+<p>​																			<strong><code>f(n) = g(n) + h(n);</code></strong></p>
+<p>其中：</p>
+<ul>
+<li>f(n)是节点n的综合优先级。当我们选择下一个要遍历的节点时，我们总会选取综合优先级最高（值最小）的节点。</li>
+<li>g(n) 是节点n距离起点的代价。</li>
+<li>h(n)是节点n距离终点的预计代价，这也就是A*算法的启发函数。关于启发函数我们在下面详细讲解。</li>
+</ul>
+<p>A*算法在运算过程中，每次从优先队列中选取f(n)值最小（优先级最高）的节点作为下一个待遍历的节点。</p>
+<p>另外，A*算法使用两个集合来表示待遍历的节点，与已经遍历过的节点，这通常称之为<code>open_set</code>和<code>close_set</code>。</p>
+<p>完整的A*算法描述如下：</p>
+<div class="highlight-container" data-rel="Text"><figure class="iseeu highlight text"><table><tr><td class="code"><pre><span class="line">* 初始化open_set和close_set；</span><br><span class="line">* 将起点加入open_set中，并设置优先级为0（优先级最高）；</span><br><span class="line">* 如果open_set不为空，则从open_set中选取优先级最高的节点n：</span><br><span class="line">    * 如果节点n为终点，则：</span><br><span class="line">        * 从终点开始逐步追踪parent节点，一直达到起点；</span><br><span class="line">        * 返回找到的结果路径，算法结束；</span><br><span class="line">    * 如果节点n不是终点，则：</span><br><span class="line">        * 将节点n从open_set中删除，并加入close_set中；</span><br><span class="line">        * 遍历节点n所有的邻近节点：</span><br><span class="line">            * 如果邻近节点m在close_set中，则：</span><br><span class="line">                * 跳过，选取下一个邻近节点</span><br><span class="line">            * 如果邻近节点m也不在open_set中，则：</span><br><span class="line">                * 设置节点m的parent为节点n</span><br><span class="line">                * 计算节点m的优先级</span><br><span class="line">                * 将节点m加入open_set中</span><br></pre></td></tr></table></figure></div>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>寻路算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习</title>
+    <url>/2023/01/29/C-%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Unity学习</title>
+    <url>/2023/01/29/Unity%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排序算法</title>
+    <url>/2023/01/29/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity脚本的生命周期</title>
+    <url>/2023/01/29/Unity%E8%84%9A%E6%9C%AC%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    <content><![CDATA[<h2 id="1-Unity的生命周期"><a href="#1-Unity的生命周期" class="headerlink" title="1.Unity的生命周期"></a>1.Unity的生命周期</h2><h3 id="1-1-新版生命周期图表"><a href="#1-1-新版生命周期图表" class="headerlink" title="1.1 新版生命周期图表"></a>1.1 新版生命周期图表</h3><p><a class="link"   href="https://docs.unity3d.com/cn/2022.2/Manual/ExecutionOrder.html" >生命周期官方文档 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/monobehaviour_flowchart.jpg"
+                       
+                >
+
+<h3 id="1-2-加载第一个场景"><a href="#1-2-加载第一个场景" class="headerlink" title="1.2 加载第一个场景"></a>1.2 加载第一个场景</h3><p>场景开始时将调用以下函数（为场景中的每个对象调用一次）。</p>
+<ul>
+<li><strong>Awake：</strong>始终在任何 Start 函数之前并在实例化预制件之后调用此函数。（如果游戏对象在启动期间处于非活动状态，则在激活之后才会调用 Awake。）</li>
+<li><strong>OnEnable：</strong>（仅在对象处于激活状态时调用）在启用对象后立即调用此函数。在创建 MonoBehaviour 实例时（例如加载关卡或实例化具有脚本组件的游戏对象时）会执行此调用。</li>
+</ul>
+<p>请注意，对于添加到场景中的对象，在为任何对象调用 Start 和 Update 等函数之前，会为_所有_ 脚本调用 Awake 和 OnEnable 函数。当然，在游戏运行过程中实例化对象时，不能强制执行此调用。</p>
+<h3 id="1-3-Editor"><a href="#1-3-Editor" class="headerlink" title="1.3 Editor"></a>1.3 Editor</h3><ul>
+<li><strong>Reset：</strong>调用 Reset 可以在脚本首次附加到对象时以及使用 <em>Reset</em> 命令时初始化脚本的属性。</li>
+<li><strong>OnValidate：</strong>每当设置脚本的属性时都会调用 OnValidate，包括反序列化对象时，这可能发生在不同的时间，例如在编辑器中打开场景时和域重新加载后。</li>
+</ul>
+<h3 id="1-4-在第一次帧更新之前"><a href="#1-4-在第一次帧更新之前" class="headerlink" title="1.4 在第一次帧更新之前"></a>1.4 在第一次帧更新之前</h3><ul>
+<li><strong>Start：</strong>仅当启用脚本实例后，才会在第一次帧更新之前调用 Start。</li>
+</ul>
+<p>对于场景资源中的对象，在为任何脚本调用 Update 等函数之前，将在所有脚本上调用 Start 函数。当然，在游戏运行过程中实例化对象时，不能强制执行此调用。</p>
+<h3 id="1-5-帧之间"><a href="#1-5-帧之间" class="headerlink" title="1.5 帧之间"></a>1.5 帧之间</h3><ul>
+<li><strong>OnApplicationPause：</strong>在帧的结尾处调用此函数（在正常帧更新之间有效检测到暂停）。在调用 <strong>OnApplicationPause</strong> 之后，将发出一个额外帧，从而允许游戏显示图形来指示暂停状态。</li>
+</ul>
+<h3 id="1-6-更新顺序"><a href="#1-6-更新顺序" class="headerlink" title="1.6 更新顺序"></a>1.6 更新顺序</h3><p>跟踪游戏逻辑和交互、动画、摄像机位置等的时候，可以使用一些不同事件。常见方案是在 <strong>Update</strong> 函数中执行大多数任务，但是也可以使用其他函数。</p>
+<ul>
+<li><strong>FixedUpdate：</strong>调用 <strong>FixedUpdate</strong> 的频度常常超过 <strong>Update</strong>。如果帧率很低，可以每帧调用该函数多次；如果帧率很高，可能在帧之间完全不调用该函数。在 <strong>FixedUpdate</strong> 之后将立即进行所有物理计算和更新。在 <strong>FixedUpdate</strong> 内应用运动计算时，无需将值乘以 <strong>Time.deltaTime</strong>。这是因为 <strong>FixedUpdate</strong> 的调用基于可靠的计时器（独立于帧率）。</li>
+<li><strong>Update：</strong>每帧调用一次 <strong>Update</strong>。这是用于帧更新的主要函数。</li>
+<li><strong>LateUpdate：</strong>每帧调用一次 <strong>LateUpdate__（在</strong> Update__ 完成后）。<strong>LateUpdate</strong> 开始时，在 <strong>Update</strong> 中执行的所有计算便已完成。<strong>LateUpdate</strong> 的常见用途是跟随第三人称摄像机。如果在 <strong>Update</strong> 内让角色移动和转向，可以在 <strong>LateUpdate</strong> 中执行所有摄像机移动和旋转计算。这样可以确保角色在摄像机跟踪其位置之前已完全移动。</li>
+</ul>
+<p>通常，不应依赖为不同的游戏对象调用相同事件函数的顺序 - 除非顺序明确记录或可设置。（如果需要对播放器循环进行更细粒度的控制，可以使用 <a class="link"   href="https://docs.unity3d.com/cn/2022.2/ScriptReference/LowLevel.PlayerLoop.html" >PlayerLoop API <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。）</p>
+<p>不能指定为同一 MonoBehaviour 子类的不同实例调用事件函数的顺序。例如，一个 MonoBehaviour 的 <strong>Update</strong> 函数可能会在另一个游戏对象（包括其父级或子级游戏对象）上的相同 MonoBehaviour 的 <strong>Update</strong> 函数之前或之后调用。</p>
+<p>可以指定一个 MonoBehaviour 子类的事件函数应在不同子类的事件函数之前调用（使用 Project Settings 窗口的 Script Execution Order 面板）。例如，如果有两个脚本，EngineBehaviour 和 SteeringBehaviour，可以设置 Script Execution Order，这样 EngineBehaviours 始终在 SteeringBehaviours 之前更新。</p>
+<h3 id="1-7-动画更新循环"><a href="#1-7-动画更新循环" class="headerlink" title="1.7 动画更新循环"></a>1.7 动画更新循环</h3><p>Unity 评估动画系统时，将调用以下函数和 <a class="link"   href="https://docs.unity3d.com/cn/2022.2/Manual/Profiler.html" >Profiler <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 标记。</p>
+<ul>
+<li><p><strong>OnStateMachineEnter：</strong>在<strong>状态机更新 (State Machine Update)</strong> 步骤中，当控制器的状态机进行流经 Entry 状态的转换时，将在第一个更新帧上调用此回调。在转换到 <strong>StateMachine</strong> 子状态时不会调用此回调。</p>
+<p>仅当动画图中存在控制器组件（例如，<a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorController.html"><strong>AnimatorController</strong></a>、<a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/AnimatorOverrideController.html"><strong>AnimatorOverrideController</strong></a> 或 <a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorControllerPlayable.html"><strong>AnimatorControllerPlayable</strong></a>）时才会发生此回调。</p>
+<p><strong>注意：</strong>将此回调添加到 <a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/StateMachineBehaviour.html"><strong>StateMachineBehaviour</strong></a> 组件会禁用多线程的状态机评估。</p>
+</li>
+<li><p><strong>OnStateMachineExit：</strong>在<strong>状态机更新 (State Machine Update)</strong> 步骤中，当控制器的状态机进行流经 Exit 状态的转换时，将在最后一个更新帧上调用此回调。在转换到 <strong>StateMachine</strong> 子状态时不会调用此回调。</p>
+<p>仅当动画图中存在控制器组件（例如，<a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorController.html"><strong>AnimatorController</strong></a>、<a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/AnimatorOverrideController.html"><strong>AnimatorOverrideController</strong></a> 或 <a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorControllerPlayable.html"><strong>AnimatorControllerPlayable</strong></a>）时才会发生此回调。</p>
+<p><strong>注意：</strong>将此回调添加到 <a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/StateMachineBehaviour.html"><strong>StateMachineBehaviour</strong></a> 组件会禁用多线程的状态机评估。</p>
+</li>
+<li><p><strong>触发动画事件 (Fire Animation Events)：</strong>调用在上次更新时间和当前更新时间之间采样的所有剪辑中的所有动画事件。</p>
+</li>
+<li><p><strong>StateMachineBehaviour (OnStateEnter&#x2F;OnStateUpdate&#x2F;OnStateExit)：</strong>一个层最多可以有 3 个活动状态：当前状态、中断状态和下一个状态。使用一个定义 <strong>OnStateEnter</strong>、<strong>OnStateUpdate</strong> 或 <strong>OnStateExit</strong> 回调的 StateMachineBehaviour 组件为每个活动状态调用此函数。</p>
+<p>依次针对当前状态、中断状态和下一个状态调用此函数。</p>
+<p>仅当动画图中存在控制器组件（例如，<a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorController.html"><strong>AnimatorController</strong></a>、<a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/AnimatorOverrideController.html"><strong>AnimatorOverrideController</strong></a> 或 <a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorControllerPlayable.html"><strong>AnimatorControllerPlayable</strong></a>）时才会执行此步骤。</p>
+</li>
+<li><p><strong>OnAnimatorMove：</strong>在每个更新帧中为每个 Animator 组件调用一次此函数来修改根运动 (Root Motion)。</p>
+</li>
+<li><p><strong>StateMachineBehaviour(OnStateMove)：</strong>使用定义此回调的 <a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/StateMachineBehaviour.html"><strong>StateMachineBehaviour</strong></a> 在每个活动状态中调用此函数。</p>
+</li>
+<li><p><strong>OnAnimatorIK：</strong>设置动画 IK。为每个启用 <strong>IK pass</strong> 的 Animator Controller 层进行一次此调用。</p>
+<p>仅当使用人形骨架时才会执行此事件。</p>
+</li>
+<li><p><strong>StateMachineBehaviour(OnStateIK)：</strong>使用在启用 <strong>IK pass</strong> 的层上定义此回调的 <a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/StateMachineBehaviour.html"><strong>StateMachineBehaviour</strong></a> 组件在每个活动状态中调用此函数。</p>
+</li>
+<li><p><strong>WriteProperties：</strong>从主线程将所有其他动画属性写入场                                            <a href="#%E7%9B%AE%E5%BD%95">返回目录</a></p>
+</li>
+</ul>
+<h4 id="1-7-1有用的性能分析标记"><a href="#1-7-1有用的性能分析标记" class="headerlink" title="1.7.1有用的性能分析标记"></a>1.7.1有用的性能分析标记</h4><p><a class="link"   href="https://docs.unity3d.com/cn/2022.2/Manual/ExecutionOrder.html#ScriptLifecycleFlowchart" >脚本生命周期流程图 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>中显示的某些动画函数不是可以调用的事件函数；它们是 Unity 处理动画时调用的内部函数。</p>
+<p>这些函数具有 Profiler 标记，因此您可以使用 <a class="link"   href="https://docs.unity3d.com/cn/2022.2/Manual/Profiler.html" >Profiler <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 查看 Unity 在帧中调用这些函数的时间。知道 Unity 调用这些函数的时间有助于准确了解所调用的事件函数的具体执行时间。</p>
+<p>例如，假设在 <strong>FireAnimationEvents</strong> 回调中调用 <a class="link"   href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animator.Play.html" >Animator.Play <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。如果知道只有在执行<strong>状态机更新 (State Machine Update)</strong> 和<strong>流程图 (Process Graph)</strong> 函数后才会触发 <strong>FireAnimationEvents</strong> 回调，就可以预期动画剪辑会在下一帧播放，而不是马上播放。</p>
+<ul>
+<li><p><strong>状态机更新 (State Machine Update)：</strong>在执行序列的此步骤中评估所有状态机。仅当动画图中存在控制器组件（例如，<a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorController.html"><strong>AnimatorController</strong></a>、<a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/AnimatorOverrideController.html"><strong>AnimatorOverrideController</strong></a> 或 <a href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Animations.AnimatorControllerPlayable.html"><strong>AnimatorControllerPlayable</strong></a>）时才会发生此回调。</p>
+<p><strong>注意：</strong>状态机评估通常是多线程的，但添加某些回调（例如，<strong>OnStateMachineEnter</strong> 和 <strong>OnStateMachineExit</strong>）会禁用多线程。请参数上文的<a class="link"   href="https://docs.unity3d.com/cn/2022.2/Manual/ExecutionOrder.html#AnimationUpdateLoop" >动画更新循环 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>以了解详细信息。</p>
+</li>
+<li><p><strong>ProcessGraph：</strong>评估所有动画图。此过程包括对需要评估的所有动画剪辑进行采样以及计算根运动 (Root Motion)。</p>
+</li>
+<li><p><strong>ProcessAnimation：</strong>混合动画图的结果。</p>
+</li>
+<li><p><strong>WriteTransforms：</strong>将所有动画变换从工作线程写入场景。</p>
+<p>如果一个人形骨架的多个层启用了 <strong>IK pass</strong>，则该人形骨架可以有多个 <strong>WriteTransforms</strong> 通道（请参阅<a class="link"   href="https://docs.unity3d.com/cn/2022.2/Manual/ExecutionOrder.html#ScriptLifecycleFlowchart" >脚本生命周期流程图 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>）。</p>
+</li>
+</ul>
+<h3 id="1-8-Rendering"><a href="#1-8-Rendering" class="headerlink" title="1.8 Rendering"></a>1.8 Rendering</h3><ul>
+<li><strong>OnPreCull：</strong>在摄像机剔除场景之前调用。剔除操作将确定摄像机可以看到哪些对象。正好在进行剔除之前调用 OnPreCull。</li>
+<li><strong>OnBecameVisible&#x2F;OnBecameInvisible：</strong>对象变为对任何摄像机可见&#x2F;不可见时调用。</li>
+<li><strong>OnWillRenderObject：</strong>如果对象可见，则为每个摄像机调用<strong>一次</strong>。</li>
+<li><strong>OnPreRender：</strong>在摄像机开始渲染场景之前调用。</li>
+<li><strong>OnRenderObject：</strong>所有常规场景渲染完成之后调用。此时，可以使用 <a class="link"   href="https://docs.unity3d.com/cn/2022.2/ScriptReference/GL.html" >GL <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 类或 <a class="link"   href="https://docs.unity3d.com/cn/2022.2/ScriptReference/Graphics.DrawMeshNow.html" >Graphics.DrawMeshNow <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 来绘制自定义几何形状。</li>
+<li><strong>OnPostRender：</strong>在摄像机完成场景渲染后调用。</li>
+<li><strong>OnRenderImage：</strong>在场景渲染完成后调用以允许对图像进行后处理，请参阅<a class="link"   href="https://docs.unity3d.com/cn/2022.2/Manual/PostProcessingOverview.html" >后期处理效果 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</li>
+<li><strong>OnGUI：</strong>每帧调用多次以响应 GUI 事件。首先处理布局和重新绘制事件，然后为每个输入事件处理布局和键盘&#x2F;鼠标事件。</li>
+<li><strong>OnDrawGizmos</strong> 用于在场景视图中绘制辅助图标以实现可视化。</li>
+</ul>
+<p><strong>Note:</strong> These callbacks only work with the Built-in Render Pipeline.</p>
+<h3 id="1-9-协程"><a href="#1-9-协程" class="headerlink" title="1.9 协程"></a>1.9 协程</h3><p>Update 函数返回后将运行正常协程更新。协程是一个可暂停执行 (yield) 直到给定的 YieldInstruction 达到完成状态的函数。 协程的不同用法：</p>
+<ul>
+<li><strong>yield</strong> 在下一帧上调用所有 Update 函数后，协程将继续。</li>
+<li><strong>yield WaitForSeconds</strong> 在为帧调用所有 Update 函数后，在指定的时间延迟后继续。</li>
+<li><strong>yield WaitForFixedUpdate</strong> 在所有脚本上调用所有 FixedUpdate 后继续。如果协同程序在 FixedUpdate 之前生成，那么它会在当前帧的 FixedUpdate 之后继续运行。</li>
+<li><strong>yield WWW</strong> 在 WWW 下载完成后继续。</li>
+<li><strong>yield StartCoroutine</strong> 将协程链接起来，并会等待 MyFunc 协程先完成。</li>
+</ul>
+<h3 id="1-10-销毁对象时"><a href="#1-10-销毁对象时" class="headerlink" title="1.10 销毁对象时"></a>1.10 销毁对象时</h3><ul>
+<li><strong>OnDestroy：</strong>对象存在的最后一帧完成所有帧更新之后，调用此函数（可能应 Object.Destroy 要求或在场景关闭时销毁该对象）。</li>
+</ul>
+<h3 id="1-11-退出时"><a href="#1-11-退出时" class="headerlink" title="1.11 退出时"></a>1.11 退出时</h3><p>在场景中的所有活动对象上调用以下函数：</p>
+<ul>
+<li><strong>OnApplicationQuit：</strong>在退出应用程序之前在所有游戏对象上调用此函数。在编辑器中，用户停止播放模式时，调用函数。</li>
+<li><strong>OnDisable：</strong>行为被禁用或处于非活动状态时，调用此函数。</li>
+</ul>
+<h3 id="主要的生命周期"><a href="#主要的生命周期" class="headerlink" title="主要的生命周期"></a>主要的生命周期</h3><p><strong>Reset :</strong> 用户第一次添加组件时或用户点击见组件面板上的Reset按钮时调用</p>
+<p><strong>OnAwake</strong>: 当脚本实例被载入时Awake被调用，一般可以在这个地方将当前脚本禁用:this.enable&#x3D;false，如果这样做了，则会直接跳转到OnDisable方法执行一次，然后其它的任何方法，都将不再被执行。如果当前脚本处于可用状态，则正常的执行顺序是继续向下执行OnEnable，当然我们可以在另外一个脚本中实现这个脚本组件的启动：this.enab&#x3D;true;</p>
+<p><strong>OnStart</strong>: Start仅在Update函数第一次被调用前调用。</p>
+<p><strong>OnUpdate</strong>：渲染一帧之前被调用。这里是大部分游戏行为代码被执行的地方，除了物理代码。</p>
+<p><strong>LateUpdate</strong>: 是在所有Update函数调用后被调用。这可用于调整脚本执行顺序。例如:当物体在Update里移动时，跟随物体的相机可以在LateUpdate里实现。如果后面写了Reset，则会又回到Update</p>
+<p><strong>OnGUI</strong>: 渲染和处理GUI事件时调用，当然，如果你使用了NGUI，这个生命周期的事情就不用考虑了。</p>
+<p><strong>FixedUpdate</strong>: 这个函数在每个物理时间步被调用一次。这是处理基于物理游戏行为的地方。常用于移动模型等操作。不受帧率影响，默认0.02s，如果卡帧了Update就不会再执行，而FixedUpdate则继续执行。</p>
+<p>Edit-&gt;preject setting -&gt;Time -&gt; (Inspector监测视图）Fixed Timestep 设置刷新时间</p>
+<p><strong>OnDisable</strong>: 当对象变为不可用或非激活状态时此函数被调用。这个时候，脚本并不会被销毁，在这个状态下，可以重新回到OnEnable状态（enable&#x3D;true）。</p>
+<p><strong>OnDestroy</strong>: 当MonoBehaviour将被销毁时，这个函数被调用。当前脚本的生命周期结束。</p>
+<p>建议一般在Awake中做一些初始化，在Start中获取游戏对象</p>
+<p>其他的生命周期：</p>
+<p><strong>OnPreCull</strong>:在相机剔除场景之前调用此函数。相机可见的对象取决于剔除。OnPreCull 函数调用发生在剔除之前。</p>
+<p><strong>OnBecameVisible&#x2F;OnBecameInvisible</strong>:在对象对于相机可见&#x2F;不可见时调用此函数。</p>
+<p><strong>OnWillRenderObject</strong>:如果对象可见，则为每个相机调用一次此函数。</p>
+<p><strong>OnPreRender</strong>:在相机开始渲染场景之前调用此函数。</p>
+<p><strong>OnRenderObject</strong>:在完成所有常规场景渲染后调用此函数。此时，可使用 GL 类或 Graphics.DrawMeshNow 绘制自定义几何图形。</p>
+<p><strong>OnPostRender</strong>:在相机完成场景渲染后调用此函数。</p>
+<p><strong>OnRenderImage</strong>（仅限专业版）：在完成场景渲染后调用此函数，以便对屏幕图像进行后处理。</p>
+<p><strong>OnGUI</strong>:在每帧上多次调用此函数，以响应 GUI 事件。程序首先将处理 Layout 和 Repaint 事件，然后再处理每个输入事件的 Layout 和 keyboard&#x2F;鼠标事件。</p>
+<p><strong>OnDrawGizmos</strong>: 用于在场景视图中绘制小图示 (Gizmos)，以实现可视化目的。</p>
+]]></content>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>性能优化</title>
+    <url>/2023/01/29/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h1 id="性能优化篇"><a href="#性能优化篇" class="headerlink" title="性能优化篇"></a>性能优化篇</h1><p><code>(一些自己想了解的，想知道为什么这么做的)</code></p>
+<hr>
+<h2 id="1-在for循环里面，为什么-使用-i-会-比-i-好？"><a href="#1-在for循环里面，为什么-使用-i-会-比-i-好？" class="headerlink" title="1.在for循环里面，为什么 使用 ++i 会 比 i++ 好？"></a>1.在for循环里面，为什么 使用 ++i 会 比 i++ 好？</h2><div class="highlight-container" data-rel="C++"><figure class="iseeu highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (语句<span class="number">1</span>; 语句<span class="number">2</span>; 语句<span class="number">3</span>)</span><br><span class="line">&#123;</span><br><span class="line"> <span class="comment">// 被执行的代码块</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>语句 1， 在循环（代码块）开始前执行</li>
+<li>语句 2 ，定义运行循环（代码块）的条件</li>
+<li>语句 3 ，在循环（代码块）已被执行之后执行</li>
+</ul>
+<p><strong>这就是循环中的 <code>++i</code> 和 <code>i++</code> 结果一样的原因，但是性能不一样，在大量数据的时候 <code>++i</code> 的性能要比 <code>i++</code> 的性能好原因：<code>i++</code> 由于是在使用当前值之后 <code>再+1</code> ，所以需要一个临时的变量来转存。 而 <code>++i</code> 则是在直接 <code>+1</code> ，<code>省去了对内存的操作的环节</code>，相对而言能够提高性能。</strong></p>
+<p><strong>简而言之：<code>++i 省去了对内存的操作的环节，性能更高。✌</code></strong></p>
+<p>😶‍🌫️</p>
+<h2 id="2-多脚本优化"><a href="#2-多脚本优化" class="headerlink" title="2.多脚本优化"></a>2.多脚本优化</h2><p>脚本挂的越多，执行效率就越低。这些脚本都需要执行生命周期的方法，此时Unity需要遍历他们，然后再反射调用每个脚本的方法。</p>
+]]></content>
+      <categories>
+        <category>Unity性能优化</category>
+      </categories>
+      <tags>
+        <tag>性能优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式</title>
+    <url>/2023/01/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+</search>
