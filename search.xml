@@ -26,6 +26,11 @@
       </tags>
   </entry>
   <entry>
+    <title>C++ Primer Plus</title>
+    <url>/2023/01/30/C-Primer-Plus-1/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>C++学习</title>
     <url>/2023/01/29/C-%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[]]></content>
@@ -197,11 +202,24 @@
       </tags>
   </entry>
   <entry>
-    <title>设计模式</title>
-    <url>/2023/01/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[]]></content>
+    <title>绘画练手</title>
+    <url>/2023/01/30/%E7%BB%98%E7%94%BB%E7%BB%83%E6%89%8B/</url>
+    <content><![CDATA[<p>这两幅画好像都是高中时候画的，不过好多没保存好，找不到了，现在就存在这里吧</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/1.jpg"
+                      alt="1"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/3.jpg"
+                      alt="2"
+                ></p>
+]]></content>
       <tags>
-        <tag>设计模式</tag>
+        <tag>绘画练手</tag>
       </tags>
   </entry>
   <entry>
@@ -231,13 +249,11 @@
       </tags>
   </entry>
   <entry>
-    <title>C++学习</title>
-    <url>/2023/01/29/C-Primer-Plus-1/chapter02/</url>
-    <content><![CDATA[<h1 id="第二章-开始学习-C"><a href="#第二章-开始学习-C" class="headerlink" title="第二章 开始学习 C++"></a>第二章 开始学习 C++</h1><p>（略）这一章很简单，无笔记。</p>
-<p>C++用分号隔开每一个执行语句。</p>
-]]></content>
+    <title>设计模式</title>
+    <url>/2023/01/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
       <tags>
-        <tag>C++</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -484,6 +500,16 @@
 <h2 id="3-5-总结"><a href="#3-5-总结" class="headerlink" title="3.5 总结"></a>3.5 总结</h2><p>C++的基本类型分为两组：一组由存储为整数的值组成，另一组由存储为浮点格式的值组成。整型之间通过存储值时使用的内存量及有无符号来区分。整型从最小到最大依次是：bool、char、signed char、 unsigned char、short、unsigned short、int、unsigned int、long、unsigned long以及C++11新增的long long和unsigned long long。还有一种wchar_t 类型，它在这个序列中的位置取决于实现。C++11新增了类型char16_t 和char32_t，它们的宽度足以分别存储16和32位的字符编码。C++确保了char足够大，能够存储系统基本字符集中的任何成员，而wchar_t则可以存储系统扩展字符集中的任意成员，short至少为16位，而int至少与short一样长，long至少为32位，且至少和int一样长。确切的长度取决于 实现。</p>
 <p>浮点类型可以表示小数值以及比整型能够表示的值大得多的值。3种浮点类型分别是float、double和long double。C++确保float不比double 长，而double不比long double长。通常，float使用32位内存，double使用 64位，long double使用80到128位。</p>
 <p>对变量赋值、在运算中使用不同类型、使用强制类型转换时，C++将把值从一种类型转换为另一种类型。</p>
+]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习</title>
+    <url>/2023/01/29/C-Primer-Plus-1/chapter02/</url>
+    <content><![CDATA[<h1 id="第二章-开始学习-C"><a href="#第二章-开始学习-C" class="headerlink" title="第二章 开始学习 C++"></a>第二章 开始学习 C++</h1><p>（略）这一章很简单，无笔记。</p>
+<p>C++用分号隔开每一个执行语句。</p>
 ]]></content>
       <tags>
         <tag>C++</tag>
@@ -1633,6 +1659,444 @@
   </entry>
   <entry>
     <title>C++学习</title>
+    <url>/2023/01/29/C-Primer-Plus-1/chapter08/</url>
+    <content><![CDATA[<h1 id="第八章-函数探幽"><a href="#第八章-函数探幽" class="headerlink" title="第八章 函数探幽"></a>第八章 函数探幽</h1><p>本章内容：</p>
+<ul>
+<li>内联函数；</li>
+<li>引用变量；</li>
+<li>如何按引用传递函数参数；</li>
+<li>默认参数；</li>
+<li>函数重载；</li>
+<li>函数模板；</li>
+<li>函数模板具体化。</li>
+</ul>
+<h2 id="8-1-C-内联函数"><a href="#8-1-C-内联函数" class="headerlink" title="8.1 C++ 内联函数"></a>8.1 C++ 内联函数</h2><p>内联函数是C++为提高程序运行速度所做的一项改进。常规函数和内联函数之间的主要区别不在于编写方式，而在于C++编译器如何将它们组合到程序中。 常规函数调用也使程序跳到另一个地址（函数的地址），并在函数结束时返回。</p>
+<p>C++内联函数提供了另一种选择。内联函数的编译代码与其他程序代码“内联”起来了。也就是说，<strong>编译器将使用相应的函数代码替换函数调用</strong>。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805155012304.png"
+                      alt="image-20210805155012304"
+                ></p>
+<p>要使用这项特性，必须采取下述措施之一：</p>
+<ul>
+<li>在函数声明前加上关键字 inline；</li>
+<li>在函数定义前加上关键字 inline；</li>
+</ul>
+<p>内联函数最好都是一些很简单、行数少的函数。</p>
+<h2 id="8-2-引用变量"><a href="#8-2-引用变量" class="headerlink" title="8.2 引用变量"></a>8.2 引用变量</h2><p>C++新增了一种复合类型——引用变量。<strong>引用是已定义的变量的别名（另一个名称）</strong>。</p>
+<h3 id="8-2-1-创建引用变量"><a href="#8-2-1-创建引用变量" class="headerlink" title="8.2.1 创建引用变量"></a>8.2.1 创建引用变量</h3><p>C++给<code>&amp;</code>符号赋予另一个含义，将其用来声明引用。例如，要将 <code>rodents</code>作为<code>rats</code>变量的别名，可以这样做：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> rats;</span><br><span class="line"><span class="type">int</span> &amp;rodents = rats;  <span class="comment">// makes rodents an alias for rats</span></span><br></pre></td></tr></table></figure></div>
+
+<p>其中，**<code>&amp;</code> 不是地址运算符，而是类型标识符的一部分**。就像声明中的 <code>char*</code> 指的是指向 <code>char</code> 的指针一样，<code>int &amp;</code> 指的是指向 <code>int</code> 的引用。</p>
+<p>将 <code>rodents</code> 加1将影响这两个变量。更准确地说， <code>rodents++</code> 操作将一共有两个名称的变量加1。</p>
+<p>引用看上去很像伪装表示的指针（其中，<code>*</code> 解除引用运算符被隐式理解）。实际上，引用还是不同于指针的。除了表示法不同外，还有其他的差别。例如，差别之一是， 必须在声明引用时将其初始化，而不能像指针那样，先声明，再赋值。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805160617225.png"
+                      alt="image-20210805160617225"
+                ></p>
+<p>引用更接近const指针，必须在创建时进行初始化，一旦与某个变量关联起来，就将一直效忠于它。也就是说：<strong>某个变量的引用是不可更改的</strong>。</p>
+<blockquote>
+<p><strong>引用是别名。</strong></p>
+</blockquote>
+<h3 id="8-2-2-将引用用作函数参数"><a href="#8-2-2-将引用用作函数参数" class="headerlink" title="8.2.2 将引用用作函数参数"></a>8.2.2 将引用用作函数参数</h3><p><strong>引用经常被用作函数参数，使得函数中的变量名成为调用程序中的变量的别名。这种传递参数的方法称为按引用传递</strong>。按引用传递允许被调用的函数能够访问调用函数中的变量。<strong>C++新增的这项特性是对C语言的超越，C语言只能按值传递</strong>。按值传递导致被调用函数使用调用程序的值的拷贝（参见图8.2）。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805161500948.png"
+                      alt="image-20210805161500948"
+                ></p>
+<p>交换函数必须能够修改调用程序中的变量的值。这意味着按值传递变量将不管用，因为函数将交换原始变量副本的内容，而不是变量本身的内容。但传递引用时，函数将可以使用原始数据。另一种方法是，传递指针来访问原始数据。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805162214166.png"
+                      alt="image-20210805162214166"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805162432252.png"
+                      alt="image-20210805162432252"
+                ></p>
+<h3 id="8-2-3-引用的属性和特别之处"><a href="#8-2-3-引用的属性和特别之处" class="headerlink" title="8.2.3 引用的属性和特别之处"></a>8.2.3 引用的属性和特别之处</h3><p><code>refcube()</code> 函数修改了 <code>main()</code> 中的 <code>x</code> 值，而 <code>cube()</code> 没有，这提醒我们为何通常按值传递。变量 <code>a</code> 位于 <code>cube()</code> 中，它被初始化为 <code>x</code> 的值，但修改 <code>a</code> 并不会影响 <code>x</code>。但由于 <code>refcube()</code> 使用了引用参数，因此修改 <code>ra</code> 实际上就是修改 <code>x</code>。如果只是让函数使用传递给它的信息，而不对这些信息进行修改，同时又想使用引用，则应使用常量引用。</p>
+<p>例如，在这个例子中，应在函数原型和函数头中使用<code>const</code>：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">refcube</span><span class="params">(<span class="type">const</span> <span class="type">double</span> &amp;ra)</span></span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>如果要编写类似于上述示例的函数（即使用基本数值 类型），应采用按值传递的方式，而不要采用按引用传递的方式。当数据比较大（如结构和类）时，引用参数将很有用。</p>
+<blockquote>
+<p>函数中应尽可能将引用形参声明为 const，这样好处有三个：</p>
+<ul>
+<li>const 可以避免无意中修改数据，从而导致编程错误；</li>
+<li>const 使函数能够处理 const 和非 const 实参，否则只能接受非 const 数据；</li>
+<li>const 引用使函数能够正确生成并使用临时变量。</li>
+</ul>
+</blockquote>
+<h3 id="8-2-4-将引用用于结构体"><a href="#8-2-4-将引用用于结构体" class="headerlink" title="8.2.4 将引用用于结构体"></a>8.2.4 将引用用于结构体</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805164836645.png"
+                      alt="image-20210805164836645"
+                ></p>
+<p>2．为何要返回引用</p>
+<p>下面更深入地讨论返回引用与传统返回机制的不同之处。传统返回机制与按值传递函数参数类似：计算关键字return后面的表达式，并将结果返回给调用函数。从概念上说，这个值被复制到一个临时位置，而 调用程序将使用这个值。</p>
+<blockquote>
+<p>返回引用的函数实际上是被引用的变量的别名。</p>
+</blockquote>
+<p>3．返回引用时需要注意的问题</p>
+<p>返回引用时最重要的一点是，应避免返回函数终止时不再存在的内存单元引用。应<strong>避免</strong>编写如下代码：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805165912018.png"
+                      alt="image-20210805165912018"
+                ></p>
+<p><strong>该函数返回一个指向临时变量（newguy）的引用，函数运行完毕后 它将不再存在。同样，也应避免返回 指向临时变量的指针。</strong></p>
+<p>为避免这种问题，最简单的方法是，返回一个作为参数传递给函数 的引用。作为参数的引用将指向调用函数使用的数据，因此返回的引用 也将指向这些数据。</p>
+<p>4．为何将const用于引用返回类型</p>
+<h3 id="8-2-5-将引用用于类对象"><a href="#8-2-5-将引用用于类对象" class="headerlink" title="8.2.5 将引用用于类对象"></a>8.2.5 将引用用于类对象</h3><p>将类对象传递给函数时，C++通常的做法是使用引用。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805171059802.png"
+                      alt="image-20210805171059802"
+                ></p>
+<h3 id="8-2-6-对象、继承和引用"><a href="#8-2-6-对象、继承和引用" class="headerlink" title="8.2.6 对象、继承和引用"></a>8.2.6 对象、继承和引用</h3><h3 id="8-2-7-何时使用引用参数"><a href="#8-2-7-何时使用引用参数" class="headerlink" title="8.2.7 何时使用引用参数"></a>8.2.7 何时使用引用参数</h3><p>使用引用参数的主要原因有两个:</p>
+<ul>
+<li>能够修改调用函数中的数据对象;</li>
+<li>通过传递引用而不是整个数据对象，可以提高程序的运行速度。</li>
+</ul>
+<p>当数据对象较大时（如结构和类对象），第二个原因最重要。这些也是使用指针参数的原因。这是有道理的，因为引用参数实际上是基于指针的代码的另一个接口。</p>
+<p><strong>以下总结使用引用的原则</strong>：</p>
+<ul>
+<li>如果数据对象很小。如内置数据类型或者小型数据结构，则按值传递；</li>
+<li>如果数据对象是数组，则使用指针，因为这是唯一的选择，并将指针声明为指向 const 的指针；</li>
+<li>如果数据对象是较大的结构体，则使用 const 指针或者 const 引用，以便提升程序的效率。这样可以节省复制结构体所需的时间和空间；</li>
+<li>如果数据对象是类对象，则使用 const 引用。类设计的语义常常要求使用引用，<strong>这是C++新增这项特性的主要原因。因此，传递类对象参数的标准方式是按引用传递</strong>。</li>
+</ul>
+<p>对于修改调用函数中数据的函数：</p>
+<ul>
+<li>如果数据对象是内置数据类型，则使用指针（不使用引用）。看到诸如：<code>fixit(&amp;x)</code> 这样的代码（x是int），则很明显，该函数将要修改x；</li>
+<li>如果数据对象是数组，则只能使用指针；</li>
+<li>如果数据对象是结构体，则可以使用引用或者指针；</li>
+<li>如果数据对象是类对象，则（首选）使用引用。</li>
+</ul>
+<h2 id="8-3-默认参数"><a href="#8-3-默认参数" class="headerlink" title="8.3 默认参数"></a>8.3 默认参数</h2><p>默认参数指的是当函数调用中省略了实参时自动使用的一个值。例如：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> * <span class="title">left</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> n=<span class="number">1</span>)</span></span>;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>对于带参数列表的函数，必须从右向左添加默认值</strong>。也就是说，要为某个参数设置默认值，<strong>则必须为它右边的所有参数提供默认值</strong>：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">harpo</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> m=<span class="number">4</span>, <span class="type">int</span> j=<span class="number">5</span>)</span></span>;      <span class="comment">// Valid</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">chico</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> m=<span class="number">6</span>, <span class="type">int</span> j)</span></span>;        <span class="comment">// IN-Valid</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">groucho</span><span class="params">(<span class="type">int</span> k=<span class="number">1</span>, <span class="type">int</span> m=<span class="number">2</span>, <span class="type">int</span> n=<span class="number">3</span>)</span></span>;  <span class="comment">// Valid</span></span><br></pre></td></tr></table></figure></div>
+<p>实参按从左到右的顺序依次被赋给相应的形参，而不能跳过任何参数。</p>
+<p><em><strong>默认参数只在声明函数的时候给出，定义函数时，则不需要给出</strong></em>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807220518596.png"
+                      alt="image-20210807220518596"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807220537984.png"
+                      alt="image-20210807220537984"
+                ></p>
+<h2 id="8-4-函数重载"><a href="#8-4-函数重载" class="headerlink" title="8.4 函数重载"></a>8.4 函数重载</h2><p>函数多态是C++在C语言的基础上新增的功能。默认参数让我们能够使用不同数目的参数调用同一个函数，而函数多态（函数重载）让我们能够使用多个同名的函数，这称为函数重载，它们完成相同的工作，但使用不同的参数列表。</p>
+<p><strong>函数重载的关键是函数的参数列表——也称为函数特征标 （function signature）</strong>。</p>
+<p>如果两个函数的参数数目和类型相同，同时参数的排列顺序也相同，则它们的特征标相同，而变量名是无关紧要的。 C++允许定义名称相同的函数，条件是它们的特征标不同。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807221358552.png"
+                      alt="image-20210807221358552"
+                ></p>
+<p>一些看起来彼此不同的特征标是不能共存的。例如，请看下面的两 个原型：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">cube</span><span class="params">(<span class="type">double</span> x)</span></span>;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">cube</span><span class="params">(<span class="type">double</span> &amp;x)</span></span>;</span><br></pre></td></tr></table></figure></div>
+<p>可能认为可以在此处使用函数重载，因为它们的特征标看起来不同。然而，请从编译器的角度来考虑这个问题。假设有下面这样的代码：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">cout &lt;&lt; <span class="built_in">cube</span>(x);</span><br></pre></td></tr></table></figure></div>
+
+<p>参数 <code>x</code> 与 <code>double x</code> 原型和 <code>double &amp;x</code> 原型都匹配，因此编译器无法确定究竟应使用哪个原型。为避免这种混乱，<strong>编译器在检查函数特征标时，将把类型引用和类型本身视为同一个特征标</strong>。</p>
+<p>请记住，<strong>是特征标(即，函数特征列表)，而不是函数返回类型使得可以对函数进行重载</strong>。 例 如，下面的两个声明是互斥的：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">gronk</span><span class="params">(<span class="type">int</span> n, <span class="type">float</span> m)</span></span>;    <span class="comment">// same signatures,</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">gronk</span><span class="params">(<span class="type">int</span> n, <span class="type">float</span> m)</span></span>;  <span class="comment">// hence not allowed</span></span><br></pre></td></tr></table></figure></div>
+
+<p>因此，C++不允许以这种方式重载gronk( )。<strong>返回类型可以不同，但特征标也必须不同</strong>。</p>
+<p>匹配函数时，并不区分<code>const</code>和非<code>const</code>变量（这就要小心了）。看下面的原型：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dribble</span><span class="params">(<span class="type">char</span> *bits)</span></span>;         <span class="comment">// overloaded</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dribble</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *cbits)</span></span>;  <span class="comment">// overloaded</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dabble</span><span class="params">(<span class="type">char</span> *bits)</span></span>;          <span class="comment">// not overloaded</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">drivel</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *bits)</span></span>;    <span class="comment">// not overloaded</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="8-4-1-函数重载示例"><a href="#8-4-1-函数重载示例" class="headerlink" title="8.4.1 函数重载示例"></a>8.4.1 函数重载示例</h3><h3 id="8-4-2-何时使用函数重载"><a href="#8-4-2-何时使用函数重载" class="headerlink" title="8.4.2 何时使用函数重载"></a>8.4.2 何时使用函数重载</h3><p><strong>虽然函数重载很吸引人，但也不要滥用。仅当函数基本上执行相同的任务，但使用不同形式的数据时，才应采用函数重载</strong>。</p>
+<h2 id="8-5-函数模板"><a href="#8-5-函数模板" class="headerlink" title="8.5 函数模板"></a>8.5 函数模板</h2><p>现在的C++编译器实现了C++的另一个新增特性——函数模板。函数模板是通用的函数描述，也就是说，它们使用泛型来定义函数，其中的泛型可用具体的类型（如<code>int</code>或<code>double</code>）替换。通过将类型作为参数传递给模板，可使编译器生成该类型的函数。由于模板允许以泛型（而不是具体类型）的方式编写程序，因此有时也被称为通用编程。由于类型是用参数表示的，因此模板特性有时也被称为参数化类型（parameterized types）。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807224625424.png"
+                      alt="image-20210807224625424"
+                ></p>
+<p>第一行指出，要建立一个模板，并将类型命名为 <code>AnyType</code>。关键字 <code>template</code>和 <code>typename</code> 是必需的，除非可以使用关键字 <code>class</code> 代替 <code>typename</code>。 另外，<strong>必须使用尖括号</strong>。类型名可以任意选择（这里为 <code>AnyType</code>），只要遵守C++命名规则即可；许多程序员都使用简单的名称，如 <code>T</code>。</p>
+<p>模板并不创建任何函数，而只是告诉编译器如何定义函数。需要交换<code>int</code>的函数时，编译器将按模板 模式创建这样的函数，并用<code>int</code>代替<code>AnyType</code>。同样，需要交换<code>double</code>的函数时，编译器将按模板模式创建这样的函数，并用<code>double</code>代替 <code>AnyType</code>。</p>
+<p>最终 的代码不包含任何模板，而只包含了为程序生成的实际函数。使用模板 的好处是，它使生成多个函数定义更简单、更可靠。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807225139508.png"
+                      alt="image-20210807225139508"
+                ></p>
+<p><code>typename</code>关键字使得参数<code>AnyType</code>表示类型这一点更为明显；然而，有大量代码库是使用关键字class开发的。在这种上下文中，<strong>这两个关键字是等价的</strong>。</p>
+<p>需要多个对不同类型使用同一种算法的函数时，可使用模板。</p>
+<h3 id="8-5-2-模板的局限"><a href="#8-5-2-模板的局限" class="headerlink" title="8.5.2 模板的局限"></a>8.5.2 模板的局限</h3><ul>
+<li>下面的代码假定定义了赋 值，但如果T为数组，这种假设将不成立；</li>
+<li>下面的语句假设定义了 <code>&lt;</code>，但如果T为结构，该假设便不成立；另外，为数组名定义了运算符 <code>&gt;</code>，但由于数组名为地址，因此它比较的是数组的地址，而这可能不是您希望的。</li>
+</ul>
+<p>总之，编写的模板函数很可能无法处理某些类型。另一方面，有时 候通用化是有意义的，但C++语法不允许这样做。</p>
+<h3 id="8-5-3-显式具体化"><a href="#8-5-3-显式具体化" class="headerlink" title="8.5.3 显式具体化"></a>8.5.3 显式具体化</h3><blockquote>
+<p>由于C++允许将一个结构赋给另一个结构，因此即使T是一个<code>job</code>结构，上述代码也适用。然而，假设只想交换 <code>salary</code> 和 <code>floor</code> 成员，而不交 换 <code>name</code> 成员，则需要使用不同的代码，但 <code>Swap()</code> 的参数将保持不变 （两个 <code>job</code> 结构的引用），因此无法使用模板重载来提供其他的代码。</p>
+</blockquote>
+<ul>
+<li>对于给定的函数名，可以有非模板函数、模板函数和显式具体化模 板函数以及它们的重载版本；</li>
+<li>显式具体化的原型和定义应以 <code>template&lt;&gt;</code> 打头，并通过名称来指出 类型；</li>
+<li>具体化优先于常规模板，而非模板函数优先于具体化和常规模板。</li>
+</ul>
+<p>如果有多个原型，则编译器在选择原型时，<strong>非模板版本优先于显式具体化和模板版本，而显式具体化优先于使用模板生成的版本</strong>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210808001952681.png"
+                      alt="image-20210808001952681"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210808002201785.png"
+                      alt="image-20210808002201785"
+                ></p>
+<h3 id="8-5-4-实例化和具体化"><a href="#8-5-4-实例化和具体化" class="headerlink" title="8.5.4 实例化和具体化"></a>8.5.4 实例化和具体化</h3><p>为进一步了解模板，必须理解术语实例化和具体化。记住，在代码中包含函数模板本身并不会生成函数定义，它只是一个用于生成函数定义的方案。编译器使用模板为特定类型生成函数定义时，得到的是模板实例（instantiation）。</p>
+<p>函数调用<code>Swap(i,j</code>)导致编译器生成<code>Swap()</code>的一个实例，该实例使用<code>int</code>类型。<strong>模板并非函数定 义，但使用int的模板实例是函数定义</strong>。这种实例化方式被称为隐式实例 化（implicit instantiation），因为编译器之所以知道需要进行定义，是 由于程序调用Swap( )函数时提供了int参数。</p>
+<p>最初，编译器只能通过隐式实例化，来使用模板生成函数定义，但现在C++还允许显式实例化（explicit instantiation）。这意味着可以直接 命令编译器创建特定的实例，如<code>Swap&lt;int&gt;()</code>。其语法是，声明所需的种类——用<code>&lt;&gt;</code>符号指示类型，并在声明前加上关键字 <code>template</code>：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> <span class="type">void</span> <span class="built_in">Swap</span>&lt;<span class="type">int</span>&gt;(<span class="type">int</span>, <span class="type">int</span>);  <span class="comment">// explicit instantiation</span></span><br></pre></td></tr></table></figure></div>
+<p>实现了这种特性的编译器看到上述声明后，将使用<code>Swap()</code>模板生成 一个使用<code>int</code>类型的实例。也就是说，该声明的意思是“使用<code>Swap()</code>模板生成<code>int</code>类型的函数定义“。</p>
+<p>与显式实例化不同的是，显式具体化使用下面两个等价的声明之 一：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="type">void</span> <span class="built_in">Swap</span>&lt;<span class="type">int</span>&gt;(<span class="type">int</span> &amp;, <span class="type">int</span> &amp;);</span><br><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="function"><span class="type">void</span> <span class="title">Swap</span><span class="params">(<span class="type">int</span> &amp;, <span class="type">int</span> &amp;)</span></span>;</span><br></pre></td></tr></table></figure></div>
+<p>区别在于，这些声明的意思是“不要使用 <code>Swap()</code> 模板来生成函数定 义，而应使用专门为 <code>int</code> 类型显式地定义的函数定义”。这些原型必须有自己的函数定义。<strong>显式具体化声明在关键字 <code>template</code> 后包含 <code>&lt;&gt;</code>，而显式实例化没有</strong>。</p>
+<p>隐式实例化、显式实例化和显式具体化统称为具体化 （specialization）。它们的相同之处在于，它们表示的都是使用具体类 型的函数定义，而不是通用描述。</p>
+<p>引入显式实例化后，必须使用新的语法——在声明中使用前缀<code>template</code>和<code>template &lt;&gt;</code>，以区分显式实例化和显式具体化。通常，功能 越多，语法规则也越多。下面的代码片段总结了这些概念：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210808202129389.png"
+                      alt="image-20210808202129389"
+                ></p>
+<h3 id="8-5-5-编译器选择使用哪个函数版本"><a href="#8-5-5-编译器选择使用哪个函数版本" class="headerlink" title="8.5.5 编译器选择使用哪个函数版本"></a>8.5.5 编译器选择使用哪个函数版本</h3><p>对于函数重载、函数模板和函数模板重载，C++需要（且有）一个 定义良好的策略，来决定为函数调用使用哪一个函数定义，尤其是有多 个参数时。这个过程称为重载解析（overloading resolution）: </p>
+<ul>
+<li>第1步：创建候选函数列表。其中包含与被调用函数的名称相同的函数和模板函数。</li>
+<li>第2步：使用候选函数列表创建可行函数列表。这些都是参数数目 正确的函数，为此有一个隐式转换序列，其中包括实参类型与相应 的形参类型完全匹配的情况。例如，使用float参数的函数调用可以 将该参数转换为double，从而与double形参匹配，而模板可以为 float生成一个实例;</li>
+<li>第3步：确定是否有最佳的可行函数。如果有，则使用它，否则该 函数调用出错。</li>
+</ul>
+<p>接下来，编译器必须确定哪个可行函数是最佳的。它查看为使函数 调用参数与可行的候选函数的参数匹配所需要进行的转换。通常，从最 佳到最差的顺序如下所述：</p>
+<ul>
+<li>完全匹配，但常规函数优先于模板；</li>
+<li>提升转换（例如，char和shorts自动转换为int，float自动转换为 double）；</li>
+<li>标准转换（例如，int转换为char，long转换为double）；</li>
+<li>用户定义的转换，如类声明中定义的转换。</li>
+</ul>
+<h3 id="8-5-6-模板函数的发展"><a href="#8-5-6-模板函数的发展" class="headerlink" title="8.5.6 模板函数的发展"></a>8.5.6 模板函数的发展</h3><h2 id="8-6-总结"><a href="#8-6-总结" class="headerlink" title="8.6 总结"></a>8.6 总结</h2><p>C++扩展了C语言的函数功能。通过将 inline 关键字用于函数定义， 并在首次调用该函数前提供其函数定义，可以使得C++编译器将该函数视为内联函数。也就是说，编译器不是让程序跳到独立的代码段，以执行函数，而是用相应的代码替换函数调用（相当于复制进去）。只有在函数很短时才能采用内联方式。</p>
+<p>引用变量是一种伪装指针，它允许为变量创建别名（另一个名称）。引用变量主要被用作处理结构和类对象的函数的参数。</p>
+<p>C++原型让您能够定义参数的默认值。如果函数调用省略了相应的参数，则程序将使用默认值；如果函数调用提供了参数值，则程序将使用这个值（而不是默认值）。只能在参数列表中从右到左提供默认参数。</p>
+<p>函数的特征标是其参数列表。程序员可以定义两个同名函数，只要其特征标不同。这被称为函数多态或函数重载。</p>
+]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习</title>
+    <url>/2023/01/29/C-Primer-Plus-1/chapter09/</url>
+    <content><![CDATA[<h1 id="第九章-内存模型和名称空间"><a href="#第九章-内存模型和名称空间" class="headerlink" title="第九章 内存模型和名称空间"></a>第九章 内存模型和名称空间</h1><p>本章内容包括：</p>
+<ul>
+<li>单独编译；</li>
+<li>存储持续性、作用域和链接性；</li>
+<li>定位（placement）new运算符；</li>
+<li>名称空间。</li>
+</ul>
+<h2 id="9-1-单独编译"><a href="#9-1-单独编译" class="headerlink" title="9.1 单独编译"></a>9.1 单独编译</h2><p>第1章介绍过，可以单独编译文件，然后将它们链接成可执行的程序。通常，C++编译器既编译程序，也管理链接器。如果只修改了一个文件，则可以只重新编译该文件，然后将它与其他文件的编译版本链接，这使得大程序的管理更便捷。</p>
+<p>例如，UNIX和Linux系统都具有make程 序，可以跟踪程序依赖的文件以及这些文件的最后修改时间。运行make 时，如果它检测到上次编译后修改了源文件，make将记住重新构建程序 所需的步骤。</p>
+<p>例如但需要将一个结构体在多个文件中复用时，与其将结构体声明加入到每一个文件 中，不如将其放在头文件中，然后在每一个源代码文件中包含该头文件。这样，要修改结构体声明时，只需在头文件中做一次改动即可。另外，也可以将函数原型放在头文件中。因此，可以将原来的程序分成三 部分。</p>
+<ul>
+<li>头文件：包含结构体声明和使用这些结构体的函数的声明；</li>
+<li>源代码文件：包含与结构体有关的函数代码；</li>
+<li>源代码文件：包含调用与结构体相关的函数代码；</li>
+</ul>
+<p>这是一种非常有用的组织程序的策略。例如，如果编写另一个程序 时，也需要使用这些函数，则只需包含头文件，并将函数文件添加到项 目列表或make列表中即可。另外，这种组织方式也与OOP方法一致。<strong>一个文件（头文件）包含了用户定义类型的定义；另一个文件包含操纵用 户定义类型的函数的代码。这两个文件组成了一个软件包，可用于各种程序中</strong>。</p>
+<p><strong>不要将函数定义或变量声明放到头文件中</strong>。这样做通常会引来麻烦，因为，如果在头文件包含了一个函数的定义，然后在（同一个程序的）另外两个文件中分别包含了该头文件，那么同一个程序中将包含同一个函数的两个定义，除非函数是内联的，否则这将出错。</p>
+<p>头文件常包含的内容：</p>
+<ul>
+<li>函数原型（也叫函数声明）；</li>
+<li>使用<code>#define</code>或<code>const</code>定义的符号常量；</li>
+<li>结构体声明；</li>
+<li>类声明；</li>
+<li>模板声明；</li>
+<li>内联函数。</li>
+</ul>
+<p>将结构体声明放在头文件中是可以的，因为它们不创建变量，而只是在源代码文件中声明结构体变量时，告诉编译器如何创建该结构体变量。同样，模板声明也不是将被编译的代码，它们指示编译器如何生成与源代码中函数调用相匹配的函数定义。被声明为<code>const</code>的常量和内联函数有特殊的链接属性（稍后将介绍），因此可以将其放在头文件中，而不会引 起问题。</p>
+<p>在包含头文件时，我们使 用<code>&quot;coordin.h&quot;</code>，而不是 <code>&lt;coodin.h&gt;</code>。如果文件名包含在尖括号中，则 C++编译器将在存储标准头文件的主机系统的文件系统中查找；但如果文件名包含在双引号中，<strong>则编译器将首先查找当前的工作目录或源代码目录（取决于编译器）</strong>，如果没有找到， 则将在标准位置查找。<strong>因此在包含自己的头文件时，应使用引号而不是 尖括号</strong>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210810163533843.png"
+                      alt="image-20210810163533843"
+                ></p>
+<blockquote>
+<p>在同一个文件中只能将同一个头文件包含一次。记住这个规则很容易，但很可能在不知 情的情况下将头文件包含多次。例如，可能使用包含了另外一个头文件的头文件。有一种标准的C&#x2F;C++技术可以避免多次包含同一个头文件。它是基于预处理器编译指令#ifndef（即if not defined）的。<code>#ifndef-#define-#endif</code> 语句的这种方法<strong>并不能防止编译器将文件包含两次，而只是让它忽略除第一次包含之外的所有内容</strong>。大多数标准C和C++头文件都使用这种防护 （guarding）方案。否则，可能在一个文件中定义同一个结构体、函数、类等两次，这将导致编译错误。</p>
+</blockquote>
+<h2 id="9-2-存储持续性、作用域和链接性"><a href="#9-2-存储持续性、作用域和链接性" class="headerlink" title="9.2 存储持续性、作用域和链接性"></a>9.2 存储持续性、作用域和链接性</h2><p>存储类别如何影响信息在文件间的共享？</p>
+<ul>
+<li>自动存储持续性：在<strong>函数定义中声明的变量</strong>（包括函数参数）的存 储持续性为自动的。在程序开始执行其所属的函数或代码块时 被创建，在执行完函数或代码块时，它们使用的内存被释放；</li>
+<li>静态存储持续性：在函数<strong>定义外</strong>定义的变量和使用关键字<code>static</code>定义 的变量的存储持续性都为静态。它们在程序整个运行过程中都存在；</li>
+<li>线程存储持续性（C++11）：如果变量是使用关键字<code>thread_local</code>声明的，则其生命 周期与所属的线程一样长；</li>
+<li>动态存储持续性：用<code>new</code>运算符分配的内存将一直存在，直到使用 <code>delete</code>运算符将其释放或程序结束为止。这种内存的存储持续性为动态，有时被称为自由存储（free store）或堆（heap）。</li>
+</ul>
+<h3 id="9-2-1-作用域和链接"><a href="#9-2-1-作用域和链接" class="headerlink" title="9.2.1 作用域和链接"></a>9.2.1 作用域和链接</h3><p>作用域（scope）描述了名称在文件（翻译单元）的多大范围内可见。链接性（linkage）描述了名称如何在不同单元间共享。链接性为外部的 名称可在文件间共享，链接性为内部的名称只能由一个文件中的函数共 享。自动变量的名称没有链接性，因为它们不能共享。</p>
+<p>作用域为局部的变量只在定义它的代码 块中可用。<strong>代码块是由花括号括起的一系列语句</strong>。例如函数体就是代码块，但可以在函数体中嵌入其他代码块。作用域为全局（也叫文件作用域）的变量在定义位置到文件结尾之间都可用。自动变量的作用域为局部，静态变量的作用域是全局还是局部取决于它是如何被定义的。在函数原型作用域（function prototype scope）中使用的名称只在包含参数列表的括号内可用（<strong>这就是为什么这些名称是什么以及是否出现都不重要的原因</strong>）。在类中声明的成员的作用域为整个类。在名 称空间中声明的变量的作用域为整个名称空间</p>
+<h3 id="9-2-2-自动存储持续性"><a href="#9-2-2-自动存储持续性" class="headerlink" title="9.2.2 自动存储持续性"></a>9.2.2 自动存储持续性</h3><p>在默认情况下，在函数中声明的函数参数和变量的存储持续性为自 动，作用域为局部，没有链接性。</p>
+<p>如果在代码块中定义了变量，则该变量的存在时间和作用域将被限 制在该代码块内。例子：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811100416035.png"
+                      alt="image-20210811100416035"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811100534389.png"
+                      alt="image-20210811100534389"
+                ></p>
+<p>1．自动变量的初始化<br>2．自动变量和栈</p>
+<p>由于自动变量的数目随函数的开始和结束而增减，因此程序必须 在运行时对自动变量进行管理。常用的方法是留出一段内存，并将其视为栈，以管理变量的增减。之所以被称为栈，是由于新数据被象征性地放在原有数据的上面（也就是说，在相邻的内存单元中，而不是在同一 个内存单元中），当程序使用完后，将其从栈中删除。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811110310770.png"
+                      alt="image-20210811110310770"
+                ></p>
+<p>3．寄存器变量<br>这旨在提高访问变量的速度。</p>
+<h3 id="9-2-3-静态持续变量"><a href="#9-2-3-静态持续变量" class="headerlink" title="9.2.3 静态持续变量"></a>9.2.3 静态持续变量</h3><p>要想创建链接性为外部的静态持续变量，必须在代码块的外面声明它；<br>要创建链接性为内部的静态持续变量，必须在代码块的外面声明它，并使用 <code>static</code> 限定符；<br>要创建没有链接性的静态持续变量，必须在代码块内声明它，并使用 <code>static</code> 限定符。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811110632232.png"
+                      alt="image-20210811110632232"
+                ></p>
+<p>正如前面指出的，所有静态持续变量（上述示例中的<code>global</code>、 <code>one_file</code>和 <code>count</code>）在整个程序执行期间都存在。在 <code>funct1()</code> 中声明的变量 <code>count</code> 的作用域为局部，没有链接性，这意味着只能在<code>funct1()</code> 函数中使用它，就像自动变量 <code>llama</code> 一样。然而，与<code>llama</code> 不同的是，即使在 <code>funct1()</code> 函数没有被执行时，<code>count</code> 也留在内存中。<code>global</code> 和 <code>one_file</code> 的作用域都为整个文件，即在从声明位置到文件结尾的范围内都可以被使 用。具体地说，可以在 <code>main()</code>、<code>funct1()</code> 和 <code>funct2()</code> 中使用它们。由于<code> one_file</code> 的链接性为内部，因此只能在包含上述代码的文件中使用它； 由于 <code>global</code> 的链接性为外部，因此可以在程序的其他文件中使用它。</p>
+<blockquote>
+<p>应少用静态外部变量，如使用最好都声明为内部连接性的静态变量。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811111319645.png"
+                      alt="image-20210811111319645"
+                ></p>
+<h3 id="9-2-4-静态持续性、外部链接性"><a href="#9-2-4-静态持续性、外部链接性" class="headerlink" title="9.2.4 静态持续性、外部链接性"></a>9.2.4 静态持续性、外部链接性</h3><p>链接性为外部的变量通常简称为外部变量，它们的存储持续性为静 态，作用域为整个文件。外部变量是在函数外部定义的，因此对所有函 数而言都是外部的。</p>
+<p>1．单定义规则<br>C++有“单定义规则”（One Definition Rule，ODR），该规则指出， 变量只能有一次定义。请注意，单定义规则并非意味着不能有多个变量的名称相同。例 如，在不同函数中声明的同名自动变量是彼此独立的，它们都有自己的 地址。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811111827133.png"
+                      alt="image-20210811111827133"
+                ></p>
+<h3 id="9-2-5-静态持续性、内部链接性"><a href="#9-2-5-静态持续性、内部链接性" class="headerlink" title="9.2.5 静态持续性、内部链接性"></a>9.2.5 静态持续性、内部链接性</h3><p>将static限定符用于作用域为整个文件的变量时，该变量的链接性将 为内部的。在多文件程序中，内部链接性和外部链接性之间的差别很有 意义。链接性为内部的变量只能在其所属的文件中使用；但常规外部变 量都具有外部链接性，即可以在其他文件中使用。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811112129019.png"
+                      alt="image-20210811112129019"
+                ></p>
+<blockquote>
+<p>在多文件程序中，可以在一个文件（且只能在一个文件）中定义一个外部变量。使用该变量的其他文件必须使用关键字 <code>extern</code> 声明它。</p>
+</blockquote>
+<p>可使用外部变量在多文件程序的不同部分之间共享数据；可使用链接性为内部的静态变量在同一个文件中的多个函数之间共享数据（名称空间提供了另外一种共享数据的方法）。另外，如果将作用域为整个文 件的变量变为静态的，就不必担心其名称与其他文件中的作用域为整个 文件的变量发生冲突。</p>
+<h3 id="9-2-6-静态存储持续性、无链接性"><a href="#9-2-6-静态存储持续性、无链接性" class="headerlink" title="9.2.6 静态存储持续性、无链接性"></a>9.2.6 静态存储持续性、无链接性</h3><p>这种变量是这样创建的，将static限定符用于在代码块中定义的变 量。在代码块中使用static时，将导致局部变量的存储持续性为静态的。 这意味着虽然该变量只在该代码块中可用，但它在该代码块不处于活动 状态时仍然存在。因此在两次函数调用之间，静态局部变量的值将保持 不变。（静态变量适用于再生——可以用它们将瑞士银行的秘密账号传 递到下一个要去的地方）。另外，如果初始化了静态局部变量，则程序 只在启动时进行一次初始化。以后再调用函数时，将不会像自动变量那样再次被初始化。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// static.cpp -- using a static local variable</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">// constants</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> ArSize = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// function prototype</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">strcount</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * str)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">char</span> input[ArSize];</span><br><span class="line">    <span class="type">char</span> next;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a line:\n&quot;</span>;</span><br><span class="line">    cin.<span class="built_in">get</span>(input, ArSize);</span><br><span class="line">    <span class="keyword">while</span> (cin)</span><br><span class="line">    &#123;</span><br><span class="line">        cin.<span class="built_in">get</span>(next);</span><br><span class="line">        <span class="keyword">while</span> (next != <span class="string">&#x27;\n&#x27;</span>)    <span class="comment">// string didn&#x27;t fit!</span></span><br><span class="line">            cin.<span class="built_in">get</span>(next);      <span class="comment">// dispose of remainder</span></span><br><span class="line">        <span class="built_in">strcount</span>(input);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Enter next line (empty line to quit):\n&quot;</span>;</span><br><span class="line">        cin.<span class="built_in">get</span>(input, ArSize);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Bye\n&quot;</span>;</span><br><span class="line"><span class="comment">// code to keep window open for MSVC++</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">cin.clear();</span></span><br><span class="line"><span class="comment">    while (cin.get() != &#x27;\n&#x27;)</span></span><br><span class="line"><span class="comment">        continue;</span></span><br><span class="line"><span class="comment">    cin.get();</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">strcount</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> total = <span class="number">0</span>;        <span class="comment">// static local variable</span></span><br><span class="line">    <span class="type">int</span> count = <span class="number">0</span>;               <span class="comment">// automatic local variable</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;\&quot;&quot;</span> &lt;&lt; str &lt;&lt;<span class="string">&quot;\&quot; contains &quot;</span>;</span><br><span class="line">    <span class="keyword">while</span> (*str++)               <span class="comment">// go to end of string</span></span><br><span class="line">        count++;</span><br><span class="line">    total += count;</span><br><span class="line">    cout &lt;&lt; count &lt;&lt; <span class="string">&quot; characters\n&quot;</span>;</span><br><span class="line">    cout &lt;&lt; total &lt;&lt; <span class="string">&quot; characters total\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811112939105.png"
+                      alt="image-20210811112939105"
+                ></p>
+<p>注意，在这个程序中，由于数组长度为10，因此程序从每行读取的字符数都不超过 9个。另外还需要注意的是，每次函数被调用时，自动变量count都被重 置为0。然而，静态变量total只在程序运行时被设置为0，以后在两次函 数调用之间，其值将保持不变，因此能够记录读取的字符总数。</p>
+<h3 id="9-2-7-说明符和限定符"><a href="#9-2-7-说明符和限定符" class="headerlink" title="9.2.7 说明符和限定符"></a>9.2.7 说明符和限定符</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811113430209.png"
+                      alt="image-20210811113430209"
+                ></p>
+<ol start="3">
+<li>再谈const</li>
+</ol>
+<p>在C++（但不是在C语言）中，<code>const</code>限定符对默认存储类型稍有影响。在默认情况下全局变量的链接性为外部的，<strong>但<code>const</code>全局变量的链接性为内部的</strong>。也就是说，在C++看来，全局 <code>const</code> 定义就像使用了 <code>static</code> 说明符一样。</p>
+<p>C++修改了常量类型的规则，让程序员更轻松。例如，假设将一组 常量放在头文件中，并在同一个程序的多个文件中使用该头文件。那 么，预处理器将头文件的内容包含到每个源文件中后，所有的源文件都 将包含类似下面这样的定义：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> fingers = <span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span> *waring = <span class="string">&quot;wak!&quot;</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>如果全局const声明的链接性像常规变量那样是外部的，则根据单定 义规则，这将出错（幸亏不是）。</p>
+<p>由于外部定义的<code>const</code>数据的链接性为内部的，因此可以在所有文件中使用相同的声明。</p>
+<h3 id="9-2-8-函数和链接性"><a href="#9-2-8-函数和链接性" class="headerlink" title="9.2.8 函数和链接性"></a>9.2.8 函数和链接性</h3><p>和变量一样，函数也有链接性，虽然可选择的范围比变量小。和C 语言一样，C++不允许在一个函数中定义另外一个函数，因此所有函数 的存储持续性都自动为静态的，即在整个程序执行期间都一直存在。在 默认情况下，函数的链接性为外部的，即可以在文件间共享。实际上， 可以在函数原型中使用关键字extern来指出函数是在另一个文件中定义 的，不过这是可选的。<strong>还可以使用关键字<code>static</code>将函数的链接性设置为内部的，使之只能在一个文件中使用</strong>，但必须同时在原型和函数定义中使用该关键字。</p>
+<h3 id="9-2-9-语言链接性"><a href="#9-2-9-语言链接性" class="headerlink" title="9.2.9 语言链接性"></a>9.2.9 语言链接性</h3><p>在 C++中，同一个名称可能对应多个函数，必须将这些函数翻译为不同的 符号名称。因此，C++编译器执行名称矫正或名称修饰（参见第8 章），为重载函数生成不同的符号名称。例如，可能将<code>spiff(int)</code>转换 为 <code>_spoff_i</code>，而将 <code>spiff(double，double)</code> 转换为 <code>_spiff_d_d</code>。这种方法被称为C++语言链接（C++ language linkage）。</p>
+<h3 id="9-2-10-存储方案和动态分配"><a href="#9-2-10-存储方案和动态分配" class="headerlink" title="9.2.10 存储方案和动态分配"></a>9.2.10 存储方案和动态分配</h3><p>动态内存由运算符 <code>new</code> 和 <code>delete</code> 控制，而不是由作用域和链接性规则控制。因此，<strong>可以在一个函数中分配动态内存，而在另一个函数中将其释放</strong>。与自动内存不同，动态内存不是LIFO，其分配和释放顺序要取决于 <code>new</code> 和 <code>delete</code> 在何时以何种方式被使用。通常，编译器使用三块独立的内存：一块用 于静态变量（可能再细分），一块用于自动变量，另外一块用于动态存 储。</p>
+<h2 id="9-3-名称空间"><a href="#9-3-名称空间" class="headerlink" title="9.3 名称空间"></a>9.3 名称空间</h2><p>名称可以是变量、函数、结构体、枚举、类以及类和结构体的成员。C++标准提供了名称空间工具，以便更好地控制名称的作用域。</p>
+<h3 id="9-3-1-传统的C-名称空间"><a href="#9-3-1-传统的C-名称空间" class="headerlink" title="9.3.1 传统的C++名称空间"></a>9.3.1 传统的C++名称空间</h3><p>C++关于全局变量和局部变量的规则定义了一种名称空间层次。每 个声明区域都可以声明名称，这些名称独立于在其他声明区域中声明的 名称。在一个函数中声明的局部变量不会与在另一个函数中声明的局部 变量发生冲突。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811114957087.png"
+                      alt="image-20210811114957087"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811115021641.png"
+                      alt="image-20210811115021641"
+                ></p>
+<h3 id="9-3-2-新的名称空间特性"><a href="#9-3-2-新的名称空间特性" class="headerlink" title="9.3.2 新的名称空间特性"></a>9.3.2 新的名称空间特性</h3><p>C++新增了这样一种功能，即通过定义一种新的声明区域来创建命 名的名称空间，这样做的目的之一是提供一个声明名称的区域。一个名 称空间中的名称不会与另外一个名称空间的相同名称发生冲突，同时允 许程序的其他部分使用该名称空间中声明的东西。</p>
+<p>名称空间可以是全局的，也可以位于另一个名称空间中，<strong>但不能位于代码块中</strong>。因此，在默认情况下，在名称空间中声明的名称的链接性 为外部的（除非它引用了常量）。</p>
+<p>1．using声明和using编译指令</p>
+<p>using声明由被限定的名称和它前面的关键字using组成：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> Jill::fetch;        <span class="comment">// a using declaration</span></span><br></pre></td></tr></table></figure></div>
+<p><code>using</code> 声明将特定的名称添加到它所属的声明区域中。例如 <code>main()</code> 中的 <code>using</code> 声明 <code>Jill::fetch</code> 将 <code>fetch</code> 添加到 <code>main()</code> 定义的声明区域中。完成该声明后，便可以使用名称 <code>fetch</code> 代替 <code>Jill::fetch</code>。</p>
+<p>using声明使一个名称可用，而using编译指令使所有的名称都可 用。using编译指令由名称空间名和它前面的关键字using namespace组成，它使名称空间中的所有名称都可用，而不需要使用作用域解析运算符。在全局声明区域中使用using编译指令，将使该名称空间的名称全局可用。</p>
+<p>2．using编译指令和using声明之比较</p>
+<p>一般说来，使用<code>using</code>声明比使用<code>using</code>编译指令更安全，这是由于它只导入指定的名称。如果该名称与局部名称发生冲突，编译器将发出 指示。<code>using</code> 编译指令导入所有名称，包括可能并不需要的名称。如果与局部名称发生冲突，则局部名称将覆盖名称空间版本，而编译器并不会发出警告。另外，名称空间的开放性意味着名称空间的名称可能分散在多个地方，这使得难以准确知道添加了哪些名称。</p>
+<p>3．名称空间的其他特性<br>可以将名称空间声明进行嵌套。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811135518193.png"
+                      alt="image-20210811135518193"
+                ></p>
+<p>这里，flame指的是element::fire::flame。同样，可以使用下面的 using编译指令使内部的名称可用。</p>
+<p>4．未命名的名称空间</p>
+<p>可以通过省略名称空间的名称来创建未命名的名称空间。</p>
+<p>该名称空间中声明的名称的潜在作用域为：从声明点到该声明区域末尾，这与全局变量相似。然而，这种名称空间没有名称，因此不能显式地使用 <code>using</code> 编译指令或 <code>using</code> 声明来使它在其他位置都可用。也就是说，不能在未命名名称空间所属文件之外的其他文件中，使用该名称空间中的名称。这相当于是一个链接性为内部的静态变量的替代品。</p>
+<h3 id="9-3-4-名称空间及其前途"><a href="#9-3-4-名称空间及其前途" class="headerlink" title="9.3.4 名称空间及其前途"></a>9.3.4 名称空间及其前途</h3><p>使用名称空间的原则：</p>
+<ul>
+<li>使用在已命名的名称空间中声明的变量，而不是使用外部全局变量；</li>
+<li>使用在已命名的名称空间中声明的变量，而不是使用静态全局变量；</li>
+<li>如果开发了一个函数库或类库，将其放在一个名称空间中；</li>
+<li>仅将编译指令using作为一种将旧代码转换为使用名称空间的权宜之计；</li>
+<li>不要在头文件中使用 <code>using</code> 编译指令。首先，这样做掩盖了要让哪些名称可用；另外，包含头文件的顺序可能影响程序的行为。如果非要使用编译指令 <code>using</code>，应将其放在所有预处理器编译指令 <code>#include</code> 之后；</li>
+<li>导入名称时，首选使用作用域解析运算符或using声明的方法；</li>
+<li>对于using声明，首选将其作用域设置为局部而不是全局。</li>
+</ul>
+<h2 id="9-4-总结"><a href="#9-4-总结" class="headerlink" title="9.4 总结"></a>9.4 总结</h2><p>C++提倡在开发程序时使用多个文件。一种有效的组织策略 是，使用头文件来定义用户类型，为操纵用户类型的函数提供函数原 型；并将函数定义放在一个独立的源代码文件中。头文件和源代码文件 一起定义和实现了用户定义的类型及其使用方式。</p>
+<p>C++的存储方案决定了变量保留在内存中的时间（储存持续性）以 及程序的哪一部分可以访问它（作用域和链接性）。</p>
+<p>动态内存分配和释放是使用new和delete进行的，它使用自由存储区 或堆来存储数据。调用new占用内存，而调用delete释放内存。程序使用 指针来跟踪这些内存单元。</p>
+<p>名称空间允许定义一个可在其中声明标识符的命名区域。这样做的 目的是减少名称冲突，尤其当程序非常大，并使用多个厂商的代码时。可以通过使用作用域解析运算符、using声明或using编译指令，来使名 称空间中的标识符可用。</p>
+]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习</title>
     <url>/2023/01/29/C-Primer-Plus-1/chapter07/</url>
     <content><![CDATA[<h1 id="第七章-函数——C-的编程模块"><a href="#第七章-函数——C-的编程模块" class="headerlink" title="第七章 函数——C++的编程模块"></a>第七章 函数——C++的编程模块</h1><p>本周内容包括：</p>
 <ul>
@@ -1924,255 +2388,6 @@
 <h3 id="7-11-总结"><a href="#7-11-总结" class="headerlink" title="7.11 总结"></a>7.11 总结</h3><p>函数是C++的编程模块。要使用函数，必须提供定义和原型，并调 用该函数。函数定义是实现函数功能的代码；函数原型描述了函数的接 口：传递给函数的值的数目和种类以及函数的返回类型。函数调用使得 程序将参数传递给函数，并执行函数的代码。</p>
 <p>C++提供了3种表示C-风格字符串的方法：字符数组、字符串常量 和字符串指针。它们的类型都是<code>char*</code>（<code>char</code>指针），因此被作为<code>char*</code>类型参数传递给函数。C++使用空值字符 <code>\0</code> 来结束字符串，因此字符 串函数检测空值字符来确定字符串的结尾。</p>
 <p>C++处理结构体的方式与基本类型完全相同，这意味着可以按值传递结构体，并将其用作函数返回类型。然而，如果结构体非常大，则传递结构体指针的效率将更高，同时函数能够使用原始数据。</p>
-]]></content>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习</title>
-    <url>/2023/01/29/C-Primer-Plus-1/chapter08/</url>
-    <content><![CDATA[<h1 id="第八章-函数探幽"><a href="#第八章-函数探幽" class="headerlink" title="第八章 函数探幽"></a>第八章 函数探幽</h1><p>本章内容：</p>
-<ul>
-<li>内联函数；</li>
-<li>引用变量；</li>
-<li>如何按引用传递函数参数；</li>
-<li>默认参数；</li>
-<li>函数重载；</li>
-<li>函数模板；</li>
-<li>函数模板具体化。</li>
-</ul>
-<h2 id="8-1-C-内联函数"><a href="#8-1-C-内联函数" class="headerlink" title="8.1 C++ 内联函数"></a>8.1 C++ 内联函数</h2><p>内联函数是C++为提高程序运行速度所做的一项改进。常规函数和内联函数之间的主要区别不在于编写方式，而在于C++编译器如何将它们组合到程序中。 常规函数调用也使程序跳到另一个地址（函数的地址），并在函数结束时返回。</p>
-<p>C++内联函数提供了另一种选择。内联函数的编译代码与其他程序代码“内联”起来了。也就是说，<strong>编译器将使用相应的函数代码替换函数调用</strong>。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805155012304.png"
-                      alt="image-20210805155012304"
-                ></p>
-<p>要使用这项特性，必须采取下述措施之一：</p>
-<ul>
-<li>在函数声明前加上关键字 inline；</li>
-<li>在函数定义前加上关键字 inline；</li>
-</ul>
-<p>内联函数最好都是一些很简单、行数少的函数。</p>
-<h2 id="8-2-引用变量"><a href="#8-2-引用变量" class="headerlink" title="8.2 引用变量"></a>8.2 引用变量</h2><p>C++新增了一种复合类型——引用变量。<strong>引用是已定义的变量的别名（另一个名称）</strong>。</p>
-<h3 id="8-2-1-创建引用变量"><a href="#8-2-1-创建引用变量" class="headerlink" title="8.2.1 创建引用变量"></a>8.2.1 创建引用变量</h3><p>C++给<code>&amp;</code>符号赋予另一个含义，将其用来声明引用。例如，要将 <code>rodents</code>作为<code>rats</code>变量的别名，可以这样做：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> rats;</span><br><span class="line"><span class="type">int</span> &amp;rodents = rats;  <span class="comment">// makes rodents an alias for rats</span></span><br></pre></td></tr></table></figure></div>
-
-<p>其中，**<code>&amp;</code> 不是地址运算符，而是类型标识符的一部分**。就像声明中的 <code>char*</code> 指的是指向 <code>char</code> 的指针一样，<code>int &amp;</code> 指的是指向 <code>int</code> 的引用。</p>
-<p>将 <code>rodents</code> 加1将影响这两个变量。更准确地说， <code>rodents++</code> 操作将一共有两个名称的变量加1。</p>
-<p>引用看上去很像伪装表示的指针（其中，<code>*</code> 解除引用运算符被隐式理解）。实际上，引用还是不同于指针的。除了表示法不同外，还有其他的差别。例如，差别之一是， 必须在声明引用时将其初始化，而不能像指针那样，先声明，再赋值。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805160617225.png"
-                      alt="image-20210805160617225"
-                ></p>
-<p>引用更接近const指针，必须在创建时进行初始化，一旦与某个变量关联起来，就将一直效忠于它。也就是说：<strong>某个变量的引用是不可更改的</strong>。</p>
-<blockquote>
-<p><strong>引用是别名。</strong></p>
-</blockquote>
-<h3 id="8-2-2-将引用用作函数参数"><a href="#8-2-2-将引用用作函数参数" class="headerlink" title="8.2.2 将引用用作函数参数"></a>8.2.2 将引用用作函数参数</h3><p><strong>引用经常被用作函数参数，使得函数中的变量名成为调用程序中的变量的别名。这种传递参数的方法称为按引用传递</strong>。按引用传递允许被调用的函数能够访问调用函数中的变量。<strong>C++新增的这项特性是对C语言的超越，C语言只能按值传递</strong>。按值传递导致被调用函数使用调用程序的值的拷贝（参见图8.2）。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805161500948.png"
-                      alt="image-20210805161500948"
-                ></p>
-<p>交换函数必须能够修改调用程序中的变量的值。这意味着按值传递变量将不管用，因为函数将交换原始变量副本的内容，而不是变量本身的内容。但传递引用时，函数将可以使用原始数据。另一种方法是，传递指针来访问原始数据。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805162214166.png"
-                      alt="image-20210805162214166"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805162432252.png"
-                      alt="image-20210805162432252"
-                ></p>
-<h3 id="8-2-3-引用的属性和特别之处"><a href="#8-2-3-引用的属性和特别之处" class="headerlink" title="8.2.3 引用的属性和特别之处"></a>8.2.3 引用的属性和特别之处</h3><p><code>refcube()</code> 函数修改了 <code>main()</code> 中的 <code>x</code> 值，而 <code>cube()</code> 没有，这提醒我们为何通常按值传递。变量 <code>a</code> 位于 <code>cube()</code> 中，它被初始化为 <code>x</code> 的值，但修改 <code>a</code> 并不会影响 <code>x</code>。但由于 <code>refcube()</code> 使用了引用参数，因此修改 <code>ra</code> 实际上就是修改 <code>x</code>。如果只是让函数使用传递给它的信息，而不对这些信息进行修改，同时又想使用引用，则应使用常量引用。</p>
-<p>例如，在这个例子中，应在函数原型和函数头中使用<code>const</code>：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">refcube</span><span class="params">(<span class="type">const</span> <span class="type">double</span> &amp;ra)</span></span>;</span><br></pre></td></tr></table></figure></div>
-
-<p>如果要编写类似于上述示例的函数（即使用基本数值 类型），应采用按值传递的方式，而不要采用按引用传递的方式。当数据比较大（如结构和类）时，引用参数将很有用。</p>
-<blockquote>
-<p>函数中应尽可能将引用形参声明为 const，这样好处有三个：</p>
-<ul>
-<li>const 可以避免无意中修改数据，从而导致编程错误；</li>
-<li>const 使函数能够处理 const 和非 const 实参，否则只能接受非 const 数据；</li>
-<li>const 引用使函数能够正确生成并使用临时变量。</li>
-</ul>
-</blockquote>
-<h3 id="8-2-4-将引用用于结构体"><a href="#8-2-4-将引用用于结构体" class="headerlink" title="8.2.4 将引用用于结构体"></a>8.2.4 将引用用于结构体</h3><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805164836645.png"
-                      alt="image-20210805164836645"
-                ></p>
-<p>2．为何要返回引用</p>
-<p>下面更深入地讨论返回引用与传统返回机制的不同之处。传统返回机制与按值传递函数参数类似：计算关键字return后面的表达式，并将结果返回给调用函数。从概念上说，这个值被复制到一个临时位置，而 调用程序将使用这个值。</p>
-<blockquote>
-<p>返回引用的函数实际上是被引用的变量的别名。</p>
-</blockquote>
-<p>3．返回引用时需要注意的问题</p>
-<p>返回引用时最重要的一点是，应避免返回函数终止时不再存在的内存单元引用。应<strong>避免</strong>编写如下代码：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805165912018.png"
-                      alt="image-20210805165912018"
-                ></p>
-<p><strong>该函数返回一个指向临时变量（newguy）的引用，函数运行完毕后 它将不再存在。同样，也应避免返回 指向临时变量的指针。</strong></p>
-<p>为避免这种问题，最简单的方法是，返回一个作为参数传递给函数 的引用。作为参数的引用将指向调用函数使用的数据，因此返回的引用 也将指向这些数据。</p>
-<p>4．为何将const用于引用返回类型</p>
-<h3 id="8-2-5-将引用用于类对象"><a href="#8-2-5-将引用用于类对象" class="headerlink" title="8.2.5 将引用用于类对象"></a>8.2.5 将引用用于类对象</h3><p>将类对象传递给函数时，C++通常的做法是使用引用。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805171059802.png"
-                      alt="image-20210805171059802"
-                ></p>
-<h3 id="8-2-6-对象、继承和引用"><a href="#8-2-6-对象、继承和引用" class="headerlink" title="8.2.6 对象、继承和引用"></a>8.2.6 对象、继承和引用</h3><h3 id="8-2-7-何时使用引用参数"><a href="#8-2-7-何时使用引用参数" class="headerlink" title="8.2.7 何时使用引用参数"></a>8.2.7 何时使用引用参数</h3><p>使用引用参数的主要原因有两个:</p>
-<ul>
-<li>能够修改调用函数中的数据对象;</li>
-<li>通过传递引用而不是整个数据对象，可以提高程序的运行速度。</li>
-</ul>
-<p>当数据对象较大时（如结构和类对象），第二个原因最重要。这些也是使用指针参数的原因。这是有道理的，因为引用参数实际上是基于指针的代码的另一个接口。</p>
-<p><strong>以下总结使用引用的原则</strong>：</p>
-<ul>
-<li>如果数据对象很小。如内置数据类型或者小型数据结构，则按值传递；</li>
-<li>如果数据对象是数组，则使用指针，因为这是唯一的选择，并将指针声明为指向 const 的指针；</li>
-<li>如果数据对象是较大的结构体，则使用 const 指针或者 const 引用，以便提升程序的效率。这样可以节省复制结构体所需的时间和空间；</li>
-<li>如果数据对象是类对象，则使用 const 引用。类设计的语义常常要求使用引用，<strong>这是C++新增这项特性的主要原因。因此，传递类对象参数的标准方式是按引用传递</strong>。</li>
-</ul>
-<p>对于修改调用函数中数据的函数：</p>
-<ul>
-<li>如果数据对象是内置数据类型，则使用指针（不使用引用）。看到诸如：<code>fixit(&amp;x)</code> 这样的代码（x是int），则很明显，该函数将要修改x；</li>
-<li>如果数据对象是数组，则只能使用指针；</li>
-<li>如果数据对象是结构体，则可以使用引用或者指针；</li>
-<li>如果数据对象是类对象，则（首选）使用引用。</li>
-</ul>
-<h2 id="8-3-默认参数"><a href="#8-3-默认参数" class="headerlink" title="8.3 默认参数"></a>8.3 默认参数</h2><p>默认参数指的是当函数调用中省略了实参时自动使用的一个值。例如：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> * <span class="title">left</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> n=<span class="number">1</span>)</span></span>;</span><br></pre></td></tr></table></figure></div>
-
-<p><strong>对于带参数列表的函数，必须从右向左添加默认值</strong>。也就是说，要为某个参数设置默认值，<strong>则必须为它右边的所有参数提供默认值</strong>：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">harpo</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> m=<span class="number">4</span>, <span class="type">int</span> j=<span class="number">5</span>)</span></span>;      <span class="comment">// Valid</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">chico</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> m=<span class="number">6</span>, <span class="type">int</span> j)</span></span>;        <span class="comment">// IN-Valid</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">groucho</span><span class="params">(<span class="type">int</span> k=<span class="number">1</span>, <span class="type">int</span> m=<span class="number">2</span>, <span class="type">int</span> n=<span class="number">3</span>)</span></span>;  <span class="comment">// Valid</span></span><br></pre></td></tr></table></figure></div>
-<p>实参按从左到右的顺序依次被赋给相应的形参，而不能跳过任何参数。</p>
-<p><em><strong>默认参数只在声明函数的时候给出，定义函数时，则不需要给出</strong></em>。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807220518596.png"
-                      alt="image-20210807220518596"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807220537984.png"
-                      alt="image-20210807220537984"
-                ></p>
-<h2 id="8-4-函数重载"><a href="#8-4-函数重载" class="headerlink" title="8.4 函数重载"></a>8.4 函数重载</h2><p>函数多态是C++在C语言的基础上新增的功能。默认参数让我们能够使用不同数目的参数调用同一个函数，而函数多态（函数重载）让我们能够使用多个同名的函数，这称为函数重载，它们完成相同的工作，但使用不同的参数列表。</p>
-<p><strong>函数重载的关键是函数的参数列表——也称为函数特征标 （function signature）</strong>。</p>
-<p>如果两个函数的参数数目和类型相同，同时参数的排列顺序也相同，则它们的特征标相同，而变量名是无关紧要的。 C++允许定义名称相同的函数，条件是它们的特征标不同。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807221358552.png"
-                      alt="image-20210807221358552"
-                ></p>
-<p>一些看起来彼此不同的特征标是不能共存的。例如，请看下面的两 个原型：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">cube</span><span class="params">(<span class="type">double</span> x)</span></span>;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">cube</span><span class="params">(<span class="type">double</span> &amp;x)</span></span>;</span><br></pre></td></tr></table></figure></div>
-<p>可能认为可以在此处使用函数重载，因为它们的特征标看起来不同。然而，请从编译器的角度来考虑这个问题。假设有下面这样的代码：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line">cout &lt;&lt; <span class="built_in">cube</span>(x);</span><br></pre></td></tr></table></figure></div>
-
-<p>参数 <code>x</code> 与 <code>double x</code> 原型和 <code>double &amp;x</code> 原型都匹配，因此编译器无法确定究竟应使用哪个原型。为避免这种混乱，<strong>编译器在检查函数特征标时，将把类型引用和类型本身视为同一个特征标</strong>。</p>
-<p>请记住，<strong>是特征标(即，函数特征列表)，而不是函数返回类型使得可以对函数进行重载</strong>。 例 如，下面的两个声明是互斥的：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">gronk</span><span class="params">(<span class="type">int</span> n, <span class="type">float</span> m)</span></span>;    <span class="comment">// same signatures,</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">gronk</span><span class="params">(<span class="type">int</span> n, <span class="type">float</span> m)</span></span>;  <span class="comment">// hence not allowed</span></span><br></pre></td></tr></table></figure></div>
-
-<p>因此，C++不允许以这种方式重载gronk( )。<strong>返回类型可以不同，但特征标也必须不同</strong>。</p>
-<p>匹配函数时，并不区分<code>const</code>和非<code>const</code>变量（这就要小心了）。看下面的原型：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dribble</span><span class="params">(<span class="type">char</span> *bits)</span></span>;         <span class="comment">// overloaded</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dribble</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *cbits)</span></span>;  <span class="comment">// overloaded</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dabble</span><span class="params">(<span class="type">char</span> *bits)</span></span>;          <span class="comment">// not overloaded</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">drivel</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *bits)</span></span>;    <span class="comment">// not overloaded</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="8-4-1-函数重载示例"><a href="#8-4-1-函数重载示例" class="headerlink" title="8.4.1 函数重载示例"></a>8.4.1 函数重载示例</h3><h3 id="8-4-2-何时使用函数重载"><a href="#8-4-2-何时使用函数重载" class="headerlink" title="8.4.2 何时使用函数重载"></a>8.4.2 何时使用函数重载</h3><p><strong>虽然函数重载很吸引人，但也不要滥用。仅当函数基本上执行相同的任务，但使用不同形式的数据时，才应采用函数重载</strong>。</p>
-<h2 id="8-5-函数模板"><a href="#8-5-函数模板" class="headerlink" title="8.5 函数模板"></a>8.5 函数模板</h2><p>现在的C++编译器实现了C++的另一个新增特性——函数模板。函数模板是通用的函数描述，也就是说，它们使用泛型来定义函数，其中的泛型可用具体的类型（如<code>int</code>或<code>double</code>）替换。通过将类型作为参数传递给模板，可使编译器生成该类型的函数。由于模板允许以泛型（而不是具体类型）的方式编写程序，因此有时也被称为通用编程。由于类型是用参数表示的，因此模板特性有时也被称为参数化类型（parameterized types）。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807224625424.png"
-                      alt="image-20210807224625424"
-                ></p>
-<p>第一行指出，要建立一个模板，并将类型命名为 <code>AnyType</code>。关键字 <code>template</code>和 <code>typename</code> 是必需的，除非可以使用关键字 <code>class</code> 代替 <code>typename</code>。 另外，<strong>必须使用尖括号</strong>。类型名可以任意选择（这里为 <code>AnyType</code>），只要遵守C++命名规则即可；许多程序员都使用简单的名称，如 <code>T</code>。</p>
-<p>模板并不创建任何函数，而只是告诉编译器如何定义函数。需要交换<code>int</code>的函数时，编译器将按模板 模式创建这样的函数，并用<code>int</code>代替<code>AnyType</code>。同样，需要交换<code>double</code>的函数时，编译器将按模板模式创建这样的函数，并用<code>double</code>代替 <code>AnyType</code>。</p>
-<p>最终 的代码不包含任何模板，而只包含了为程序生成的实际函数。使用模板 的好处是，它使生成多个函数定义更简单、更可靠。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807225139508.png"
-                      alt="image-20210807225139508"
-                ></p>
-<p><code>typename</code>关键字使得参数<code>AnyType</code>表示类型这一点更为明显；然而，有大量代码库是使用关键字class开发的。在这种上下文中，<strong>这两个关键字是等价的</strong>。</p>
-<p>需要多个对不同类型使用同一种算法的函数时，可使用模板。</p>
-<h3 id="8-5-2-模板的局限"><a href="#8-5-2-模板的局限" class="headerlink" title="8.5.2 模板的局限"></a>8.5.2 模板的局限</h3><ul>
-<li>下面的代码假定定义了赋 值，但如果T为数组，这种假设将不成立；</li>
-<li>下面的语句假设定义了 <code>&lt;</code>，但如果T为结构，该假设便不成立；另外，为数组名定义了运算符 <code>&gt;</code>，但由于数组名为地址，因此它比较的是数组的地址，而这可能不是您希望的。</li>
-</ul>
-<p>总之，编写的模板函数很可能无法处理某些类型。另一方面，有时 候通用化是有意义的，但C++语法不允许这样做。</p>
-<h3 id="8-5-3-显式具体化"><a href="#8-5-3-显式具体化" class="headerlink" title="8.5.3 显式具体化"></a>8.5.3 显式具体化</h3><blockquote>
-<p>由于C++允许将一个结构赋给另一个结构，因此即使T是一个<code>job</code>结构，上述代码也适用。然而，假设只想交换 <code>salary</code> 和 <code>floor</code> 成员，而不交 换 <code>name</code> 成员，则需要使用不同的代码，但 <code>Swap()</code> 的参数将保持不变 （两个 <code>job</code> 结构的引用），因此无法使用模板重载来提供其他的代码。</p>
-</blockquote>
-<ul>
-<li>对于给定的函数名，可以有非模板函数、模板函数和显式具体化模 板函数以及它们的重载版本；</li>
-<li>显式具体化的原型和定义应以 <code>template&lt;&gt;</code> 打头，并通过名称来指出 类型；</li>
-<li>具体化优先于常规模板，而非模板函数优先于具体化和常规模板。</li>
-</ul>
-<p>如果有多个原型，则编译器在选择原型时，<strong>非模板版本优先于显式具体化和模板版本，而显式具体化优先于使用模板生成的版本</strong>。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210808001952681.png"
-                      alt="image-20210808001952681"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210808002201785.png"
-                      alt="image-20210808002201785"
-                ></p>
-<h3 id="8-5-4-实例化和具体化"><a href="#8-5-4-实例化和具体化" class="headerlink" title="8.5.4 实例化和具体化"></a>8.5.4 实例化和具体化</h3><p>为进一步了解模板，必须理解术语实例化和具体化。记住，在代码中包含函数模板本身并不会生成函数定义，它只是一个用于生成函数定义的方案。编译器使用模板为特定类型生成函数定义时，得到的是模板实例（instantiation）。</p>
-<p>函数调用<code>Swap(i,j</code>)导致编译器生成<code>Swap()</code>的一个实例，该实例使用<code>int</code>类型。<strong>模板并非函数定 义，但使用int的模板实例是函数定义</strong>。这种实例化方式被称为隐式实例 化（implicit instantiation），因为编译器之所以知道需要进行定义，是 由于程序调用Swap( )函数时提供了int参数。</p>
-<p>最初，编译器只能通过隐式实例化，来使用模板生成函数定义，但现在C++还允许显式实例化（explicit instantiation）。这意味着可以直接 命令编译器创建特定的实例，如<code>Swap&lt;int&gt;()</code>。其语法是，声明所需的种类——用<code>&lt;&gt;</code>符号指示类型，并在声明前加上关键字 <code>template</code>：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> <span class="type">void</span> <span class="built_in">Swap</span>&lt;<span class="type">int</span>&gt;(<span class="type">int</span>, <span class="type">int</span>);  <span class="comment">// explicit instantiation</span></span><br></pre></td></tr></table></figure></div>
-<p>实现了这种特性的编译器看到上述声明后，将使用<code>Swap()</code>模板生成 一个使用<code>int</code>类型的实例。也就是说，该声明的意思是“使用<code>Swap()</code>模板生成<code>int</code>类型的函数定义“。</p>
-<p>与显式实例化不同的是，显式具体化使用下面两个等价的声明之 一：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="type">void</span> <span class="built_in">Swap</span>&lt;<span class="type">int</span>&gt;(<span class="type">int</span> &amp;, <span class="type">int</span> &amp;);</span><br><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="function"><span class="type">void</span> <span class="title">Swap</span><span class="params">(<span class="type">int</span> &amp;, <span class="type">int</span> &amp;)</span></span>;</span><br></pre></td></tr></table></figure></div>
-<p>区别在于，这些声明的意思是“不要使用 <code>Swap()</code> 模板来生成函数定 义，而应使用专门为 <code>int</code> 类型显式地定义的函数定义”。这些原型必须有自己的函数定义。<strong>显式具体化声明在关键字 <code>template</code> 后包含 <code>&lt;&gt;</code>，而显式实例化没有</strong>。</p>
-<p>隐式实例化、显式实例化和显式具体化统称为具体化 （specialization）。它们的相同之处在于，它们表示的都是使用具体类 型的函数定义，而不是通用描述。</p>
-<p>引入显式实例化后，必须使用新的语法——在声明中使用前缀<code>template</code>和<code>template &lt;&gt;</code>，以区分显式实例化和显式具体化。通常，功能 越多，语法规则也越多。下面的代码片段总结了这些概念：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210808202129389.png"
-                      alt="image-20210808202129389"
-                ></p>
-<h3 id="8-5-5-编译器选择使用哪个函数版本"><a href="#8-5-5-编译器选择使用哪个函数版本" class="headerlink" title="8.5.5 编译器选择使用哪个函数版本"></a>8.5.5 编译器选择使用哪个函数版本</h3><p>对于函数重载、函数模板和函数模板重载，C++需要（且有）一个 定义良好的策略，来决定为函数调用使用哪一个函数定义，尤其是有多 个参数时。这个过程称为重载解析（overloading resolution）: </p>
-<ul>
-<li>第1步：创建候选函数列表。其中包含与被调用函数的名称相同的函数和模板函数。</li>
-<li>第2步：使用候选函数列表创建可行函数列表。这些都是参数数目 正确的函数，为此有一个隐式转换序列，其中包括实参类型与相应 的形参类型完全匹配的情况。例如，使用float参数的函数调用可以 将该参数转换为double，从而与double形参匹配，而模板可以为 float生成一个实例;</li>
-<li>第3步：确定是否有最佳的可行函数。如果有，则使用它，否则该 函数调用出错。</li>
-</ul>
-<p>接下来，编译器必须确定哪个可行函数是最佳的。它查看为使函数 调用参数与可行的候选函数的参数匹配所需要进行的转换。通常，从最 佳到最差的顺序如下所述：</p>
-<ul>
-<li>完全匹配，但常规函数优先于模板；</li>
-<li>提升转换（例如，char和shorts自动转换为int，float自动转换为 double）；</li>
-<li>标准转换（例如，int转换为char，long转换为double）；</li>
-<li>用户定义的转换，如类声明中定义的转换。</li>
-</ul>
-<h3 id="8-5-6-模板函数的发展"><a href="#8-5-6-模板函数的发展" class="headerlink" title="8.5.6 模板函数的发展"></a>8.5.6 模板函数的发展</h3><h2 id="8-6-总结"><a href="#8-6-总结" class="headerlink" title="8.6 总结"></a>8.6 总结</h2><p>C++扩展了C语言的函数功能。通过将 inline 关键字用于函数定义， 并在首次调用该函数前提供其函数定义，可以使得C++编译器将该函数视为内联函数。也就是说，编译器不是让程序跳到独立的代码段，以执行函数，而是用相应的代码替换函数调用（相当于复制进去）。只有在函数很短时才能采用内联方式。</p>
-<p>引用变量是一种伪装指针，它允许为变量创建别名（另一个名称）。引用变量主要被用作处理结构和类对象的函数的参数。</p>
-<p>C++原型让您能够定义参数的默认值。如果函数调用省略了相应的参数，则程序将使用默认值；如果函数调用提供了参数值，则程序将使用这个值（而不是默认值）。只能在参数列表中从右到左提供默认参数。</p>
-<p>函数的特征标是其参数列表。程序员可以定义两个同名函数，只要其特征标不同。这被称为函数多态或函数重载。</p>
 ]]></content>
       <tags>
         <tag>C++</tag>
@@ -2539,195 +2754,6 @@
 <p>然而，如果类包含这样的方法，它返回需要显示的数据成员的值， 则可以使用这些方法，无需在<code>operator&lt;&lt;()</code>中直接访问这些成员。在这种情况下，函数不必（也不应当）是友元。</p>
 <p>C++允许指定在类和基本类型之间进行转换的方式。首先，任何接 受唯一一个参数的构造函数都可被用作转换函数，将类型与该参数相同 的值转换为类。如果将类型与该参数相同的值赋给对象，则C++将自动调用该构造函数。</p>
 <p>要将类对象转换为其他类型，必须定义转换函数，指出如何进行这种转换。转换函数必须是成员函数。</p>
-]]></content>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习</title>
-    <url>/2023/01/29/C-Primer-Plus-1/chapter09/</url>
-    <content><![CDATA[<h1 id="第九章-内存模型和名称空间"><a href="#第九章-内存模型和名称空间" class="headerlink" title="第九章 内存模型和名称空间"></a>第九章 内存模型和名称空间</h1><p>本章内容包括：</p>
-<ul>
-<li>单独编译；</li>
-<li>存储持续性、作用域和链接性；</li>
-<li>定位（placement）new运算符；</li>
-<li>名称空间。</li>
-</ul>
-<h2 id="9-1-单独编译"><a href="#9-1-单独编译" class="headerlink" title="9.1 单独编译"></a>9.1 单独编译</h2><p>第1章介绍过，可以单独编译文件，然后将它们链接成可执行的程序。通常，C++编译器既编译程序，也管理链接器。如果只修改了一个文件，则可以只重新编译该文件，然后将它与其他文件的编译版本链接，这使得大程序的管理更便捷。</p>
-<p>例如，UNIX和Linux系统都具有make程 序，可以跟踪程序依赖的文件以及这些文件的最后修改时间。运行make 时，如果它检测到上次编译后修改了源文件，make将记住重新构建程序 所需的步骤。</p>
-<p>例如但需要将一个结构体在多个文件中复用时，与其将结构体声明加入到每一个文件 中，不如将其放在头文件中，然后在每一个源代码文件中包含该头文件。这样，要修改结构体声明时，只需在头文件中做一次改动即可。另外，也可以将函数原型放在头文件中。因此，可以将原来的程序分成三 部分。</p>
-<ul>
-<li>头文件：包含结构体声明和使用这些结构体的函数的声明；</li>
-<li>源代码文件：包含与结构体有关的函数代码；</li>
-<li>源代码文件：包含调用与结构体相关的函数代码；</li>
-</ul>
-<p>这是一种非常有用的组织程序的策略。例如，如果编写另一个程序 时，也需要使用这些函数，则只需包含头文件，并将函数文件添加到项 目列表或make列表中即可。另外，这种组织方式也与OOP方法一致。<strong>一个文件（头文件）包含了用户定义类型的定义；另一个文件包含操纵用 户定义类型的函数的代码。这两个文件组成了一个软件包，可用于各种程序中</strong>。</p>
-<p><strong>不要将函数定义或变量声明放到头文件中</strong>。这样做通常会引来麻烦，因为，如果在头文件包含了一个函数的定义，然后在（同一个程序的）另外两个文件中分别包含了该头文件，那么同一个程序中将包含同一个函数的两个定义，除非函数是内联的，否则这将出错。</p>
-<p>头文件常包含的内容：</p>
-<ul>
-<li>函数原型（也叫函数声明）；</li>
-<li>使用<code>#define</code>或<code>const</code>定义的符号常量；</li>
-<li>结构体声明；</li>
-<li>类声明；</li>
-<li>模板声明；</li>
-<li>内联函数。</li>
-</ul>
-<p>将结构体声明放在头文件中是可以的，因为它们不创建变量，而只是在源代码文件中声明结构体变量时，告诉编译器如何创建该结构体变量。同样，模板声明也不是将被编译的代码，它们指示编译器如何生成与源代码中函数调用相匹配的函数定义。被声明为<code>const</code>的常量和内联函数有特殊的链接属性（稍后将介绍），因此可以将其放在头文件中，而不会引 起问题。</p>
-<p>在包含头文件时，我们使 用<code>&quot;coordin.h&quot;</code>，而不是 <code>&lt;coodin.h&gt;</code>。如果文件名包含在尖括号中，则 C++编译器将在存储标准头文件的主机系统的文件系统中查找；但如果文件名包含在双引号中，<strong>则编译器将首先查找当前的工作目录或源代码目录（取决于编译器）</strong>，如果没有找到， 则将在标准位置查找。<strong>因此在包含自己的头文件时，应使用引号而不是 尖括号</strong>。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210810163533843.png"
-                      alt="image-20210810163533843"
-                ></p>
-<blockquote>
-<p>在同一个文件中只能将同一个头文件包含一次。记住这个规则很容易，但很可能在不知 情的情况下将头文件包含多次。例如，可能使用包含了另外一个头文件的头文件。有一种标准的C&#x2F;C++技术可以避免多次包含同一个头文件。它是基于预处理器编译指令#ifndef（即if not defined）的。<code>#ifndef-#define-#endif</code> 语句的这种方法<strong>并不能防止编译器将文件包含两次，而只是让它忽略除第一次包含之外的所有内容</strong>。大多数标准C和C++头文件都使用这种防护 （guarding）方案。否则，可能在一个文件中定义同一个结构体、函数、类等两次，这将导致编译错误。</p>
-</blockquote>
-<h2 id="9-2-存储持续性、作用域和链接性"><a href="#9-2-存储持续性、作用域和链接性" class="headerlink" title="9.2 存储持续性、作用域和链接性"></a>9.2 存储持续性、作用域和链接性</h2><p>存储类别如何影响信息在文件间的共享？</p>
-<ul>
-<li>自动存储持续性：在<strong>函数定义中声明的变量</strong>（包括函数参数）的存 储持续性为自动的。在程序开始执行其所属的函数或代码块时 被创建，在执行完函数或代码块时，它们使用的内存被释放；</li>
-<li>静态存储持续性：在函数<strong>定义外</strong>定义的变量和使用关键字<code>static</code>定义 的变量的存储持续性都为静态。它们在程序整个运行过程中都存在；</li>
-<li>线程存储持续性（C++11）：如果变量是使用关键字<code>thread_local</code>声明的，则其生命 周期与所属的线程一样长；</li>
-<li>动态存储持续性：用<code>new</code>运算符分配的内存将一直存在，直到使用 <code>delete</code>运算符将其释放或程序结束为止。这种内存的存储持续性为动态，有时被称为自由存储（free store）或堆（heap）。</li>
-</ul>
-<h3 id="9-2-1-作用域和链接"><a href="#9-2-1-作用域和链接" class="headerlink" title="9.2.1 作用域和链接"></a>9.2.1 作用域和链接</h3><p>作用域（scope）描述了名称在文件（翻译单元）的多大范围内可见。链接性（linkage）描述了名称如何在不同单元间共享。链接性为外部的 名称可在文件间共享，链接性为内部的名称只能由一个文件中的函数共 享。自动变量的名称没有链接性，因为它们不能共享。</p>
-<p>作用域为局部的变量只在定义它的代码 块中可用。<strong>代码块是由花括号括起的一系列语句</strong>。例如函数体就是代码块，但可以在函数体中嵌入其他代码块。作用域为全局（也叫文件作用域）的变量在定义位置到文件结尾之间都可用。自动变量的作用域为局部，静态变量的作用域是全局还是局部取决于它是如何被定义的。在函数原型作用域（function prototype scope）中使用的名称只在包含参数列表的括号内可用（<strong>这就是为什么这些名称是什么以及是否出现都不重要的原因</strong>）。在类中声明的成员的作用域为整个类。在名 称空间中声明的变量的作用域为整个名称空间</p>
-<h3 id="9-2-2-自动存储持续性"><a href="#9-2-2-自动存储持续性" class="headerlink" title="9.2.2 自动存储持续性"></a>9.2.2 自动存储持续性</h3><p>在默认情况下，在函数中声明的函数参数和变量的存储持续性为自 动，作用域为局部，没有链接性。</p>
-<p>如果在代码块中定义了变量，则该变量的存在时间和作用域将被限 制在该代码块内。例子：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811100416035.png"
-                      alt="image-20210811100416035"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811100534389.png"
-                      alt="image-20210811100534389"
-                ></p>
-<p>1．自动变量的初始化<br>2．自动变量和栈</p>
-<p>由于自动变量的数目随函数的开始和结束而增减，因此程序必须 在运行时对自动变量进行管理。常用的方法是留出一段内存，并将其视为栈，以管理变量的增减。之所以被称为栈，是由于新数据被象征性地放在原有数据的上面（也就是说，在相邻的内存单元中，而不是在同一 个内存单元中），当程序使用完后，将其从栈中删除。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811110310770.png"
-                      alt="image-20210811110310770"
-                ></p>
-<p>3．寄存器变量<br>这旨在提高访问变量的速度。</p>
-<h3 id="9-2-3-静态持续变量"><a href="#9-2-3-静态持续变量" class="headerlink" title="9.2.3 静态持续变量"></a>9.2.3 静态持续变量</h3><p>要想创建链接性为外部的静态持续变量，必须在代码块的外面声明它；<br>要创建链接性为内部的静态持续变量，必须在代码块的外面声明它，并使用 <code>static</code> 限定符；<br>要创建没有链接性的静态持续变量，必须在代码块内声明它，并使用 <code>static</code> 限定符。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811110632232.png"
-                      alt="image-20210811110632232"
-                ></p>
-<p>正如前面指出的，所有静态持续变量（上述示例中的<code>global</code>、 <code>one_file</code>和 <code>count</code>）在整个程序执行期间都存在。在 <code>funct1()</code> 中声明的变量 <code>count</code> 的作用域为局部，没有链接性，这意味着只能在<code>funct1()</code> 函数中使用它，就像自动变量 <code>llama</code> 一样。然而，与<code>llama</code> 不同的是，即使在 <code>funct1()</code> 函数没有被执行时，<code>count</code> 也留在内存中。<code>global</code> 和 <code>one_file</code> 的作用域都为整个文件，即在从声明位置到文件结尾的范围内都可以被使 用。具体地说，可以在 <code>main()</code>、<code>funct1()</code> 和 <code>funct2()</code> 中使用它们。由于<code> one_file</code> 的链接性为内部，因此只能在包含上述代码的文件中使用它； 由于 <code>global</code> 的链接性为外部，因此可以在程序的其他文件中使用它。</p>
-<blockquote>
-<p>应少用静态外部变量，如使用最好都声明为内部连接性的静态变量。</p>
-</blockquote>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811111319645.png"
-                      alt="image-20210811111319645"
-                ></p>
-<h3 id="9-2-4-静态持续性、外部链接性"><a href="#9-2-4-静态持续性、外部链接性" class="headerlink" title="9.2.4 静态持续性、外部链接性"></a>9.2.4 静态持续性、外部链接性</h3><p>链接性为外部的变量通常简称为外部变量，它们的存储持续性为静 态，作用域为整个文件。外部变量是在函数外部定义的，因此对所有函 数而言都是外部的。</p>
-<p>1．单定义规则<br>C++有“单定义规则”（One Definition Rule，ODR），该规则指出， 变量只能有一次定义。请注意，单定义规则并非意味着不能有多个变量的名称相同。例 如，在不同函数中声明的同名自动变量是彼此独立的，它们都有自己的 地址。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811111827133.png"
-                      alt="image-20210811111827133"
-                ></p>
-<h3 id="9-2-5-静态持续性、内部链接性"><a href="#9-2-5-静态持续性、内部链接性" class="headerlink" title="9.2.5 静态持续性、内部链接性"></a>9.2.5 静态持续性、内部链接性</h3><p>将static限定符用于作用域为整个文件的变量时，该变量的链接性将 为内部的。在多文件程序中，内部链接性和外部链接性之间的差别很有 意义。链接性为内部的变量只能在其所属的文件中使用；但常规外部变 量都具有外部链接性，即可以在其他文件中使用。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811112129019.png"
-                      alt="image-20210811112129019"
-                ></p>
-<blockquote>
-<p>在多文件程序中，可以在一个文件（且只能在一个文件）中定义一个外部变量。使用该变量的其他文件必须使用关键字 <code>extern</code> 声明它。</p>
-</blockquote>
-<p>可使用外部变量在多文件程序的不同部分之间共享数据；可使用链接性为内部的静态变量在同一个文件中的多个函数之间共享数据（名称空间提供了另外一种共享数据的方法）。另外，如果将作用域为整个文 件的变量变为静态的，就不必担心其名称与其他文件中的作用域为整个 文件的变量发生冲突。</p>
-<h3 id="9-2-6-静态存储持续性、无链接性"><a href="#9-2-6-静态存储持续性、无链接性" class="headerlink" title="9.2.6 静态存储持续性、无链接性"></a>9.2.6 静态存储持续性、无链接性</h3><p>这种变量是这样创建的，将static限定符用于在代码块中定义的变 量。在代码块中使用static时，将导致局部变量的存储持续性为静态的。 这意味着虽然该变量只在该代码块中可用，但它在该代码块不处于活动 状态时仍然存在。因此在两次函数调用之间，静态局部变量的值将保持 不变。（静态变量适用于再生——可以用它们将瑞士银行的秘密账号传 递到下一个要去的地方）。另外，如果初始化了静态局部变量，则程序 只在启动时进行一次初始化。以后再调用函数时，将不会像自动变量那样再次被初始化。</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// static.cpp -- using a static local variable</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">// constants</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> ArSize = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// function prototype</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">strcount</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * str)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">char</span> input[ArSize];</span><br><span class="line">    <span class="type">char</span> next;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a line:\n&quot;</span>;</span><br><span class="line">    cin.<span class="built_in">get</span>(input, ArSize);</span><br><span class="line">    <span class="keyword">while</span> (cin)</span><br><span class="line">    &#123;</span><br><span class="line">        cin.<span class="built_in">get</span>(next);</span><br><span class="line">        <span class="keyword">while</span> (next != <span class="string">&#x27;\n&#x27;</span>)    <span class="comment">// string didn&#x27;t fit!</span></span><br><span class="line">            cin.<span class="built_in">get</span>(next);      <span class="comment">// dispose of remainder</span></span><br><span class="line">        <span class="built_in">strcount</span>(input);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Enter next line (empty line to quit):\n&quot;</span>;</span><br><span class="line">        cin.<span class="built_in">get</span>(input, ArSize);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Bye\n&quot;</span>;</span><br><span class="line"><span class="comment">// code to keep window open for MSVC++</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">cin.clear();</span></span><br><span class="line"><span class="comment">    while (cin.get() != &#x27;\n&#x27;)</span></span><br><span class="line"><span class="comment">        continue;</span></span><br><span class="line"><span class="comment">    cin.get();</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">strcount</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> total = <span class="number">0</span>;        <span class="comment">// static local variable</span></span><br><span class="line">    <span class="type">int</span> count = <span class="number">0</span>;               <span class="comment">// automatic local variable</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;\&quot;&quot;</span> &lt;&lt; str &lt;&lt;<span class="string">&quot;\&quot; contains &quot;</span>;</span><br><span class="line">    <span class="keyword">while</span> (*str++)               <span class="comment">// go to end of string</span></span><br><span class="line">        count++;</span><br><span class="line">    total += count;</span><br><span class="line">    cout &lt;&lt; count &lt;&lt; <span class="string">&quot; characters\n&quot;</span>;</span><br><span class="line">    cout &lt;&lt; total &lt;&lt; <span class="string">&quot; characters total\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811112939105.png"
-                      alt="image-20210811112939105"
-                ></p>
-<p>注意，在这个程序中，由于数组长度为10，因此程序从每行读取的字符数都不超过 9个。另外还需要注意的是，每次函数被调用时，自动变量count都被重 置为0。然而，静态变量total只在程序运行时被设置为0，以后在两次函 数调用之间，其值将保持不变，因此能够记录读取的字符总数。</p>
-<h3 id="9-2-7-说明符和限定符"><a href="#9-2-7-说明符和限定符" class="headerlink" title="9.2.7 说明符和限定符"></a>9.2.7 说明符和限定符</h3><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811113430209.png"
-                      alt="image-20210811113430209"
-                ></p>
-<ol start="3">
-<li>再谈const</li>
-</ol>
-<p>在C++（但不是在C语言）中，<code>const</code>限定符对默认存储类型稍有影响。在默认情况下全局变量的链接性为外部的，<strong>但<code>const</code>全局变量的链接性为内部的</strong>。也就是说，在C++看来，全局 <code>const</code> 定义就像使用了 <code>static</code> 说明符一样。</p>
-<p>C++修改了常量类型的规则，让程序员更轻松。例如，假设将一组 常量放在头文件中，并在同一个程序的多个文件中使用该头文件。那 么，预处理器将头文件的内容包含到每个源文件中后，所有的源文件都 将包含类似下面这样的定义：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> fingers = <span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span> *waring = <span class="string">&quot;wak!&quot;</span>;</span><br></pre></td></tr></table></figure></div>
-
-<p>如果全局const声明的链接性像常规变量那样是外部的，则根据单定 义规则，这将出错（幸亏不是）。</p>
-<p>由于外部定义的<code>const</code>数据的链接性为内部的，因此可以在所有文件中使用相同的声明。</p>
-<h3 id="9-2-8-函数和链接性"><a href="#9-2-8-函数和链接性" class="headerlink" title="9.2.8 函数和链接性"></a>9.2.8 函数和链接性</h3><p>和变量一样，函数也有链接性，虽然可选择的范围比变量小。和C 语言一样，C++不允许在一个函数中定义另外一个函数，因此所有函数 的存储持续性都自动为静态的，即在整个程序执行期间都一直存在。在 默认情况下，函数的链接性为外部的，即可以在文件间共享。实际上， 可以在函数原型中使用关键字extern来指出函数是在另一个文件中定义 的，不过这是可选的。<strong>还可以使用关键字<code>static</code>将函数的链接性设置为内部的，使之只能在一个文件中使用</strong>，但必须同时在原型和函数定义中使用该关键字。</p>
-<h3 id="9-2-9-语言链接性"><a href="#9-2-9-语言链接性" class="headerlink" title="9.2.9 语言链接性"></a>9.2.9 语言链接性</h3><p>在 C++中，同一个名称可能对应多个函数，必须将这些函数翻译为不同的 符号名称。因此，C++编译器执行名称矫正或名称修饰（参见第8 章），为重载函数生成不同的符号名称。例如，可能将<code>spiff(int)</code>转换 为 <code>_spoff_i</code>，而将 <code>spiff(double，double)</code> 转换为 <code>_spiff_d_d</code>。这种方法被称为C++语言链接（C++ language linkage）。</p>
-<h3 id="9-2-10-存储方案和动态分配"><a href="#9-2-10-存储方案和动态分配" class="headerlink" title="9.2.10 存储方案和动态分配"></a>9.2.10 存储方案和动态分配</h3><p>动态内存由运算符 <code>new</code> 和 <code>delete</code> 控制，而不是由作用域和链接性规则控制。因此，<strong>可以在一个函数中分配动态内存，而在另一个函数中将其释放</strong>。与自动内存不同，动态内存不是LIFO，其分配和释放顺序要取决于 <code>new</code> 和 <code>delete</code> 在何时以何种方式被使用。通常，编译器使用三块独立的内存：一块用 于静态变量（可能再细分），一块用于自动变量，另外一块用于动态存 储。</p>
-<h2 id="9-3-名称空间"><a href="#9-3-名称空间" class="headerlink" title="9.3 名称空间"></a>9.3 名称空间</h2><p>名称可以是变量、函数、结构体、枚举、类以及类和结构体的成员。C++标准提供了名称空间工具，以便更好地控制名称的作用域。</p>
-<h3 id="9-3-1-传统的C-名称空间"><a href="#9-3-1-传统的C-名称空间" class="headerlink" title="9.3.1 传统的C++名称空间"></a>9.3.1 传统的C++名称空间</h3><p>C++关于全局变量和局部变量的规则定义了一种名称空间层次。每 个声明区域都可以声明名称，这些名称独立于在其他声明区域中声明的 名称。在一个函数中声明的局部变量不会与在另一个函数中声明的局部 变量发生冲突。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811114957087.png"
-                      alt="image-20210811114957087"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811115021641.png"
-                      alt="image-20210811115021641"
-                ></p>
-<h3 id="9-3-2-新的名称空间特性"><a href="#9-3-2-新的名称空间特性" class="headerlink" title="9.3.2 新的名称空间特性"></a>9.3.2 新的名称空间特性</h3><p>C++新增了这样一种功能，即通过定义一种新的声明区域来创建命 名的名称空间，这样做的目的之一是提供一个声明名称的区域。一个名 称空间中的名称不会与另外一个名称空间的相同名称发生冲突，同时允 许程序的其他部分使用该名称空间中声明的东西。</p>
-<p>名称空间可以是全局的，也可以位于另一个名称空间中，<strong>但不能位于代码块中</strong>。因此，在默认情况下，在名称空间中声明的名称的链接性 为外部的（除非它引用了常量）。</p>
-<p>1．using声明和using编译指令</p>
-<p>using声明由被限定的名称和它前面的关键字using组成：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> Jill::fetch;        <span class="comment">// a using declaration</span></span><br></pre></td></tr></table></figure></div>
-<p><code>using</code> 声明将特定的名称添加到它所属的声明区域中。例如 <code>main()</code> 中的 <code>using</code> 声明 <code>Jill::fetch</code> 将 <code>fetch</code> 添加到 <code>main()</code> 定义的声明区域中。完成该声明后，便可以使用名称 <code>fetch</code> 代替 <code>Jill::fetch</code>。</p>
-<p>using声明使一个名称可用，而using编译指令使所有的名称都可 用。using编译指令由名称空间名和它前面的关键字using namespace组成，它使名称空间中的所有名称都可用，而不需要使用作用域解析运算符。在全局声明区域中使用using编译指令，将使该名称空间的名称全局可用。</p>
-<p>2．using编译指令和using声明之比较</p>
-<p>一般说来，使用<code>using</code>声明比使用<code>using</code>编译指令更安全，这是由于它只导入指定的名称。如果该名称与局部名称发生冲突，编译器将发出 指示。<code>using</code> 编译指令导入所有名称，包括可能并不需要的名称。如果与局部名称发生冲突，则局部名称将覆盖名称空间版本，而编译器并不会发出警告。另外，名称空间的开放性意味着名称空间的名称可能分散在多个地方，这使得难以准确知道添加了哪些名称。</p>
-<p>3．名称空间的其他特性<br>可以将名称空间声明进行嵌套。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811135518193.png"
-                      alt="image-20210811135518193"
-                ></p>
-<p>这里，flame指的是element::fire::flame。同样，可以使用下面的 using编译指令使内部的名称可用。</p>
-<p>4．未命名的名称空间</p>
-<p>可以通过省略名称空间的名称来创建未命名的名称空间。</p>
-<p>该名称空间中声明的名称的潜在作用域为：从声明点到该声明区域末尾，这与全局变量相似。然而，这种名称空间没有名称，因此不能显式地使用 <code>using</code> 编译指令或 <code>using</code> 声明来使它在其他位置都可用。也就是说，不能在未命名名称空间所属文件之外的其他文件中，使用该名称空间中的名称。这相当于是一个链接性为内部的静态变量的替代品。</p>
-<h3 id="9-3-4-名称空间及其前途"><a href="#9-3-4-名称空间及其前途" class="headerlink" title="9.3.4 名称空间及其前途"></a>9.3.4 名称空间及其前途</h3><p>使用名称空间的原则：</p>
-<ul>
-<li>使用在已命名的名称空间中声明的变量，而不是使用外部全局变量；</li>
-<li>使用在已命名的名称空间中声明的变量，而不是使用静态全局变量；</li>
-<li>如果开发了一个函数库或类库，将其放在一个名称空间中；</li>
-<li>仅将编译指令using作为一种将旧代码转换为使用名称空间的权宜之计；</li>
-<li>不要在头文件中使用 <code>using</code> 编译指令。首先，这样做掩盖了要让哪些名称可用；另外，包含头文件的顺序可能影响程序的行为。如果非要使用编译指令 <code>using</code>，应将其放在所有预处理器编译指令 <code>#include</code> 之后；</li>
-<li>导入名称时，首选使用作用域解析运算符或using声明的方法；</li>
-<li>对于using声明，首选将其作用域设置为局部而不是全局。</li>
-</ul>
-<h2 id="9-4-总结"><a href="#9-4-总结" class="headerlink" title="9.4 总结"></a>9.4 总结</h2><p>C++提倡在开发程序时使用多个文件。一种有效的组织策略 是，使用头文件来定义用户类型，为操纵用户类型的函数提供函数原 型；并将函数定义放在一个独立的源代码文件中。头文件和源代码文件 一起定义和实现了用户定义的类型及其使用方式。</p>
-<p>C++的存储方案决定了变量保留在内存中的时间（储存持续性）以 及程序的哪一部分可以访问它（作用域和链接性）。</p>
-<p>动态内存分配和释放是使用new和delete进行的，它使用自由存储区 或堆来存储数据。调用new占用内存，而调用delete释放内存。程序使用 指针来跟踪这些内存单元。</p>
-<p>名称空间允许定义一个可在其中声明标识符的命名区域。这样做的 目的是减少名称冲突，尤其当程序非常大，并使用多个厂商的代码时。可以通过使用作用域解析运算符、using声明或using编译指令，来使名 称空间中的标识符可用。</p>
 ]]></content>
       <tags>
         <tag>C++</tag>
@@ -3374,26 +3400,6 @@
   </entry>
   <entry>
     <title>C++学习</title>
-    <url>/2023/01/29/C-Primer-Plus-1/chapter16/</url>
-    <content><![CDATA[<h1 id="第十六章-string类和标准模板库"><a href="#第十六章-string类和标准模板库" class="headerlink" title="第十六章 string类和标准模板库"></a>第十六章 string类和标准模板库</h1><p>本章内容包括：</p>
-<ul>
-<li>标准C++ string类；</li>
-<li>模板auto_ptr、unique_ptr 和 shared_ptr；</li>
-<li>标准模板库；</li>
-<li>容器类；</li>
-<li>迭代器</li>
-<li>函数对象；</li>
-<li>STL算法</li>
-<li>模板initializer_list</li>
-</ul>
-<h3 id="16-4-1-为何使用迭代器"><a href="#16-4-1-为何使用迭代器" class="headerlink" title="16.4.1 为何使用迭代器"></a>16.4.1 为何使用迭代器</h3><p>模板使得算法独立于存储的数据类型，而迭代器使算法独立于使用的容器类型。</p>
-]]></content>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++学习</title>
     <url>/2023/01/29/C-Primer-Plus-1/chapter15/</url>
     <content><![CDATA[<h1 id="第十五章-友元、异常和其他"><a href="#第十五章-友元、异常和其他" class="headerlink" title="第十五章 友元、异常和其他"></a>第十五章 友元、异常和其他</h1><p>本章内容包括：</p>
 <ul>
@@ -3416,6 +3422,26 @@
 <p>对于使用new导致的内存分配问题，C++的<strong>最新处理方式是让new引发bad_alloc异常</strong>。头文件new包含bad_alloc类的声明，它是从exception 类公有派生而来的。但<strong>在以前，当无法分配请求的内存量时，new返回 一个空指针</strong>，然后我们可以 <code>exit(EXIT_FAILURE)</code>。</p>
 <h2 id="15-6-总结"><a href="#15-6-总结" class="headerlink" title="15.6 总结"></a>15.6 总结</h2><p>友元使得能够为类开发更灵活的接口。类可以将其他函数、其他类 和其他类的成员函数作为友元。在某些情况下，可能需要使用前向声 明，需要特别注意类和方法声明的顺序，以正确地组合友元。</p>
 <p>嵌套类是在其他类中声明的类，它有助于设计这样的助手类，即实 现其他类，但不必是公有接口的组成部分。</p>
+]]></content>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++学习</title>
+    <url>/2023/01/29/C-Primer-Plus-1/chapter16/</url>
+    <content><![CDATA[<h1 id="第十六章-string类和标准模板库"><a href="#第十六章-string类和标准模板库" class="headerlink" title="第十六章 string类和标准模板库"></a>第十六章 string类和标准模板库</h1><p>本章内容包括：</p>
+<ul>
+<li>标准C++ string类；</li>
+<li>模板auto_ptr、unique_ptr 和 shared_ptr；</li>
+<li>标准模板库；</li>
+<li>容器类；</li>
+<li>迭代器</li>
+<li>函数对象；</li>
+<li>STL算法</li>
+<li>模板initializer_list</li>
+</ul>
+<h3 id="16-4-1-为何使用迭代器"><a href="#16-4-1-为何使用迭代器" class="headerlink" title="16.4.1 为何使用迭代器"></a>16.4.1 为何使用迭代器</h3><p>模板使得算法独立于存储的数据类型，而迭代器使算法独立于使用的容器类型。</p>
 ]]></content>
       <tags>
         <tag>C++</tag>
