@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="A1ent">
+    <link rel="canonical" href="http://example.com/2023/01/29/C-Primer-Plus-1/chapter06/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
+    <link rel="icon" type="image/png" href="/images/QvQ.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/QvQ.ico">
+    <link rel="shortcut icon" href="/images/QvQ.ico">
+    
+    <title>
+        
+            C++学习 |
+        
+        A1ent
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/fonts.css">
+    
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"/images/Fkz3HkwaEAMhwza.svg","favicon":"/images/QvQ.ico","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#18545A","right":"#F1F2B5","transparency":35},"hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_image":{"light":"/images/101920049_p0.svg","dark":"/images/244.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Game Can Make The World Better"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"1.0.0","friend_links":{"columns":2}};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/brands.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/solid.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/regular.min.css">
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="A1ent" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="menu-wrapper">
+    
+    <div class="menu-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                A1ent
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2021.3/ScriptReference/index.html"  >
+                                    
+                                        
+                                            <i class="fa-regular unity"></i>
+                                        
+                                        UNITY
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="menu-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2021.3/ScriptReference/index.html"  >
+                             
+                                
+                                    <i class="fa-regular unity"></i>
+                                
+                                UNITY
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:3rem; font-weight: bold; margin: 10px 0;">C++学习</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/Fkz3HkwaEAMhwza.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">A1ent</span>
+                            
+                                <span class="author-label">Lv3</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="pc">2023-01-29 13:45:15</span>
+        <span class="mobile">2023-01-29 13:45</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-file-word"></i>&nbsp;<span>4.7k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>17 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h1 id="第六章-分支语句和逻辑运算符"><a href="#第六章-分支语句和逻辑运算符" class="headerlink" title="第六章 分支语句和逻辑运算符"></a>第六章 分支语句和逻辑运算符</h1><p>本章的内容包括：</p>
+<ul>
+<li><code>if</code> 语句；</li>
+<li><code>if else</code> 语句；</li>
+<li>逻辑运算符：<code>&amp;&amp;</code>、<code>||</code> 和 <code>!</code>；</li>
+<li><code>cctype</code> 字符函数库；</li>
+<li>条件运算符：<code>?:</code>；</li>
+<li><code>switch</code> 语句；</li>
+<li><code>continue</code> 和 <code>break</code> 语句；</li>
+<li>读取数字的循环；</li>
+<li>基本文件输入&#x2F;输出。</li>
+</ul>
+<h2 id="6-1-if-语句"><a href="#6-1-if-语句" class="headerlink" title="6.1 if 语句"></a>6.1 <code>if</code> 语句</h2><p>如果测试条件为 <code>true</code>， 则 <code>if</code> 语句将引导程序执行语句或语句块；如果条件是<code>false</code>，程序将跳过 这条语句或语句块。因此，<code>if</code> 语句让程序能够决定是否应执行特定的语句。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728225254330.png"
+                      alt="image-20210728225254330"
+                ></p>
+<h3 id="6-1-1-if-else-语句"><a href="#6-1-1-if-else-语句" class="headerlink" title="6.1.1 if else 语句"></a>6.1.1 <code>if else</code> 语句</h3><p><code>if</code> 语句让程序决定是否执行特定的语句或语句块，而<code>if else</code>语句则让程序决定执行两条语句或语句块中的哪一条，这种语句对于选择其中一 种操作很有用。</p>
+<p><code>if else</code> 语句的通用格式如下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728225544934.png"
+                      alt="image-20210728225544934"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728225606236.png"
+                      alt="image-20210728225606236"
+                ></p>
+<h3 id="6-1-2-格式化-if-else-语句"><a href="#6-1-2-格式化-if-else-语句" class="headerlink" title="6.1.2 格式化 if else 语句"></a>6.1.2 格式化 <code>if else</code> 语句</h3><p><code>if else</code> 中的两种操作都必须是一条语句。如果需要多条语句，需要 用大括号将它们括起来，组成一个块语句。</p>
+<h3 id="6-1-3-if-else-if-else-结构"><a href="#6-1-3-if-else-if-else-结构" class="headerlink" title="6.1.3  if- else if- else 结构"></a>6.1.3  <code>if</code>- <code>else if</code>- <code>else</code> 结构</h3><p>计算机程序也可能提供两个以上的 选择。可以将<code>C++</code>的 <code>if else</code> 语句进行扩展来满足这种需求。正如读者知 道的，<code>else</code> 之后应是一条语句，也可以是语句块。由于 <code>if else</code> 语句本身是 一条语句，所以可以放在 <code>else</code> 的后面。</p>
+<h2 id="6-2-逻辑表达式"><a href="#6-2-逻辑表达式" class="headerlink" title="6.2 逻辑表达式"></a>6.2 逻辑表达式</h2><p>C++ 提供了3种逻辑运算符，来组合或修改已有的表达式。这些运算符分别是逻 辑 <code>OR (||)</code>、逻辑 <code>AND (&amp;&amp;)</code>和逻辑 <code>NOT (!)</code>。</p>
+<h3 id="6-2-1-逻辑OR运算符："><a href="#6-2-1-逻辑OR运算符：" class="headerlink" title="6.2.1 逻辑OR运算符：||"></a>6.2.1 逻辑OR运算符：<code>||</code></h3><p>C++可以采用逻辑OR运算 符 <code>||</code>，将两个表达式组合在一起。如果原来表达式中的任何一个或 全部都为 <code>true</code>（或非零），则得到的表达式的值为 <code>true</code>；否则，表达式的值为 <code>false</code>。</p>
+<p>C++ 规定 <code>||</code> 运算符是个顺序点（sequence point）。也是说，先修改左侧的值，再对右侧的值进行判定（C++11的说法是，运算符左边的子表达式先于右边的子表达式）。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728230438579.png"
+                      alt="image-20210728230438579"
+                ></p>
+<h3 id="6-2-2-逻辑AND运算符：-amp-amp"><a href="#6-2-2-逻辑AND运算符：-amp-amp" class="headerlink" title="6.2.2 逻辑AND运算符：&amp;&amp;"></a>6.2.2 逻辑AND运算符：<code>&amp;&amp;</code></h3><p>逻辑AND运算符 <code>&amp;&amp;</code>，也是将两个表达式组合成一个表达式。 仅当原来的两个表达式都为 <code>true</code> 时，得到的表达式的值才为 <code>true</code>。</p>
+<p><code>&amp;&amp;</code> 运算符也是顺序点，因此将首先判定左侧， 并且在右侧被判定之前产生所有的副作用。如果左侧为 <code>false</code>，则整个逻 辑表达式必定为 <code>false</code>，在这种情况下，C++ 将不会再对右侧进行判定。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728230605370.png"
+                      alt="image-20210728230605370"
+                ></p>
+<h3 id="6-2-3-用-amp-amp-来设置取值范围"><a href="#6-2-3-用-amp-amp-来设置取值范围" class="headerlink" title="6.2.3 用 &amp;&amp; 来设置取值范围"></a>6.2.3 用 <code>&amp;&amp;</code> 来设置取值范围</h3><p><code>&amp;&amp;</code> 运算符还允许建立一系列<code>if</code> <code>else if</code> <code>else</code>语句，其中每种选择都对 应于一个特定的取值范围。</p>
+<h3 id="6-2-4-逻辑NOT运算符："><a href="#6-2-4-逻辑NOT运算符：" class="headerlink" title="6.2.4 逻辑NOT运算符：!"></a>6.2.4 逻辑NOT运算符：<code>!</code></h3><p><code>!</code> 运算符将它后面的表达式的真值取反。也是说，如果 <code>expression</code> 为 <code>true</code>，则 <code>!expression</code> 是 <code>false</code>；如果 <code>expression</code> 为 <code>false</code>，则 <code>!expression</code>是 <code>true</code>。更准确地说，如果 <code>expression</code> 为 <code>true</code> 或非零，则 <code>!expression</code> 为 <code>false</code>。</p>
+<p>然而，<code>!</code> 运算符对于返回 <code>true-false</code> 值或可以被解释为 <code>true-false</code> 值的函数来说很有用。例如，如果C-风格字符串 <code>s1</code> 和 <code>s2</code> 不同，则 <code>strcmp(s1,s2)</code> 将返回非零<code>true</code>值，否则返回 <code>0</code>。这意味着如果这两个字符串相同， 则 <code>!strcmp(s1,s2)</code> 为 <code>true</code>。</p>
+<h3 id="6-2-5-逻辑运算符细节"><a href="#6-2-5-逻辑运算符细节" class="headerlink" title="6.2.5 逻辑运算符细节"></a>6.2.5 逻辑运算符细节</h3><p><code>!</code> 运算符的优先级高于所有的关系运算符和算术运算符。因此，要对表达式求反，必须用括号将其括起。</p>
+<h3 id="6-2-6-其他表示方式"><a href="#6-2-6-其他表示方式" class="headerlink" title="6.2.6 其他表示方式"></a>6.2.6 其他表示方式</h3><p>并不是所有的键盘都提供了用作逻辑运算符的符号，因此C++标准 提供了另一种表示方式，如表6.3所示。标识符<code>and</code>、<code>or</code>和<code>not</code>都是C++保 留字，这意味着不能将它们用作变量名等。它们不是关键字，因为它们 都是已有语言特性的另一种表示方式。另外，它们并不是C语言中的保 留字，但C语言程序可以将它们用作运算符，只要在程序中包含了头文 件 <code>iso646.h</code>。C++不要求使用头文件。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728232023659.png"
+                      alt="image-20210728232023659"
+                ></p>
+<h2 id="6-3-字符函数库-cctype"><a href="#6-3-字符函数库-cctype" class="headerlink" title="6.3 字符函数库 cctype"></a>6.3 字符函数库 <code>cctype</code></h2><p>C++ 从 C 语言继承了一个与字符相关的、非常方便的函数软件包， 它可以简化诸如确定字符是否为大写字母、数字、标点符号等工作，这 些函数的原型是在头文件<code>cctype</code>（老式的风格中为 <code>ctype.h</code>）中定义的。 例如，如果 <code>ch</code> 是一个字母，则 <code>isalpha(ch)</code> 函数返回一个非零值，否则返回 <code>0</code>。同样，如果 <code>ch</code> 是标点符号（如逗号或句号），函数 <code>ispunct(ch)</code> 将返回 <code>true</code>。（<strong>注意这些函数的返回类型为 <code>int</code>，而不是 <code>bool</code>， 但通常 <code>bool</code> 转换能够将它们视为<code>bool</code> 类型</strong>）</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728232352198.png"
+                      alt="image-20210728232352198"
+                ></p>
+<p><code>isalpha()</code> 不仅更容易使用，而且更通用。例子中用AND&#x2F;OR格式假设A-Z的字符编码是连续的，其他字符的编码不在这个范围内。这种假设对于ASCII码来说是成立的，但也并非总是如此。</p>
+<p>具体地说：</p>
+<ul>
+<li><code>isalpha()</code> 用来检查字符是否为字母字符；</li>
+<li><code>isdigit()</code> 用来测试字符是否为数字字符（0~9），如 3；</li>
+<li><code>isspace()</code> 用来测试字符是否为空白，包括换行符、空格和制表符；</li>
+<li><code>ispunct()</code> 用来测试字符是否为标点符号。</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728232647223.png"
+                      alt="image-20210728232647223"
+                ></p>
+<p>总结一下这个函数包：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728232856482.png"
+                      alt="image-20210728232856482"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728232930054.png"
+                      alt="image-20210728232930054"
+                ></p>
+<h2 id="6-4-运算符"><a href="#6-4-运算符" class="headerlink" title="6.4 ?: 运算符"></a>6.4 <code>?:</code> 运算符</h2><p>C++有一个常被用来代替 <code>if else</code> 语句的运算符，这个运算符被称为条件运算符 <code>?:</code>，它是C++中唯一一个需要3个操作数的运算符，也叫<strong>三目运算符</strong>。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expression1 ? expression2 : expression3</span><br></pre></td></tr></table></figure></div>
+<p>如果 <code>expression1</code> 为 <code>true</code>，则整个条件表达式的值为 <code>expression2</code> 的值； 否则，整个表达式的值为 <code>expression3</code> 的值。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728233356197.png"
+                      alt="image-20210728233356197"
+                ></p>
+<h2 id="6-5-switch语句"><a href="#6-5-switch语句" class="headerlink" title="6.5 switch语句"></a>6.5 <code>switch</code>语句</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728234430665.png"
+                      alt="image-20210728234430665"
+                ></p>
+<p><code>switch</code> 语句与 Pascal 等语言中类似的语句之间存在重大的差别。 C++中的 <code>case</code> 标签只是行标签，而不是选项之间的界线。也是说，程序跳到 <code>switch</code> 中特定代码行后，将依次执行之后的所有语句，除非有明确的其他指示。程序不会在执行到下一个 <code>case</code> 处自动停止，<strong>要让程序执行 完一组特定语句后停止，必须使用<code>break</code> 语句</strong>。这将导致程序跳到 <code>switch</code> 后面的语句处执行。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728234458366.png"
+                      alt="image-20210728234458366"
+                ></p>
+<h3 id="6-5-1-将枚举量用作标签"><a href="#6-5-1-将枚举量用作标签" class="headerlink" title="6.5.1 将枚举量用作标签"></a>6.5.1 将枚举量用作标签</h3><p>通常，<code>cin</code> 无法识别枚举类型（它不知道程序员是如 何定义它们的），因此该程序要求用户选择选项时输入一个整数。当 <code>switch</code> 语句将 <code>int</code> 值和枚举量标签进行比较时，将枚举量提升为 <code>int</code>。另 外，在 <code>while</code> 循环测试条件中，也会将枚举量提升为 <code>int</code> 类型。</p>
+<h3 id="6-5-2-switch-和-if-else"><a href="#6-5-2-switch-和-if-else" class="headerlink" title="6.5.2 switch 和 if else"></a>6.5.2 <code>switch</code> 和 <code>if else</code></h3><p><code>switch</code>语句和<code>if else</code>语句都允许程序从选项中进行选择。相比之下， <code>if else</code>更通用，例如，它可以处理取值范围。</p>
+<p>然而，<code>switch</code>并不是为处理取值范围而设计的。<code>switch</code>语句中的每 一个<code>case</code>标签都必须是一个单独的值。另外，这个值必须是整数（包括 <code>char</code>），因此 <code>switch</code> 无法处理浮点测试。另外 <code>case</code> 标签值还必须是常量。 如果选项涉及取值范围、浮点测试或两个变量的比较，则应使用 <code>if else</code> 语句。</p>
+<h2 id="6-6-break-和-continue-语句"><a href="#6-6-break-和-continue-语句" class="headerlink" title="6.6 break 和 continue 语句"></a>6.6 <code>break</code> 和 <code>continue</code> 语句</h2><p><code>break</code>和 <code>continue</code>语句都使程序能够跳过部分代码。可以在 <code>switch</code>语句或任何循环中使用 <code>break</code> 语句，使程序跳到 <code>switch</code> 或循环后面的语句处执行。<code>continue</code> 语句用于循环中，让程序跳过循环体中余下的代码，并开始新一轮循环。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728235538853.png"
+                      alt="image-20210728235538853"
+                ></p>
+<h2 id="6-7-读取数字的循环"><a href="#6-7-读取数字的循环" class="headerlink" title="6.7 读取数字的循环"></a>6.7 读取数字的循环</h2><p>假设要编写一个将一系列数字读入到数组中的程序，并允许用户在 数组填满之前结束输入，一种方法是利用cin。看下面的代码：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n;</span><br><span class="line">cin &gt;&gt; n;</span><br></pre></td></tr></table></figure></div>
+
+<p>如果用户输入一个单词，而不是一个数字，发生这种类型不匹配的情况时，将发生4种情况：</p>
+<ul>
+<li><code>n</code> 的值保持不变；</li>
+<li>不匹配的输入将被留在输入队列中；</li>
+<li><code>cin</code> 对象中的一个错误标记被设置；</li>
+<li>对 <code>cin</code> 方法的调用将返回 <code>false</code>（如果被转换为 <code>bool</code> 类型）。</li>
+</ul>
+<p><strong>方法返回 <code>false</code> 意味着可以用非数字输入来结束读取数字的循环</strong>。当用户输入的不是数字时，该程序将不再读取输入。非数字输入设置错误标记意味着<strong>必须重置该标记，程序才能继续读取输 入</strong>。<code>clear()</code> 方法重置错误输入标记，同时也重置文件尾（<code>EOF</code>条件，参见第5章）。输入错误和 <code>EOF</code> 都将导致<code>cin</code>返回 <code>false</code>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210729001427328.png"
+                      alt="image-20210729001427328"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210729001350955.png"
+                      alt="image-20210729001350955"
+                ></p>
+<p>如果用户输入非数字输入，程序将拒绝，并要求用户继续输入数字。可以看到，可以使用 <code>cin</code> 输入表达式的值来检测输入是不是数字。 程序发现用户输入了错误内容时，应采取3个步骤：</p>
+<ul>
+<li>重置 <code>cin</code> 以接受新的输入；</li>
+<li>删除错误输入；</li>
+<li>提示用户再输入。</li>
+</ul>
+<p>请注意，程序必须先重置cin，然后才能删除错误输入。如下程序清单 6.14演示了如何完成这些工作。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> Max = <span class="number">5</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="comment">// get data</span></span><br><span class="line">    <span class="type">int</span> golf[Max];</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Please enter your golf scores.\n&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;You must enter &quot;</span> &lt;&lt; Max &lt;&lt; <span class="string">&quot; rounds.\n&quot;</span>;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; Max; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;round #&quot;</span> &lt;&lt; i+<span class="number">1</span> &lt;&lt; <span class="string">&quot;: &quot;</span>;</span><br><span class="line">        <span class="keyword">while</span> (!(cin &gt;&gt; golf[i])) &#123;</span><br><span class="line">            cin.<span class="built_in">clear</span>();     <span class="comment">// reset input</span></span><br><span class="line">            <span class="keyword">while</span> (cin.<span class="built_in">get</span>() != <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">                <span class="keyword">continue</span>;    <span class="comment">// get rid of bad input</span></span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Please enter a number: &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// calculate average</span></span><br><span class="line">    <span class="type">double</span> total = <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; Max; i++)</span><br><span class="line">        total += golf[i];</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// report results</span></span><br><span class="line">    cout &lt;&lt; total / Max &lt;&lt; <span class="string">&quot; = average score &quot;</span></span><br><span class="line">         &lt;&lt; Max &lt;&lt; <span class="string">&quot; rounds\n&quot;</span>;</span><br><span class="line">    <span class="comment">// cin.get();</span></span><br><span class="line">    <span class="comment">// cin.get();</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210729165001482.png"
+                      alt="image-20210729165001482"
+                ></p>
+<blockquote>
+<p>如果用户输入 88，则 <code>cin</code> 表达式将为 <code>true</code>，因此将一个值放到数组中；而表达式 <code>!(cin &gt;&gt; golf [i])</code> 为 <code>false</code>，因此结束内部循环。然而，如果用户输入 <code>must i?</code>，则 <code>cin</code> 表达式将为 <code>false</code>，因此不会将任何值放到数组 中；而表达式 <code>!(cin &gt;&gt; golf [i])</code> 将为 <code>true</code>，因此进入内部的 <code>while</code> 循环。该循环的第一条语句使用 <code>clear()</code> 方法重置输入，如果省略这条语句，程序将拒绝继续读取输入。接下来，程序在 <code>while</code> 循环中使用 <code>cin.get()</code> 来读取 行尾之前的所有输入，从而删除这一行中的错误输入。另一种方法是读取到下一个空白字符，这样将每次删除一个单词，而不是一次删除整 行。最后，程序告诉用户，应输入一个数字。</p>
+</blockquote>
+<h2 id="6-8-简单文件输入-x2F-输出"><a href="#6-8-简单文件输入-x2F-输出" class="headerlink" title="6.8 简单文件输入&#x2F;输出"></a>6.8 简单文件输入&#x2F;输出</h2><h3 id="6-8-1-文本I-x2F-O和文本文件"><a href="#6-8-1-文本I-x2F-O和文本文件" class="headerlink" title="6.8.1 文本I&#x2F;O和文本文件"></a>6.8.1 文本I&#x2F;O和文本文件</h3><h3 id="6-8-2-写入到文本文件中"><a href="#6-8-2-写入到文本文件中" class="headerlink" title="6.8.2 写入到文本文件中"></a>6.8.2 写入到文本文件中</h3><p>文件输出：</p>
+<ul>
+<li>必须包含头文件 <code>fstream</code>；</li>
+<li>头文件 <code>fstream</code> 定义了一个用于处理输出的 <code>ofstream</code> 类；</li>
+<li>需要声明一个或多个 <code>ofstream</code> 变量（对象），并以自己喜欢的方式 对其进行命名，条件是遵守常用的命名规则；</li>
+<li>必须指明名称空间 <code>std</code>。例如，为引用元素 <code>ofstream</code>，必须使用编译指令<code>using</code> 或前缀 <code>std::</code>；</li>
+<li>需要将 <code>ofstream</code> 对象与文件关联起来。为此，方法之一是使用 <code>open()</code> 方法；</li>
+<li>使用完文件后，应使用方法 <code>close()</code> 将其关闭；</li>
+<li>可结合使用 <code>ofstream</code> 对象和运算符 <code>&lt;&lt;</code> 来输出各种类型的数据。</li>
+</ul>
+<p>虽然头文件 <code>iostream</code> 提供了一个预先定义好的名为 <code>cout</code> 的 <code>ostream</code> 对象，但您必须声明自己的 <code>ofstream</code> 对象，为其命名，并将其同文件关联起来。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210729232741786.png"
+                      alt="image-20210729232741786"
+                ></p>
+<p>注意，方法<code>open()</code> 只接受C-风格字符串作为参数，这可以是一个 字面字符串，也可以是存储在数组中的字符串。</p>
+<p>重要的是，声明一个<code>ofstream</code>对象并将其同文件关联起来后，便可以像使用cout那样使用它。所有可用于cout的操作和方法（如&lt;&lt;、endl 和setf( )）都可用于ofstream对象（如前述示例中的outFile和fout）。</p>
+<p>总之，使用文件输出的主要步骤如下：</p>
+<ul>
+<li>包含头文件 <code>fstream</code>；</li>
+<li>创建一个 <code>ofstream</code> 对象；</li>
+<li>将该 <code>ofstream</code> 对象同一个文件关联起来；</li>
+<li>就像使用 <code>cout</code> 那样使用该 <code>ofstream</code> 对象;</li>
+<li>调用 <code>close()</code> 成员函数，关闭文件。</li>
+</ul>
+<blockquote>
+<p>默认情况下，<code>open()</code> 的将首先截断该文件，即将其长度截短到零——丢弃原有的内容，然后将新的输出加入到该文件中。</p>
+</blockquote>
+<h3 id="6-8-3-读取文本文件"><a href="#6-8-3-读取文本文件" class="headerlink" title="6.8.3 读取文本文件"></a>6.8.3 读取文本文件</h3><p>接下来介绍文本文件输入，它是基于控制台输入的。控制台输入涉 及多个方面，下面首先总结这些方面：</p>
+<ul>
+<li>必须包含头文件 <code>fstream</code>；</li>
+<li>头文件 <code>fstream</code> 定义了一个用于处理输入的 <code>ifstream</code> 类；</li>
+<li>需要声明一个或多个 <code>ifstream</code> 变量（对象），并以自己喜欢的方式对其进行命名，条件是遵守常用的命名规则；</li>
+<li>必须指明名称空间 <code>std</code>；例如，为引用元素 <code>ifstream</code>，必须使用编译指令<code>using</code>或前缀<code>std::</code>；</li>
+<li>需要将 <code>ifstream</code> 对象与文件关联起来。为此，方法之一是使用 <code>open()</code> 方法；</li>
+<li>使用完文件后，应使用 <code>close()</code> 方法将其关闭；</li>
+<li>可结合使用 <code>ifstream</code> 对象和运算符 <code>&gt;&gt;</code> 来读取各种类型的数据；</li>
+<li>可以使用 <code>ifstream</code> 对象和 <code>get()</code> 方法来读取一个字符，使用 <code>ifstream</code> 对象和 <code>getline()</code> 来读取一行字符；</li>
+<li>可以结合使用 <code>ifstream</code> 和 <code>eof()</code>、<code>fail()</code> 等方法来判断输入是否成功；</li>
+<li><code>ifstream</code> 对象本身被用作测试条件时，如果最后一个读取操作成 功，它将被转换为布尔值 <code>true</code>，否则被转换为 <code>false</code>。</li>
+</ul>
+<p>如果试图打开一个不存在的文件用于输入，情况将如何呢？这种错误将导致后面使用<code>ifstream</code> 对象进行输入时失败。检查文件是否被成功打开的首选方法是使用<code>is_open()</code>，为此，可以使用类似于下面的代码：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">inFile.<span class="built_in">open</span>(<span class="string">&quot;b.txt&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (!inFile.<span class="built_in">is_open</span>()) &#123;</span><br><span class="line">    <span class="built_in">exit</span>(EXIT_FEAILURE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>如果文件被成功地打开，方法 <code>is_open()</code> 将返回 <code>true</code>；因此如果文件没有被打开，表达式 <code>!inFile.is_open()</code> 将为 <code>true</code>。函数 <code>exit()</code> 的原型是在头文件 <code>cstdlib</code> 中定义的，在该头文件中，还定义了一个用于同操作系统通信的参数值 <code>EXIT_FAILURE</code>。函数 <code>exit()</code> 终止程序。</p>
+<blockquote>
+<p>方法 <code>is_open()</code> 是C++中相对较新的内容。如果读者的编译器不支持它，可使用较老的方法 <code>good()</code> 来代替。</p>
+</blockquote>
+<p>程序例子：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210730001839791.png"
+                      alt="image-20210730001839791"
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210730001922821.png"
+                      alt="image-20210730001922821"
+                ></p>
+<p>假设该文件名为scores.txt，包含的内容如下：</p>
+<div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">18 19 18.5 13.5</span><br><span class="line">16 19.5 18.5</span><br><span class="line">17.5</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>检查文件是否被成功打开至关重要。</p>
+</blockquote>
+<p>读取文件时，有 几点需要检查。首先，程序读取文件时不应超过 EOF。如果最后一次读取数据时遇到 <code>EOF</code>，方法 <code>eof()</code> 将返回 <code>true</code>。其次，程序可能遇到类型不 匹配的情况。例如，程序清单6.16期望文件中只包含数字。如果最后一次读取操作中发生了类型不匹配的情况，方法 <code>fail()</code> 将返回 <code>true</code>（如果遇到了 <code>EOF</code>，该方法也将返回 <code>true</code>）。最后，可能出现意外的问题，如文 件受损或硬件故障。如果最后一次读取文件时发生了这样的问题，方法 <code>bad()</code> 将返回 <code>true</code>。不要分别检查这些情况，一种更简单的方法是使用 <code>good()</code> 方法，该方法在没有发生任何错误时返回 <code>true</code>：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (inFile.<span class="built_in">good</span>()) &#123;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>方法 <code>good()</code> 指出最后一次读取输入的操作是否成功，这一点至关重要。这意味着应该在执行读取输入的操作后，立刻应用这种测试。为此，一种标准方法是，在循环之前（首次执行循环测试前）放置一条输 入语句，并在循环的末尾（下次执行循环测试之前）放置另一条输入语句：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// standard file-reading loop design</span></span><br><span class="line">inFile &gt;&gt; value;         <span class="comment">// get first value</span></span><br><span class="line"><span class="keyword">while</span> (inFile.<span class="built_in">good</span>()) &#123;  <span class="comment">// while uput good and not at EOF</span></span><br><span class="line">    <span class="comment">//loop body goes here</span></span><br><span class="line">    inFile &gt;&gt; value;     <span class="comment">// get next value</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>鉴于以下事实，可以对上述代码进行精简：表达式 <code>inFile &gt;&gt; value</code> 的结果为<code>inFile</code>，而在需要一个 <code>bool</code> 值的情况下，<code>inFile</code> 的结果为 <code>inFile.good()</code>，即 <code>true</code> 或 <code>false</code>。</p>
+<p>因此，可以将两条输入语句用一条用作循环测试的输入语句代替。 也就是说，可以将上述循环结构替换为如下循环结构：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// omit pre-loop input</span></span><br><span class="line"><span class="keyword">while</span> (inFile &gt;&gt; value) &#123;  <span class="comment">// read and test for success</span></span><br><span class="line">    <span class="comment">// loop body goes here</span></span><br><span class="line">    <span class="comment">// omit end-of-loop input</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210730002759125.png"
+                      alt="image-20210730002759125"
+                ></p>
+<p>这些代码紧跟在循环的后面，用于判断循环为何终止。由于 <code>eof()</code> 只能判断是否到达 <code>EOF</code>，而 <code>fail()</code> 可用于检查 <code>EOF</code> 和类型不匹配，因此上述 代码首先判断是否到达 <code>EOF</code>。这样，如果执行到了 <code>else if</code> 测试，便可排除 <code>EOF</code>，因此，如果 <code>fail()</code> 返回 <code>true</code>，便可断定导致循环终止的原因是类型不匹配。</p>
+<p>这种设计仍然遵循了在测试之前进行读取的规则，因为要计算表达式 <code>inFile &gt;&gt; value</code> 的值，程序必须首先试图将一个数字读取到 <code>value</code> 中。</p>
+<p>以上仅是对文件 I&#x2F;O 的初步介绍。</p>
+<h2 id="6-9-总结"><a href="#6-9-总结" class="headerlink" title="6.9 总结"></a>6.9 总结</h2><p>C++提供了 <code>if</code> 语句、<code>if-else</code> 语句和 <code>switch</code> 语句来管理选项。<br>C++还提供了帮助决策的运算符。通过使用逻辑运算符（<code>&amp;&amp;</code>、<code>||</code> 和 <code>!</code>），可以组合或修改关系表达式，创建更细致的测试。条件运算符 <code>(?:)</code> 提供了一种选择两个值之一 的简洁方式。</p>
+<p><code>cctype</code> 字符函数库提供了一组方便的、功能强大的工具，可用于分析字符输入。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728232856482.png"
+                      alt="image-20210728232856482"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/07/image-20210728232930054.png"
+                      alt="image-20210728232930054"
+                ></p>
+<p>文件 I&#x2F;O 与控制台 I&#x2F;O 极其相似。声明 ifstream 和 ofstream 对象，并将它们同文件关联起来后，便可以像使用 cin 和 cout 那样使用这些对象。</p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/C/">#C++</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023/01/29/C-Primer-Plus-1/chapter04/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">C++学习</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/01/29/C-Primer-Plus-1/chapter07/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">C++学习</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">C++学习</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5%E5%92%8C%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">第六章 分支语句和逻辑运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-if-%E8%AF%AD%E5%8F%A5"><span class="nav-text">6.1 if 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-1-if-else-%E8%AF%AD%E5%8F%A5"><span class="nav-text">6.1.1 if else 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-2-%E6%A0%BC%E5%BC%8F%E5%8C%96-if-else-%E8%AF%AD%E5%8F%A5"><span class="nav-text">6.1.2 格式化 if else 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-3-if-else-if-else-%E7%BB%93%E6%9E%84"><span class="nav-text">6.1.3  if- else if- else 结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E9%80%BB%E8%BE%91%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">6.2 逻辑表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-1-%E9%80%BB%E8%BE%91OR%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A"><span class="nav-text">6.2.1 逻辑OR运算符：||</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-2-%E9%80%BB%E8%BE%91AND%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A-amp-amp"><span class="nav-text">6.2.2 逻辑AND运算符：&amp;&amp;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-3-%E7%94%A8-amp-amp-%E6%9D%A5%E8%AE%BE%E7%BD%AE%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="nav-text">6.2.3 用 &amp;&amp; 来设置取值范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-4-%E9%80%BB%E8%BE%91NOT%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BC%9A"><span class="nav-text">6.2.4 逻辑NOT运算符：!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-5-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6%E7%BB%86%E8%8A%82"><span class="nav-text">6.2.5 逻辑运算符细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-6-%E5%85%B6%E4%BB%96%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="nav-text">6.2.6 其他表示方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-%E5%AD%97%E7%AC%A6%E5%87%BD%E6%95%B0%E5%BA%93-cctype"><span class="nav-text">6.3 字符函数库 cctype</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">6.4 ?: 运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-5-switch%E8%AF%AD%E5%8F%A5"><span class="nav-text">6.5 switch语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-1-%E5%B0%86%E6%9E%9A%E4%B8%BE%E9%87%8F%E7%94%A8%E4%BD%9C%E6%A0%87%E7%AD%BE"><span class="nav-text">6.5.1 将枚举量用作标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-2-switch-%E5%92%8C-if-else"><span class="nav-text">6.5.2 switch 和 if else</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-6-break-%E5%92%8C-continue-%E8%AF%AD%E5%8F%A5"><span class="nav-text">6.6 break 和 continue 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-7-%E8%AF%BB%E5%8F%96%E6%95%B0%E5%AD%97%E7%9A%84%E5%BE%AA%E7%8E%AF"><span class="nav-text">6.7 读取数字的循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-8-%E7%AE%80%E5%8D%95%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5-x2F-%E8%BE%93%E5%87%BA"><span class="nav-text">6.8 简单文件输入&#x2F;输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-1-%E6%96%87%E6%9C%ACI-x2F-O%E5%92%8C%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="nav-text">6.8.1 文本I&#x2F;O和文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-2-%E5%86%99%E5%85%A5%E5%88%B0%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="nav-text">6.8.2 写入到文本文件中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-3-%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="nav-text">6.8.3 读取文本文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-9-%E6%80%BB%E7%BB%93"><span class="nav-text">6.9 总结</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">A1ent. All Rights Reserved.</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalviews&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v1.0.0</a>
+        </div>
+        
+        
+        <script async  defer>
+            function odometer_init(){
+                    let el = document.getElementsByClassName('odometer');
+                    for (i = 0; i < el.length; i++) {
+                        od = new Odometer({
+                            el: el[i],
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    }
+            }
+            odometer_init();
+        </script>
+        <div id="start_time_div" style="display:none">
+            2022/8/17 11:45:14
+        </div>
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="unfolded-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="folded-tools-list">
+        <li class="right-bottom-tools tool-toggle-show flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+
+<script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/utils.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/main.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/menu-shrink.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/go-top-bottom.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/dark-light-toggle.js"></script>
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/local-search.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/code-block.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/runtime.js"></script>
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/odometer.min.js"></script>
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/odometer-theme-minimal.css">
+
+
+<div class="post-scripts">
+    
+        <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/toc-toggle.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/libs/anime.min.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/toc.js"></script>
+    
+    
+</div>
+
+
+
+</body>
+</html>

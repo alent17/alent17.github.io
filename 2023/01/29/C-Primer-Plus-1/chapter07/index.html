@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="A1ent">
+    <link rel="canonical" href="http://example.com/2023/01/29/C-Primer-Plus-1/chapter07/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
+    <link rel="icon" type="image/png" href="/images/QvQ.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/QvQ.ico">
+    <link rel="shortcut icon" href="/images/QvQ.ico">
+    
+    <title>
+        
+            C++学习 |
+        
+        A1ent
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/fonts.css">
+    
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"/images/Fkz3HkwaEAMhwza.svg","favicon":"/images/QvQ.ico","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#18545A","right":"#F1F2B5","transparency":35},"hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_image":{"light":"/images/101920049_p0.svg","dark":"/images/244.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Game Can Make The World Better"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"1.0.0","friend_links":{"columns":2}};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/brands.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/solid.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/regular.min.css">
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="A1ent" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="menu-wrapper">
+    
+    <div class="menu-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                A1ent
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2021.3/ScriptReference/index.html"  >
+                                    
+                                        
+                                            <i class="fa-regular unity"></i>
+                                        
+                                        UNITY
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="menu-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2021.3/ScriptReference/index.html"  >
+                             
+                                
+                                    <i class="fa-regular unity"></i>
+                                
+                                UNITY
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:3rem; font-weight: bold; margin: 10px 0;">C++学习</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/Fkz3HkwaEAMhwza.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">A1ent</span>
+                            
+                                <span class="author-label">Lv3</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="pc">2023-01-29 13:45:15</span>
+        <span class="mobile">2023-01-29 13:45</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-file-word"></i>&nbsp;<span>5.9k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>20 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h1 id="第七章-函数——C-的编程模块"><a href="#第七章-函数——C-的编程模块" class="headerlink" title="第七章 函数——C++的编程模块"></a>第七章 函数——C++的编程模块</h1><p>本周内容包括：</p>
+<ul>
+<li>函数基本知识；</li>
+<li>函数原型；</li>
+<li>按值传递函数参数；</li>
+<li>设计处理数据的函数；</li>
+<li>使用 <code>const</code> 指针参数；</li>
+<li>设计处理文本字符串的函数；</li>
+<li>设计处理结构的函数；</li>
+<li>设计处理 <code>string</code> 对象的函数；</li>
+<li>调用自身的函数（递归）；</li>
+<li>指向函数的指数。</li>
+</ul>
+<h2 id="7-1-函数基本知识"><a href="#7-1-函数基本知识" class="headerlink" title="7.1 函数基本知识"></a>7.1 函数基本知识</h2><p>自定义函数三要素：</p>
+<ul>
+<li>函数定义；</li>
+<li>函数原型；</li>
+<li>调用函数。</li>
+</ul>
+<h3 id="7-1-1-定义函数"><a href="#7-1-1-定义函数" class="headerlink" title="7.1.1 定义函数"></a>7.1.1 定义函数</h3><p>函数有两类：没有返回值的函数和有返回值的函数。</p>
+<p>函数定义通用格式：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">functionName</span><span class="params">(parameterList)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">statement</span>(s);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>C++ 对于返回值的类型有一定的限制：<strong>不能是数组</strong>，但可以是其他任何类型——整数、浮点数、指针，甚至可以是结构体和对象。</p>
+<p><strong>C++ 函数返回值的原理是什么？</strong><br>首先，函数将返回值复制到指定的CPU寄存器或内存单元中将值返回；随后，调用程序将查看该内存单元。<strong>返回函数和调用函数必须就该内存单元中存储的数据的类型达成一致</strong>。函数原型将返回值类型告知调用程序，而函数定义命令被调用函数应返回什么类型的数据。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804133448677.png"
+                      alt="image-20210804133448677"
+                ></p>
+<h3 id="7-1-2-函数原型和函数调用"><a href="#7-1-2-函数原型和函数调用" class="headerlink" title="7.1.2 函数原型和函数调用"></a>7.1.2 函数原型和函数调用</h3><ol>
+<li>为什么需要函数原型</li>
+</ol>
+<p>原型描述了函数到编译器的接口，也就是说，它将函数返回值的类型（如果有的话）以及参数的类型和数量告诉编译器。举个例子：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> volume = <span class="built_in">cube</span>(side);</span><br></pre></td></tr></table></figure></div>
+
+<p>首先，原型告诉编译器，<code>cube()</code> 有一个 double 参数。如果程序没有 提供这样的参数，原型将让编译器能够捕获这种错误。其次，<code>cube()</code> 函数完成计算后，将把返回值放置在指定的位置——可能是 CPU 寄存器， 也可能是内存中。然后调用函数（这里为 <code>main()</code>）将从这个位置取得返回值。由于原型指出了 <code>cube()</code> 的类型为 double，因此编译器知道应检索多少个字节以及如何解释它们。如果没有这些信息，编译器将只能进行猜测，而编译器是不会这样做的。</p>
+<p>为何编译器需要原型，它就不能在文件中进一步查找，以了解函数是如何定义的吗？这种方法的一个问题是效率不高。编译器在搜索文件的剩余部分时必须停止对 <code>main()</code> 的编译。一个更严重的问题是，函数甚至可能并不在文件中。C++ 允许将一个程序放 在多个文件中，单独编译这些文件，然后再将它们组合起来。在这种情况下，编译器在编译 <code>main()</code> 时，可能无权访问函数代码。如果函数位于库中，情况也将如此。避免使用函数原型的唯一方法是，在首次使用函数之前定义它，但这并不总是可行的。</p>
+<ol start="2">
+<li>原型的语法</li>
+</ol>
+<p>函数原型是一条语句，因此必须以分号结束。获得原型最简单的方 法是，复制函数定义中的函数头，并添加分号。<br>函数原型不要求提供变量名，有类型列表就足够了。<strong>通常，在原型的参数列表中，可以包括变量名，也可以不包括。原 型中的变量名相当于占位符，因此不必与函数定义中的变量名相同。</strong></p>
+<ol start="3">
+<li>原型的功能</li>
+</ol>
+<p>它们可以极大地降低程序出错的几率。具体来说，原型 确保以下几点：</p>
+<ul>
+<li>编译器正确处理函数返回值；</li>
+<li>编译器检查使用的参数数目是否正确；</li>
+<li>编译器检查使用的参数类型是否正确，如果不正确，则转换为正确的类型。</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804144730761.png"
+                      alt="image-20210804144730761"
+                ></p>
+<p>仅当有意义时，原型化才会导致类型转换。例如，原型不会将整数转换为结构或指针。</p>
+<p>在编译阶段进行的原型化被称为静态类型检查（static type checking）。</p>
+<h2 id="7-2-函数参数和按值传递"><a href="#7-2-函数参数和按值传递" class="headerlink" title="7.2 函数参数和按值传递"></a>7.2 函数参数和按值传递</h2><p>C++通常按值传递参数，这意味着将 数值参数传递给函数，而后者将其赋给一个新的变量。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> volume = <span class="built_in">cube</span>(side);</span><br></pre></td></tr></table></figure></div>
+
+
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804145401521.png"
+                      alt="image-20210804145401521"
+                ></p>
+<p>side 是一个变量，被调用时，该函数将创建一个新的名为x的double变量，并将其初 始化为5。这样，cube( )执行的操作将不会影响main( )中的数据，因为 cube( )使用的是side的副本，而不是原来的数据。</p>
+<p><strong>在函数中声明的变量（包括参数）是该函数私有的。在函数被调用 时，计算机将为这些变量分配内存；在函数结束时，计算机将释放这些 变量使用的内存</strong>。这样的变量被称为局部变量，因为它们被限制在函数中。前面提到过，这样做有助于确保数据的完整性。这还意 味着，如果在main( )中声明了一个名为x的变量，同时在另一个函数中 也声明了一个名为x的变量，则它们将是两个完全不同的、毫无关系的变量。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804145526933.png"
+                      alt="image-20210804145526933"
+                ></p>
+<h3 id="7-2-1-多个参数"><a href="#7-2-1-多个参数" class="headerlink" title="7.2.1 多个参数"></a>7.2.1 多个参数</h3><p>函数可以有多个参数。在调用函数时，只需使用逗号将这些参数分开即可。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804150422862.png"
+                      alt="image-20210804150422862"
+                ></p>
+<p>它使用<code>cin&gt;&gt;ch</code>，而不是<code>cin.get(ch)</code>或<code>ch = cin.get()</code>来读取一个字符。这样做是有原因的。前面讲过，这两个<code>cin.get()</code> 函数读取所有的输入字符，包括空格和换行符，而 <code>cin&gt;&gt;</code> 跳过空格和换行符。当用户对程序提示作出响应时，必须在每行的最后按 <code>Enter</code> 键，以生成换行符。<code>cin&gt;&gt;ch</code> 方法可以轻松地<strong>跳过这些换行符</strong>，但当输入的下一个字符为数字时，<code>cin.get()</code> 将读取后面的换行符，虽然可以通过编程来避开这种麻烦，但比较简便的方法是像该程序那样使用 <code>cin</code>。</p>
+<h2 id="7-3-函数和数"><a href="#7-3-函数和数" class="headerlink" title="7.3 函数和数"></a>7.3 函数和数</h2><p>需要将数组名作为参数传递给它，为使函数通用，而不限于特定长度的数组，还需要传递数组长度。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum_arr</span><span class="params">(<span class="type">int</span> arr[], <span class="type">int</span> n)</span></span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>方括号指出 <code>arr</code> 是一个数组，而方括号为空则表明，可以将任何长度的数组传递给该函数。但实际情况并非如此：<code>arr</code>实际上并不是数组，<strong>而是一个指针</strong>，好消息是，在编写函数的其余部分时，可以将 <code>arr</code> 看作是数组。</p>
+<h3 id="7-3-1-函数如何使用指针来处理数组"><a href="#7-3-1-函数如何使用指针来处理数组" class="headerlink" title="7.3.1 函数如何使用指针来处理数组"></a>7.3.1 函数如何使用指针来处理数组</h3><p>在大多数情况下，C++和C语言一样，也将数组名视为指针。C++将数组名解释为其第一个元素的地址：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookies == &amp;cookies[<span class="number">0</span>];   <span class="comment">// array name is the address of first element</span></span><br></pre></td></tr></table></figure></div>
+
+<p>首先，数组声明使用数组名来标记存储位置； 其次，对数组名使用sizeof将得到整个数组的长度（以字节为单位）； 第三，正如第4章指出的，将地址运算符&amp;用于数组名时，将返回整个数组的地址。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804152348446.png"
+                      alt="image-20210804152348446"
+                ></p>
+<blockquote>
+<p>当且仅当在函数头中或者函数原型中，<code>int *arr</code> 和 <code>int arr[]</code> 的含义是相同的。它们都指 arr 是一个 int 指针。</p>
+</blockquote>
+<p>对于数组，以下两个语句是恒等的：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr[i] == *(arr+i);  <span class="comment">// values in two notations</span></span><br><span class="line">&amp;arr[i] == arr + i;  <span class="comment">// addresses in two notations</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="7-3-2-将数组作为参数意味着什么"><a href="#7-3-2-将数组作为参数意味着什么" class="headerlink" title="7.3.2 将数组作为参数意味着什么"></a>7.3.2 将数组作为参数意味着什么</h3><p>传递常规变量时，函数将使用该变量的拷贝；<strong>但传递数组时，函数将使用原来的数组（传地址）</strong>。实际上，这种区别并不违反C++按值传递的方法，<code>sum_arr()</code> 函数仍传递了一个值，这个值被赋给 一个新变量，但这个值是一个地址，而不是数组的内容。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804154353723.png"
+                      alt="image-20210804154353723"
+                ></p>
+<p><strong>将数组地址作为参数可以节省复制整个数组所需的时间和内存</strong>。如果数组很大，则使用拷贝的系统开销将非常大；程序不仅需要更多的计算机内存，还需要花费时间来复制大块的数据。<strong>但另一方面，使用原始数据增加了破坏数据的风险</strong>。</p>
+<p><code>sum_arr(cookies+4, 4)</code> 和 <code>sum_arr(&amp;cookies[4], 4)</code> 是等效的。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804155245012.png"
+                      alt="image-20210804155245012"
+                ></p>
+<h3 id="7-3-3-更多数组函数示"><a href="#7-3-3-更多数组函数示" class="headerlink" title="7.3.3 更多数组函数示"></a>7.3.3 更多数组函数示</h3><p>1．填充数组</p>
+<p>2．显示数组及用const保护数组</p>
+<p>创建显示数组内容的函数很简单。只需将数组名和填充的元素数目传递给函数，然后该函数使用循环来显示每个元素。然而，还有另一个问题——确保显示函数不修改原始数组。除非函数的目的就是修改传递给它的数据，否则应避免发生这种情况。使用普通参数时，这种保护将自动实现，这是由于C++按值传递数据，函数使用数据的副本。然而，接受数组名的函数将使用原始数据。为防止函数无意中修改数组的内容，可在声明形参时 使用关键字<code>const</code>：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">show_array</span><span class="params">(<span class="type">const</span> <span class="type">double</span> arr[], <span class="type">int</span> n)</span></span>;</span><br></pre></td></tr></table></figure></div>
+<p><code>show_array()</code> 将数组视为只读数据。</p>
+<p>3．修改数组</p>
+<p>在这个例子中，对数组进行的第三项操作是将每个元素与同一个重新评估因子相乘。需要给函数传递3个参数：因子、数组和元素数目。 该<strong>函数不需要返回值</strong>，因此其代码如下：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">revalue</span><span class="params">(<span class="type">double</span> r, <span class="type">double</span> arr[], <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        arr[i] *= r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>由于这个函数将修改数组的值，因此在声明 <code>arr</code> 时，不能使用 <code>const</code>。</p>
+<p>4．将上述代码组合起来</p>
+<p>前面已经讨论了与该示例相关的重要编程细节，因此这里回顾一下 整个过程。<strong>我们首先考虑的是通过数据类型和设计适当的函数来处理数据，然后将这些函数组合成一个程序。有时也称为自下而上的程序设计 （bottom-up programming），因为设计过程从组件到整体进行。这种方 法非常适合于OOP——它首先强调的是数据表示和操纵</strong>。而传统的过程性编程倾向于从上而下的程序设计（top-down programming），首先指定模块化设计方案，然后再研究细节。这两种方法都很有用，最终的产品都是模块化程序。</p>
+<p>6．数组处理函数的常用编写方式</p>
+<p>假设要编写一个处理double数组的函数。如果该函数要修改数组， 其原型可能类似于下面这样：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">f_modfiy</span><span class="params">(<span class="type">double</span> arr[], <span class="type">int</span> n)</span></span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>如果函数不修改数组，其原型可能类似于下面这样：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> _f_no_change(<span class="type">const</span> <span class="type">double</span> arr[], <span class="type">int</span> n);</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="7-3-4-使用数组区间的函数"><a href="#7-3-4-使用数组区间的函数" class="headerlink" title="7.3.4 使用数组区间的函数"></a>7.3.4 使用数组区间的函数</h3><p>对于处理数组的C++函数，必须将数组中的数据种类、数组的起始位置和数组中元素数量提交给它；传统的C&#x2F;C++方法是，将指向数组起始处的指针作为一个参数，将数组长度作为第二个参数（指针指出数组的位置和数据类型），这样便给函数提供找到所有数据所需的信息。</p>
+<p>还有另一种给函数提供所需信息的方法，即指定元素区间 （range），这可以通过传递两个指针来完成：<strong>一个指针标识数组的开头，另一个指针标识数组的尾部</strong>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804170600111.png"
+                      alt="image-20210804170600111"
+                ></p>
+<p>它将 <code>pt</code> 设置为指向要处理的第一个元素（<code>begin</code>指向的元素）的指针，并将<code>*pt</code>（元素的值）加入到 <code>total</code> 中。然后，循环通过递增操作来更新 <code>pt</code>，使之指向下一个元素。只要 <code>pt</code> 不等于 <code>end</code>，这一过程就将继续下去。当 <code>pt</code> 等于 <code>end</code> 时，它将指向区间中最后一个元素后面的一个位置，此时循环将结束。</p>
+<h3 id="7-3-5-指针和-const"><a href="#7-3-5-指针和-const" class="headerlink" title="7.3.5 指针和 const"></a>7.3.5 指针和 <code>const</code></h3><p>将 <code>const</code> 用于指针有一些很微妙的地方，可以用两种不同的方式将 <code>const</code> 关键字用于指针。<strong>第一种方法是让指针指向一个常量对象</strong>，防止使用该指针来修改所指向的值，<strong>第二种方法是将指针本身声明为常量</strong>，这样可以防止改变指针指向的位置。</p>
+<p>首先看一个指向常量的指针：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804171314723.png"
+                      alt="image-20210804171314723"
+                ></p>
+<p>这里要求 <code>pt</code> 指向的是一个 <code>const int</code>，所以，赋值之后我们是不能用 <code>*pt</code> 来修改 age 的值的。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804171334907.png"
+                      alt="image-20210804171334907"
+                ></p>
+<p>现在来看一个微妙的问题。pt的声明并不限定着它指向的值就必须得是一个常量，只是对pt来说，这个值是常量。例如，pt指向age，但age不是const。我们是可以直接通过 age 变量来修改 age 的值的，但不能使用 pt 指针来修改它。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804171429933.png"
+                      alt="image-20210804171429933"
+                ></p>
+<blockquote>
+<p>我觉得这类指针可以称为：<strong>只读指针</strong>。这个指针可以移动，但是它只能读出它所指向地址的内容，但是无法通过这个指针修改其中的数据。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804171526205.png"
+                      alt="image-20210804171526205"
+                ></p>
+<p>C++禁止第二种情况的原因很简单——如果将 <code>g_moon</code> 的地 址赋给 <code>pm</code>，那么就可以用 <code>pm</code> 来修改 <code>g_moon</code> 的值，这使得 <code>g_moon</code> 的 <code>const</code> 状态很荒谬，因此, <strong>C++禁止将 const 的地址赋给非 const 指针</strong>。</p>
+<p><strong>假设有一个由 <code>const</code> 数据组成的数组则禁止将常量数组的地址赋给非常量指针将意味着不能将数组名作为参数传递给使用非常量形参的函数。</strong></p>
+<p>只要条件允许，则应将指针形参声明为指向 <code>const</code> 的指针。</p>
+<blockquote>
+<p><strong>尽可能使用 const</strong>:<br>将指针参数声明为指向常量数据的指针有两个优点：</p>
+<ul>
+<li>避免由于无意间修改数据而导致的编程错误；</li>
+<li>使用 <code>const</code> 使得函数能够处理 <code>const</code> 和非 <code>const</code> 实参，否则将只能接受非 <code>const</code> 数据。</li>
+</ul>
+</blockquote>
+<p><code>const</code> 只能防止修改 <code>pt</code> 指向的值（这里为39），而不能防止修改 <code>pt</code> 的值。也就是说，可以将一个新地址赋给 <code>pt</code>。</p>
+<p>第二种使用 <code>const</code> 的方式使得无法修改指针的值：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804172355209.png"
+                      alt="image-20210804172355209"
+                ></p>
+<blockquote>
+<p>这样的指针，我想将其称为：<strong>静止指针</strong>。指针本身定死在一个地址上了，但是地址里的内容是可以通过这个指针随便修改的。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804172525799.png"
+                      alt="image-20210804172525799"
+                ></p>
+<p>通常，将指针作为函数参数来传递时，可以使用指向<code>const</code>的指针来保护数据。</p>
+<p>在该声明中使用 <code>const</code> 意味着 <code>show_array()</code> 不能修改传递给它的数组中的值。只要只有一层间接关系，就可以使用这种技术。例如，这里的数组元素是基本类型，但如果它们是指针或指向指针的指针，则不能使用 <code>const</code>。</p>
+<h2 id="7-4-函数和二维数组"><a href="#7-4-函数和二维数组" class="headerlink" title="7.4 函数和二维数组"></a>7.4 函数和二维数组</h2><p>数组名被视为其地 址，因此，相应的形参是一个指针，就像一维数组一样。</p>
+<p><code>Data</code> 是一个数组名，该数组有3个元素。第一个元素本身是一个数组，由4个 <code>int</code> 值组成。因此 <code>data</code> 的类型是指向由4个 <code>int</code> 组成的数组的指针，因此正确的原型如下：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> (*ar2)[<span class="number">4</span>], <span class="type">int</span> size)</span></span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>还有另外一种格式，这种格式与上述原型的含义完全相同，但可读性更强：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> ar2[][<span class="number">4</span>], <span class="type">int</span> size)</span></span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>对于二维数据，必须对指针 <code>ar2</code> 执行两次解除引用，才能得到数据。最简单的方法是使用方括号两次：<code>ar2[r][c]</code>。然而，如果不考虑难看的话，也可以使用运算符<code>*</code>两次：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ar2[r][c] == *(*(ar2+r)+c);   <span class="comment">// 等效</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="7-5-函数和C-风格字符串"><a href="#7-5-函数和C-风格字符串" class="headerlink" title="7.5 函数和C-风格字符串"></a>7.5 函数和C-风格字符串</h2><p>C-风格字符串由一系列字符组成，以空值字符（<code>\0</code>）结尾。</p>
+<h3 id="7-5-1-将C-风格字符串作为参数的函数"><a href="#7-5-1-将C-风格字符串作为参数的函数" class="headerlink" title="7.5.1 将C-风格字符串作为参数的函数"></a>7.5.1 将C-风格字符串作为参数的函数</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804204604444.png"
+                      alt="image-20210804204604444"
+                ></p>
+<p>假设要将字符串作为参数传递给函数，则表示字符串的方式有三 种：</p>
+<ul>
+<li><code>char</code> 数组；</li>
+<li>用引号括起的字符串常量（也称字符串字面值）；</li>
+<li>被设置为字符串的地址的<code>char</code>指针。</li>
+</ul>
+<p>但上述3种选择的类型都是<code>char</code>指针（准确地说是<code>char*</code>），因此可 以将其作为字符串处理函数的参数。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210804214230755.png"
+                      alt="image-20210804214230755"
+                ></p>
+<p>可以说是将字符串作为参数来传递，<strong>但实际传递的是字符串第一个字符的地址</strong>。这意味着字符串函数原型应将其表示字符串的形参声明为 <code>char *</code> 类型。</p>
+<p>C-风格字符串与常规 <code>char</code> 数组之间的一个重要区别是，字符串有内置的结束字符。这意味着不必将字符串长度作为参数传递给函数，而函数可以使用循环依次检查字符串中的每个字符，直到遇到结尾的空值字符为止。</p>
+<blockquote>
+<p>不以空值字符结尾的char数组只是数组，而不是字符串。</p>
+</blockquote>
+<h3 id="7-5-2-返回C-风格字符串的函数"><a href="#7-5-2-返回C-风格字符串的函数" class="headerlink" title="7.5.2 返回C-风格字符串的函数"></a>7.5.2 返回C-风格字符串的函数</h3><p>函数无法返回一 个字符串，但可以返回字符串的地址，这样做的效率更高。这种设计（让函数返回一个指针，该指针指向 <code>new</code> 分配的内存）的缺点是，程序员必须记住使用 <code>delete</code>。</p>
+<h2 id="7-6-函数和结构体"><a href="#7-6-函数和结构体" class="headerlink" title="7.6 函数和结构体"></a>7.6 函数和结构体</h2><p><strong>结构体变量的行为更接近于基本的单值变量</strong>。也就是说，与数组不同，结构体将其数据组合成单个实体或数据对象，该实体被视为一个整体。前面讲过，可以将一个结构体赋给另外一个结构体。同样，也<strong>可以按值传递结构体，就像普通变量那样</strong>。在这种情况下，函数将使用原始结构体的副本。另外，函数也可以返回结构体。**与数组名就是数组第一个元素的地址不同的是，结构体名只是结构体的名称，要获得结构的地址，必须使用地址运算符 <code>&amp;</code>**。</p>
+<p>使用结构编程时，最直接的方式是像处理基本类型那样来处理结构体；也就是说，将结构体作为参数传递，并在需要时将结构体用作返回值使用。</p>
+<h3 id="7-6-1-传递和返回结构体"><a href="#7-6-1-传递和返回结构体" class="headerlink" title="7.6.1 传递和返回结构体"></a>7.6.1 传递和返回结构体</h3><p>当结构体比较小时，按值传递结构体最合理。</p>
+<h3 id="7-6-2-另一个处理结构的函数示例"><a href="#7-6-2-另一个处理结构的函数示例" class="headerlink" title="7.6.2 另一个处理结构的函数示例"></a>7.6.2 另一个处理结构的函数示例</h3><h3 id="7-6-3-传递结构体的地址"><a href="#7-6-3-传递结构体的地址" class="headerlink" title="7.6.3 传递结构体的地址"></a>7.6.3 传递结构体的地址</h3><p>假设要传递结构的地址而不是整个结构以节省时间和空间，则需要 重新编写前面的函数，使用指向结构的指针。首先来看一看如何重新编写 <code>show_polar()</code> 函数。需要修改三个地方：</p>
+<ul>
+<li>调用函数时，将结构的地址（<code>&amp;pplace</code>）而不是结构本身（<code>pplace</code>） 传递给它；</li>
+<li>将形参声明为指向 <code>polar</code> 的指针，即<code>polar *</code>类型。由于函数不应该修改结构，因此使用了 <code>const</code> 修饰符；</li>
+<li>由于形参是指针而不是结构，因此应间接成员运算符（<code>-&gt;</code>），而不是成员运算符（句点）。</li>
+</ul>
+<h2 id="7-7-函数和-string-对象"><a href="#7-7-函数和-string-对象" class="headerlink" title="7.7 函数和 string 对象"></a>7.7 函数和 <code>string</code> 对象</h2><p>可以将对象作为完整的实体进行传递，如果需要多个字符串，可以声明一个<code>string</code> 对象数组，而不是二维 <code>char</code> 数组。</p>
+<h2 id="7-8-函数与-array-对象"><a href="#7-8-函数与-array-对象" class="headerlink" title="7.8 函数与 array 对象"></a>7.8 函数与 <code>array</code> 对象</h2><h2 id="7-9-递归"><a href="#7-9-递归" class="headerlink" title="7.9 递归"></a>7.9 递归</h2><p>C++函数有一种有趣的特点——可 以调用自己，但不允许main()调用自己，这种功能称为递归。</p>
+<blockquote>
+<p>我不喜欢递归，太耗资源，可读性还差。</p>
+</blockquote>
+<h3 id="7-9-1-包含一个递归调用的递归"><a href="#7-9-1-包含一个递归调用的递归" class="headerlink" title="7.9.1 包含一个递归调用的递归"></a>7.9.1 包含一个递归调用的递归</h3><h3 id="7-9-2-包含多个递归调用的递归"><a href="#7-9-2-包含多个递归调用的递归" class="headerlink" title="7.9.2 包含多个递归调用的递归"></a>7.9.2 包含多个递归调用的递归</h3><h2 id="7-10-函数指针"><a href="#7-10-函数指针" class="headerlink" title="7.10 函数指针"></a>7.10 函数指针</h2><p>与数据项相似，函数也有地址。函数的地址是存储其机器语言代码 的内存的开始地址。对程序而言很有用，可以编写以另一个函数的地址作为参数的函数。</p>
+<p>这样第一个函数就可以找到第二个函数，并运行它。与直接调用另一个函数相比，这种方法很笨拙，但它允许在不同的情况下传递不同函数的地址，这意味着可以在不同的时间使用不同的函数。</p>
+<h3 id="7-10-1-函数指针的基础知识"><a href="#7-10-1-函数指针的基础知识" class="headerlink" title="7.10.1 函数指针的基础知识"></a>7.10.1 函数指针的基础知识</h3><p>1．获取函数的地址<br>获取函数的地址很简单：只要<strong>使用函数名（后面不跟参数）即可</strong>。要将函数作为参数进行传递，必须传递函数名，要区分传递的是函数的地址还是函数的返回值。</p>
+<p>2．声明函数指针</p>
+<p>声明指向函数的指针时，必须指定指针指向的函数类型。意味着声明应指定函数的返回类型以及函数的特征标（参数列表）。也就是说，声明应像函数原型那样指出有关函数的信息：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805084458826.png"
+                      alt="image-20210805084458826"
+                ></p>
+<p>3．使用指针来调用函数</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805084920592.png"
+                      alt="image-20210805084920592"
+                ></p>
+<blockquote>
+<p>为何pf和<code>(*pf</code>等价呢？一种学派认为，由于pf是函数指针，而 <code>*pf</code> 是函数，因此应将<code>(*pf)()</code>用作函数调用。另一种学派认为，由于函数名是指向该函数的指 针，指向函数的指针的行为应与函数名相似，因此应将pf( )用作函数调用使用。C++进行了折 衷——这2种方式都是正确的，或者至少是允许的，虽然它们在逻辑上是互相冲突的。在认为 这种折衷粗糙之前，应该想到，容忍逻辑上无法自圆其说的观点正是人类思维活动的特点。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805085227934.png"
+                      alt="image-20210805085227934"
+                ></p>
+<p>可能看起来比较深奥，但指向函数指针数组的指针并不少见。实际上，类的虚方法实现通常都采用了这种技术（参见第13章）。</p>
+<h3 id="7-10-4-使用typedef进行简化"><a href="#7-10-4-使用typedef进行简化" class="headerlink" title="7.10.4 使用typedef进行简化"></a>7.10.4 使用typedef进行简化</h3><p>这里采用的方法是，将别名当做标识符进行声明，并在开头使用关键字 <code>typedef</code>。<br>使用typedef可减少输入量，让您编写代码时不容易犯错，并让程序 更容易理解。</p>
+<h3 id="7-11-总结"><a href="#7-11-总结" class="headerlink" title="7.11 总结"></a>7.11 总结</h3><p>函数是C++的编程模块。要使用函数，必须提供定义和原型，并调 用该函数。函数定义是实现函数功能的代码；函数原型描述了函数的接 口：传递给函数的值的数目和种类以及函数的返回类型。函数调用使得 程序将参数传递给函数，并执行函数的代码。</p>
+<p>C++提供了3种表示C-风格字符串的方法：字符数组、字符串常量 和字符串指针。它们的类型都是<code>char*</code>（<code>char</code>指针），因此被作为<code>char*</code>类型参数传递给函数。C++使用空值字符 <code>\0</code> 来结束字符串，因此字符 串函数检测空值字符来确定字符串的结尾。</p>
+<p>C++处理结构体的方式与基本类型完全相同，这意味着可以按值传递结构体，并将其用作函数返回类型。然而，如果结构体非常大，则传递结构体指针的效率将更高，同时函数能够使用原始数据。</p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/C/">#C++</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023/01/29/C-Primer-Plus-1/chapter06/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">C++学习</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/01/29/C-Primer-Plus-1/chapter08/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">C++学习</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">C++学习</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%87%BD%E6%95%B0%E2%80%94%E2%80%94C-%E7%9A%84%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9D%97"><span class="nav-text">第七章 函数——C++的编程模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="nav-text">7.1 函数基本知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-1-%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="nav-text">7.1.1 定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-2-%E5%87%BD%E6%95%B0%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8"><span class="nav-text">7.1.2 函数原型和函数调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%92%8C%E6%8C%89%E5%80%BC%E4%BC%A0%E9%80%92"><span class="nav-text">7.2 函数参数和按值传递</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-1-%E5%A4%9A%E4%B8%AA%E5%8F%82%E6%95%B0"><span class="nav-text">7.2.1 多个参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%E5%87%BD%E6%95%B0%E5%92%8C%E6%95%B0"><span class="nav-text">7.3 函数和数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-1-%E5%87%BD%E6%95%B0%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88%E6%9D%A5%E5%A4%84%E7%90%86%E6%95%B0%E7%BB%84"><span class="nav-text">7.3.1 函数如何使用指针来处理数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-2-%E5%B0%86%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88"><span class="nav-text">7.3.2 将数组作为参数意味着什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-3-%E6%9B%B4%E5%A4%9A%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0%E7%A4%BA"><span class="nav-text">7.3.3 更多数组函数示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-4-%E4%BD%BF%E7%94%A8%E6%95%B0%E7%BB%84%E5%8C%BA%E9%97%B4%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">7.3.4 使用数组区间的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-5-%E6%8C%87%E9%92%88%E5%92%8C-const"><span class="nav-text">7.3.5 指针和 const</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-%E5%87%BD%E6%95%B0%E5%92%8C%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-text">7.4 函数和二维数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-%E5%87%BD%E6%95%B0%E5%92%8CC-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">7.5 函数和C-风格字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-1-%E5%B0%86C-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">7.5.1 将C-风格字符串作为参数的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-2-%E8%BF%94%E5%9B%9EC-%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">7.5.2 返回C-风格字符串的函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-6-%E5%87%BD%E6%95%B0%E5%92%8C%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-text">7.6 函数和结构体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-1-%E4%BC%A0%E9%80%92%E5%92%8C%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-text">7.6.1 传递和返回结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-2-%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%84%E7%9A%84%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B"><span class="nav-text">7.6.2 另一个处理结构的函数示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-6-3-%E4%BC%A0%E9%80%92%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="nav-text">7.6.3 传递结构体的地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-7-%E5%87%BD%E6%95%B0%E5%92%8C-string-%E5%AF%B9%E8%B1%A1"><span class="nav-text">7.7 函数和 string 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-8-%E5%87%BD%E6%95%B0%E4%B8%8E-array-%E5%AF%B9%E8%B1%A1"><span class="nav-text">7.8 函数与 array 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-9-%E9%80%92%E5%BD%92"><span class="nav-text">7.9 递归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-9-1-%E5%8C%85%E5%90%AB%E4%B8%80%E4%B8%AA%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%E7%9A%84%E9%80%92%E5%BD%92"><span class="nav-text">7.9.1 包含一个递归调用的递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-9-2-%E5%8C%85%E5%90%AB%E5%A4%9A%E4%B8%AA%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%E7%9A%84%E9%80%92%E5%BD%92"><span class="nav-text">7.9.2 包含多个递归调用的递归</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-10-%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88"><span class="nav-text">7.10 函数指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-10-1-%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-text">7.10.1 函数指针的基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-10-4-%E4%BD%BF%E7%94%A8typedef%E8%BF%9B%E8%A1%8C%E7%AE%80%E5%8C%96"><span class="nav-text">7.10.4 使用typedef进行简化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-11-%E6%80%BB%E7%BB%93"><span class="nav-text">7.11 总结</span></a></li></ol></li></ol></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">A1ent. All Rights Reserved.</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalviews&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v1.0.0</a>
+        </div>
+        
+        
+        <script async  defer>
+            function odometer_init(){
+                    let el = document.getElementsByClassName('odometer');
+                    for (i = 0; i < el.length; i++) {
+                        od = new Odometer({
+                            el: el[i],
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    }
+            }
+            odometer_init();
+        </script>
+        <div id="start_time_div" style="display:none">
+            2022/8/17 11:45:14
+        </div>
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="unfolded-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="folded-tools-list">
+        <li class="right-bottom-tools tool-toggle-show flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+
+<script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/utils.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/main.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/menu-shrink.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/go-top-bottom.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/dark-light-toggle.js"></script>
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/local-search.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/code-block.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/runtime.js"></script>
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/odometer.min.js"></script>
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/odometer-theme-minimal.css">
+
+
+<div class="post-scripts">
+    
+        <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/toc-toggle.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/libs/anime.min.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/toc.js"></script>
+    
+    
+</div>
+
+
+
+</body>
+</html>

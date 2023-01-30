@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="A1ent">
+    <link rel="canonical" href="http://example.com/2023/01/29/C-Primer-Plus-1/chapter08/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
+    <link rel="icon" type="image/png" href="/images/QvQ.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/QvQ.ico">
+    <link rel="shortcut icon" href="/images/QvQ.ico">
+    
+    <title>
+        
+            C++学习 |
+        
+        A1ent
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/fonts.css">
+    
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"/images/Fkz3HkwaEAMhwza.svg","favicon":"/images/QvQ.ico","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#18545A","right":"#F1F2B5","transparency":35},"hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_image":{"light":"/images/101920049_p0.svg","dark":"/images/244.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Game Can Make The World Better"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"1.0.0","friend_links":{"columns":2}};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/brands.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/solid.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/regular.min.css">
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="A1ent" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="menu-wrapper">
+    
+    <div class="menu-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                A1ent
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2021.3/ScriptReference/index.html"  >
+                                    
+                                        
+                                            <i class="fa-regular unity"></i>
+                                        
+                                        UNITY
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="menu-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2021.3/ScriptReference/index.html"  >
+                             
+                                
+                                    <i class="fa-regular unity"></i>
+                                
+                                UNITY
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:3rem; font-weight: bold; margin: 10px 0;">C++学习</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/Fkz3HkwaEAMhwza.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">A1ent</span>
+                            
+                                <span class="author-label">Lv3</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="pc">2023-01-29 13:45:15</span>
+        <span class="mobile">2023-01-29 13:45</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-file-word"></i>&nbsp;<span>5k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>17 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h1 id="第八章-函数探幽"><a href="#第八章-函数探幽" class="headerlink" title="第八章 函数探幽"></a>第八章 函数探幽</h1><p>本章内容：</p>
+<ul>
+<li>内联函数；</li>
+<li>引用变量；</li>
+<li>如何按引用传递函数参数；</li>
+<li>默认参数；</li>
+<li>函数重载；</li>
+<li>函数模板；</li>
+<li>函数模板具体化。</li>
+</ul>
+<h2 id="8-1-C-内联函数"><a href="#8-1-C-内联函数" class="headerlink" title="8.1 C++ 内联函数"></a>8.1 C++ 内联函数</h2><p>内联函数是C++为提高程序运行速度所做的一项改进。常规函数和内联函数之间的主要区别不在于编写方式，而在于C++编译器如何将它们组合到程序中。 常规函数调用也使程序跳到另一个地址（函数的地址），并在函数结束时返回。</p>
+<p>C++内联函数提供了另一种选择。内联函数的编译代码与其他程序代码“内联”起来了。也就是说，<strong>编译器将使用相应的函数代码替换函数调用</strong>。对于内联代码，程序无需跳到另一个位置处执行代码，再跳回来。因此，内联函数的运行速度比常规函数稍快，但代价是需要占用更多内存。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805155012304.png"
+                      alt="image-20210805155012304"
+                ></p>
+<p>要使用这项特性，必须采取下述措施之一：</p>
+<ul>
+<li>在函数声明前加上关键字 inline；</li>
+<li>在函数定义前加上关键字 inline；</li>
+</ul>
+<p>内联函数最好都是一些很简单、行数少的函数。</p>
+<h2 id="8-2-引用变量"><a href="#8-2-引用变量" class="headerlink" title="8.2 引用变量"></a>8.2 引用变量</h2><p>C++新增了一种复合类型——引用变量。<strong>引用是已定义的变量的别名（另一个名称）</strong>。</p>
+<h3 id="8-2-1-创建引用变量"><a href="#8-2-1-创建引用变量" class="headerlink" title="8.2.1 创建引用变量"></a>8.2.1 创建引用变量</h3><p>C++给<code>&amp;</code>符号赋予另一个含义，将其用来声明引用。例如，要将 <code>rodents</code>作为<code>rats</code>变量的别名，可以这样做：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> rats;</span><br><span class="line"><span class="type">int</span> &amp;rodents = rats;  <span class="comment">// makes rodents an alias for rats</span></span><br></pre></td></tr></table></figure></div>
+
+<p>其中，**<code>&amp;</code> 不是地址运算符，而是类型标识符的一部分**。就像声明中的 <code>char*</code> 指的是指向 <code>char</code> 的指针一样，<code>int &amp;</code> 指的是指向 <code>int</code> 的引用。</p>
+<p>将 <code>rodents</code> 加1将影响这两个变量。更准确地说， <code>rodents++</code> 操作将一共有两个名称的变量加1。</p>
+<p>引用看上去很像伪装表示的指针（其中，<code>*</code> 解除引用运算符被隐式理解）。实际上，引用还是不同于指针的。除了表示法不同外，还有其他的差别。例如，差别之一是， 必须在声明引用时将其初始化，而不能像指针那样，先声明，再赋值。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805160617225.png"
+                      alt="image-20210805160617225"
+                ></p>
+<p>引用更接近const指针，必须在创建时进行初始化，一旦与某个变量关联起来，就将一直效忠于它。也就是说：<strong>某个变量的引用是不可更改的</strong>。</p>
+<blockquote>
+<p><strong>引用是别名。</strong></p>
+</blockquote>
+<h3 id="8-2-2-将引用用作函数参数"><a href="#8-2-2-将引用用作函数参数" class="headerlink" title="8.2.2 将引用用作函数参数"></a>8.2.2 将引用用作函数参数</h3><p><strong>引用经常被用作函数参数，使得函数中的变量名成为调用程序中的变量的别名。这种传递参数的方法称为按引用传递</strong>。按引用传递允许被调用的函数能够访问调用函数中的变量。<strong>C++新增的这项特性是对C语言的超越，C语言只能按值传递</strong>。按值传递导致被调用函数使用调用程序的值的拷贝（参见图8.2）。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805161500948.png"
+                      alt="image-20210805161500948"
+                ></p>
+<p>交换函数必须能够修改调用程序中的变量的值。这意味着按值传递变量将不管用，因为函数将交换原始变量副本的内容，而不是变量本身的内容。但传递引用时，函数将可以使用原始数据。另一种方法是，传递指针来访问原始数据。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805162214166.png"
+                      alt="image-20210805162214166"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805162432252.png"
+                      alt="image-20210805162432252"
+                ></p>
+<h3 id="8-2-3-引用的属性和特别之处"><a href="#8-2-3-引用的属性和特别之处" class="headerlink" title="8.2.3 引用的属性和特别之处"></a>8.2.3 引用的属性和特别之处</h3><p><code>refcube()</code> 函数修改了 <code>main()</code> 中的 <code>x</code> 值，而 <code>cube()</code> 没有，这提醒我们为何通常按值传递。变量 <code>a</code> 位于 <code>cube()</code> 中，它被初始化为 <code>x</code> 的值，但修改 <code>a</code> 并不会影响 <code>x</code>。但由于 <code>refcube()</code> 使用了引用参数，因此修改 <code>ra</code> 实际上就是修改 <code>x</code>。如果只是让函数使用传递给它的信息，而不对这些信息进行修改，同时又想使用引用，则应使用常量引用。</p>
+<p>例如，在这个例子中，应在函数原型和函数头中使用<code>const</code>：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">refcube</span><span class="params">(<span class="type">const</span> <span class="type">double</span> &amp;ra)</span></span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>如果要编写类似于上述示例的函数（即使用基本数值 类型），应采用按值传递的方式，而不要采用按引用传递的方式。当数据比较大（如结构和类）时，引用参数将很有用。</p>
+<blockquote>
+<p>函数中应尽可能将引用形参声明为 const，这样好处有三个：</p>
+<ul>
+<li>const 可以避免无意中修改数据，从而导致编程错误；</li>
+<li>const 使函数能够处理 const 和非 const 实参，否则只能接受非 const 数据；</li>
+<li>const 引用使函数能够正确生成并使用临时变量。</li>
+</ul>
+</blockquote>
+<h3 id="8-2-4-将引用用于结构体"><a href="#8-2-4-将引用用于结构体" class="headerlink" title="8.2.4 将引用用于结构体"></a>8.2.4 将引用用于结构体</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805164836645.png"
+                      alt="image-20210805164836645"
+                ></p>
+<p>2．为何要返回引用</p>
+<p>下面更深入地讨论返回引用与传统返回机制的不同之处。传统返回机制与按值传递函数参数类似：计算关键字return后面的表达式，并将结果返回给调用函数。从概念上说，这个值被复制到一个临时位置，而 调用程序将使用这个值。</p>
+<blockquote>
+<p>返回引用的函数实际上是被引用的变量的别名。</p>
+</blockquote>
+<p>3．返回引用时需要注意的问题</p>
+<p>返回引用时最重要的一点是，应避免返回函数终止时不再存在的内存单元引用。应<strong>避免</strong>编写如下代码：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805165912018.png"
+                      alt="image-20210805165912018"
+                ></p>
+<p><strong>该函数返回一个指向临时变量（newguy）的引用，函数运行完毕后 它将不再存在。同样，也应避免返回 指向临时变量的指针。</strong></p>
+<p>为避免这种问题，最简单的方法是，返回一个作为参数传递给函数 的引用。作为参数的引用将指向调用函数使用的数据，因此返回的引用 也将指向这些数据。</p>
+<p>4．为何将const用于引用返回类型</p>
+<h3 id="8-2-5-将引用用于类对象"><a href="#8-2-5-将引用用于类对象" class="headerlink" title="8.2.5 将引用用于类对象"></a>8.2.5 将引用用于类对象</h3><p>将类对象传递给函数时，C++通常的做法是使用引用。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210805171059802.png"
+                      alt="image-20210805171059802"
+                ></p>
+<h3 id="8-2-6-对象、继承和引用"><a href="#8-2-6-对象、继承和引用" class="headerlink" title="8.2.6 对象、继承和引用"></a>8.2.6 对象、继承和引用</h3><h3 id="8-2-7-何时使用引用参数"><a href="#8-2-7-何时使用引用参数" class="headerlink" title="8.2.7 何时使用引用参数"></a>8.2.7 何时使用引用参数</h3><p>使用引用参数的主要原因有两个:</p>
+<ul>
+<li>能够修改调用函数中的数据对象;</li>
+<li>通过传递引用而不是整个数据对象，可以提高程序的运行速度。</li>
+</ul>
+<p>当数据对象较大时（如结构和类对象），第二个原因最重要。这些也是使用指针参数的原因。这是有道理的，因为引用参数实际上是基于指针的代码的另一个接口。</p>
+<p><strong>以下总结使用引用的原则</strong>：</p>
+<ul>
+<li>如果数据对象很小。如内置数据类型或者小型数据结构，则按值传递；</li>
+<li>如果数据对象是数组，则使用指针，因为这是唯一的选择，并将指针声明为指向 const 的指针；</li>
+<li>如果数据对象是较大的结构体，则使用 const 指针或者 const 引用，以便提升程序的效率。这样可以节省复制结构体所需的时间和空间；</li>
+<li>如果数据对象是类对象，则使用 const 引用。类设计的语义常常要求使用引用，<strong>这是C++新增这项特性的主要原因。因此，传递类对象参数的标准方式是按引用传递</strong>。</li>
+</ul>
+<p>对于修改调用函数中数据的函数：</p>
+<ul>
+<li>如果数据对象是内置数据类型，则使用指针（不使用引用）。看到诸如：<code>fixit(&amp;x)</code> 这样的代码（x是int），则很明显，该函数将要修改x；</li>
+<li>如果数据对象是数组，则只能使用指针；</li>
+<li>如果数据对象是结构体，则可以使用引用或者指针；</li>
+<li>如果数据对象是类对象，则（首选）使用引用。</li>
+</ul>
+<h2 id="8-3-默认参数"><a href="#8-3-默认参数" class="headerlink" title="8.3 默认参数"></a>8.3 默认参数</h2><p>默认参数指的是当函数调用中省略了实参时自动使用的一个值。例如：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> * <span class="title">left</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> n=<span class="number">1</span>)</span></span>;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>对于带参数列表的函数，必须从右向左添加默认值</strong>。也就是说，要为某个参数设置默认值，<strong>则必须为它右边的所有参数提供默认值</strong>：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">harpo</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> m=<span class="number">4</span>, <span class="type">int</span> j=<span class="number">5</span>)</span></span>;      <span class="comment">// Valid</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">chico</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> m=<span class="number">6</span>, <span class="type">int</span> j)</span></span>;        <span class="comment">// IN-Valid</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">groucho</span><span class="params">(<span class="type">int</span> k=<span class="number">1</span>, <span class="type">int</span> m=<span class="number">2</span>, <span class="type">int</span> n=<span class="number">3</span>)</span></span>;  <span class="comment">// Valid</span></span><br></pre></td></tr></table></figure></div>
+<p>实参按从左到右的顺序依次被赋给相应的形参，而不能跳过任何参数。</p>
+<p><em><strong>默认参数只在声明函数的时候给出，定义函数时，则不需要给出</strong></em>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807220518596.png"
+                      alt="image-20210807220518596"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807220537984.png"
+                      alt="image-20210807220537984"
+                ></p>
+<h2 id="8-4-函数重载"><a href="#8-4-函数重载" class="headerlink" title="8.4 函数重载"></a>8.4 函数重载</h2><p>函数多态是C++在C语言的基础上新增的功能。默认参数让我们能够使用不同数目的参数调用同一个函数，而函数多态（函数重载）让我们能够使用多个同名的函数，这称为函数重载，它们完成相同的工作，但使用不同的参数列表。</p>
+<p><strong>函数重载的关键是函数的参数列表——也称为函数特征标 （function signature）</strong>。</p>
+<p>如果两个函数的参数数目和类型相同，同时参数的排列顺序也相同，则它们的特征标相同，而变量名是无关紧要的。 C++允许定义名称相同的函数，条件是它们的特征标不同。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807221358552.png"
+                      alt="image-20210807221358552"
+                ></p>
+<p>一些看起来彼此不同的特征标是不能共存的。例如，请看下面的两 个原型：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">double</span> <span class="title">cube</span><span class="params">(<span class="type">double</span> x)</span></span>;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">cube</span><span class="params">(<span class="type">double</span> &amp;x)</span></span>;</span><br></pre></td></tr></table></figure></div>
+<p>可能认为可以在此处使用函数重载，因为它们的特征标看起来不同。然而，请从编译器的角度来考虑这个问题。假设有下面这样的代码：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; <span class="built_in">cube</span>(x);</span><br></pre></td></tr></table></figure></div>
+
+<p>参数 <code>x</code> 与 <code>double x</code> 原型和 <code>double &amp;x</code> 原型都匹配，因此编译器无法确定究竟应使用哪个原型。为避免这种混乱，<strong>编译器在检查函数特征标时，将把类型引用和类型本身视为同一个特征标</strong>。</p>
+<p>请记住，<strong>是特征标(即，函数特征列表)，而不是函数返回类型使得可以对函数进行重载</strong>。 例 如，下面的两个声明是互斥的：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="title">gronk</span><span class="params">(<span class="type">int</span> n, <span class="type">float</span> m)</span></span>;    <span class="comment">// same signatures,</span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">gronk</span><span class="params">(<span class="type">int</span> n, <span class="type">float</span> m)</span></span>;  <span class="comment">// hence not allowed</span></span><br></pre></td></tr></table></figure></div>
+
+<p>因此，C++不允许以这种方式重载gronk( )。<strong>返回类型可以不同，但特征标也必须不同</strong>。</p>
+<p>匹配函数时，并不区分<code>const</code>和非<code>const</code>变量（这就要小心了）。看下面的原型：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">dribble</span><span class="params">(<span class="type">char</span> *bits)</span></span>;         <span class="comment">// overloaded</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dribble</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *cbits)</span></span>;  <span class="comment">// overloaded</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dabble</span><span class="params">(<span class="type">char</span> *bits)</span></span>;          <span class="comment">// not overloaded</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">drivel</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *bits)</span></span>;    <span class="comment">// not overloaded</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="8-4-1-函数重载示例"><a href="#8-4-1-函数重载示例" class="headerlink" title="8.4.1 函数重载示例"></a>8.4.1 函数重载示例</h3><h3 id="8-4-2-何时使用函数重载"><a href="#8-4-2-何时使用函数重载" class="headerlink" title="8.4.2 何时使用函数重载"></a>8.4.2 何时使用函数重载</h3><p><strong>虽然函数重载很吸引人，但也不要滥用。仅当函数基本上执行相同的任务，但使用不同形式的数据时，才应采用函数重载</strong>。</p>
+<h2 id="8-5-函数模板"><a href="#8-5-函数模板" class="headerlink" title="8.5 函数模板"></a>8.5 函数模板</h2><p>现在的C++编译器实现了C++的另一个新增特性——函数模板。函数模板是通用的函数描述，也就是说，它们使用泛型来定义函数，其中的泛型可用具体的类型（如<code>int</code>或<code>double</code>）替换。通过将类型作为参数传递给模板，可使编译器生成该类型的函数。由于模板允许以泛型（而不是具体类型）的方式编写程序，因此有时也被称为通用编程。由于类型是用参数表示的，因此模板特性有时也被称为参数化类型（parameterized types）。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807224625424.png"
+                      alt="image-20210807224625424"
+                ></p>
+<p>第一行指出，要建立一个模板，并将类型命名为 <code>AnyType</code>。关键字 <code>template</code>和 <code>typename</code> 是必需的，除非可以使用关键字 <code>class</code> 代替 <code>typename</code>。 另外，<strong>必须使用尖括号</strong>。类型名可以任意选择（这里为 <code>AnyType</code>），只要遵守C++命名规则即可；许多程序员都使用简单的名称，如 <code>T</code>。</p>
+<p>模板并不创建任何函数，而只是告诉编译器如何定义函数。需要交换<code>int</code>的函数时，编译器将按模板 模式创建这样的函数，并用<code>int</code>代替<code>AnyType</code>。同样，需要交换<code>double</code>的函数时，编译器将按模板模式创建这样的函数，并用<code>double</code>代替 <code>AnyType</code>。</p>
+<p>最终 的代码不包含任何模板，而只包含了为程序生成的实际函数。使用模板 的好处是，它使生成多个函数定义更简单、更可靠。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210807225139508.png"
+                      alt="image-20210807225139508"
+                ></p>
+<p><code>typename</code>关键字使得参数<code>AnyType</code>表示类型这一点更为明显；然而，有大量代码库是使用关键字class开发的。在这种上下文中，<strong>这两个关键字是等价的</strong>。</p>
+<p>需要多个对不同类型使用同一种算法的函数时，可使用模板。</p>
+<h3 id="8-5-2-模板的局限"><a href="#8-5-2-模板的局限" class="headerlink" title="8.5.2 模板的局限"></a>8.5.2 模板的局限</h3><ul>
+<li>下面的代码假定定义了赋 值，但如果T为数组，这种假设将不成立；</li>
+<li>下面的语句假设定义了 <code>&lt;</code>，但如果T为结构，该假设便不成立；另外，为数组名定义了运算符 <code>&gt;</code>，但由于数组名为地址，因此它比较的是数组的地址，而这可能不是您希望的。</li>
+</ul>
+<p>总之，编写的模板函数很可能无法处理某些类型。另一方面，有时 候通用化是有意义的，但C++语法不允许这样做。</p>
+<h3 id="8-5-3-显式具体化"><a href="#8-5-3-显式具体化" class="headerlink" title="8.5.3 显式具体化"></a>8.5.3 显式具体化</h3><blockquote>
+<p>由于C++允许将一个结构赋给另一个结构，因此即使T是一个<code>job</code>结构，上述代码也适用。然而，假设只想交换 <code>salary</code> 和 <code>floor</code> 成员，而不交 换 <code>name</code> 成员，则需要使用不同的代码，但 <code>Swap()</code> 的参数将保持不变 （两个 <code>job</code> 结构的引用），因此无法使用模板重载来提供其他的代码。</p>
+</blockquote>
+<ul>
+<li>对于给定的函数名，可以有非模板函数、模板函数和显式具体化模 板函数以及它们的重载版本；</li>
+<li>显式具体化的原型和定义应以 <code>template&lt;&gt;</code> 打头，并通过名称来指出 类型；</li>
+<li>具体化优先于常规模板，而非模板函数优先于具体化和常规模板。</li>
+</ul>
+<p>如果有多个原型，则编译器在选择原型时，<strong>非模板版本优先于显式具体化和模板版本，而显式具体化优先于使用模板生成的版本</strong>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210808001952681.png"
+                      alt="image-20210808001952681"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210808002201785.png"
+                      alt="image-20210808002201785"
+                ></p>
+<h3 id="8-5-4-实例化和具体化"><a href="#8-5-4-实例化和具体化" class="headerlink" title="8.5.4 实例化和具体化"></a>8.5.4 实例化和具体化</h3><p>为进一步了解模板，必须理解术语实例化和具体化。记住，在代码中包含函数模板本身并不会生成函数定义，它只是一个用于生成函数定义的方案。编译器使用模板为特定类型生成函数定义时，得到的是模板实例（instantiation）。</p>
+<p>函数调用<code>Swap(i,j</code>)导致编译器生成<code>Swap()</code>的一个实例，该实例使用<code>int</code>类型。<strong>模板并非函数定 义，但使用int的模板实例是函数定义</strong>。这种实例化方式被称为隐式实例 化（implicit instantiation），因为编译器之所以知道需要进行定义，是 由于程序调用Swap( )函数时提供了int参数。</p>
+<p>最初，编译器只能通过隐式实例化，来使用模板生成函数定义，但现在C++还允许显式实例化（explicit instantiation）。这意味着可以直接 命令编译器创建特定的实例，如<code>Swap&lt;int&gt;()</code>。其语法是，声明所需的种类——用<code>&lt;&gt;</code>符号指示类型，并在声明前加上关键字 <code>template</code>：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> <span class="type">void</span> <span class="built_in">Swap</span>&lt;<span class="type">int</span>&gt;(<span class="type">int</span>, <span class="type">int</span>);  <span class="comment">// explicit instantiation</span></span><br></pre></td></tr></table></figure></div>
+<p>实现了这种特性的编译器看到上述声明后，将使用<code>Swap()</code>模板生成 一个使用<code>int</code>类型的实例。也就是说，该声明的意思是“使用<code>Swap()</code>模板生成<code>int</code>类型的函数定义“。</p>
+<p>与显式实例化不同的是，显式具体化使用下面两个等价的声明之 一：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="type">void</span> <span class="built_in">Swap</span>&lt;<span class="type">int</span>&gt;(<span class="type">int</span> &amp;, <span class="type">int</span> &amp;);</span><br><span class="line"><span class="keyword">template</span> &lt;&gt; <span class="function"><span class="type">void</span> <span class="title">Swap</span><span class="params">(<span class="type">int</span> &amp;, <span class="type">int</span> &amp;)</span></span>;</span><br></pre></td></tr></table></figure></div>
+<p>区别在于，这些声明的意思是“不要使用 <code>Swap()</code> 模板来生成函数定 义，而应使用专门为 <code>int</code> 类型显式地定义的函数定义”。这些原型必须有自己的函数定义。<strong>显式具体化声明在关键字 <code>template</code> 后包含 <code>&lt;&gt;</code>，而显式实例化没有</strong>。</p>
+<p>隐式实例化、显式实例化和显式具体化统称为具体化 （specialization）。它们的相同之处在于，它们表示的都是使用具体类 型的函数定义，而不是通用描述。</p>
+<p>引入显式实例化后，必须使用新的语法——在声明中使用前缀<code>template</code>和<code>template &lt;&gt;</code>，以区分显式实例化和显式具体化。通常，功能 越多，语法规则也越多。下面的代码片段总结了这些概念：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210808202129389.png"
+                      alt="image-20210808202129389"
+                ></p>
+<h3 id="8-5-5-编译器选择使用哪个函数版本"><a href="#8-5-5-编译器选择使用哪个函数版本" class="headerlink" title="8.5.5 编译器选择使用哪个函数版本"></a>8.5.5 编译器选择使用哪个函数版本</h3><p>对于函数重载、函数模板和函数模板重载，C++需要（且有）一个 定义良好的策略，来决定为函数调用使用哪一个函数定义，尤其是有多 个参数时。这个过程称为重载解析（overloading resolution）: </p>
+<ul>
+<li>第1步：创建候选函数列表。其中包含与被调用函数的名称相同的函数和模板函数。</li>
+<li>第2步：使用候选函数列表创建可行函数列表。这些都是参数数目 正确的函数，为此有一个隐式转换序列，其中包括实参类型与相应 的形参类型完全匹配的情况。例如，使用float参数的函数调用可以 将该参数转换为double，从而与double形参匹配，而模板可以为 float生成一个实例;</li>
+<li>第3步：确定是否有最佳的可行函数。如果有，则使用它，否则该 函数调用出错。</li>
+</ul>
+<p>接下来，编译器必须确定哪个可行函数是最佳的。它查看为使函数 调用参数与可行的候选函数的参数匹配所需要进行的转换。通常，从最 佳到最差的顺序如下所述：</p>
+<ul>
+<li>完全匹配，但常规函数优先于模板；</li>
+<li>提升转换（例如，char和shorts自动转换为int，float自动转换为 double）；</li>
+<li>标准转换（例如，int转换为char，long转换为double）；</li>
+<li>用户定义的转换，如类声明中定义的转换。</li>
+</ul>
+<h3 id="8-5-6-模板函数的发展"><a href="#8-5-6-模板函数的发展" class="headerlink" title="8.5.6 模板函数的发展"></a>8.5.6 模板函数的发展</h3><h2 id="8-6-总结"><a href="#8-6-总结" class="headerlink" title="8.6 总结"></a>8.6 总结</h2><p>C++扩展了C语言的函数功能。通过将 inline 关键字用于函数定义， 并在首次调用该函数前提供其函数定义，可以使得C++编译器将该函数视为内联函数。也就是说，编译器不是让程序跳到独立的代码段，以执行函数，而是用相应的代码替换函数调用（相当于复制进去）。只有在函数很短时才能采用内联方式。</p>
+<p>引用变量是一种伪装指针，它允许为变量创建别名（另一个名称）。引用变量主要被用作处理结构和类对象的函数的参数。</p>
+<p>C++原型让您能够定义参数的默认值。如果函数调用省略了相应的参数，则程序将使用默认值；如果函数调用提供了参数值，则程序将使用这个值（而不是默认值）。只能在参数列表中从右到左提供默认参数。</p>
+<p>函数的特征标是其参数列表。程序员可以定义两个同名函数，只要其特征标不同。这被称为函数多态或函数重载。</p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/C/">#C++</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023/01/29/C-Primer-Plus-1/chapter07/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">C++学习</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/01/29/C-Primer-Plus-1/chapter10/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">C++学习</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">C++学习</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%87%BD%E6%95%B0%E6%8E%A2%E5%B9%BD"><span class="nav-text">第八章 函数探幽</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-C-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0"><span class="nav-text">8.1 C++ 内联函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F"><span class="nav-text">8.2 引用变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-1-%E5%88%9B%E5%BB%BA%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F"><span class="nav-text">8.2.1 创建引用变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-2-%E5%B0%86%E5%BC%95%E7%94%A8%E7%94%A8%E4%BD%9C%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="nav-text">8.2.2 将引用用作函数参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-3-%E5%BC%95%E7%94%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E7%89%B9%E5%88%AB%E4%B9%8B%E5%A4%84"><span class="nav-text">8.2.3 引用的属性和特别之处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-4-%E5%B0%86%E5%BC%95%E7%94%A8%E7%94%A8%E4%BA%8E%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-text">8.2.4 将引用用于结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-5-%E5%B0%86%E5%BC%95%E7%94%A8%E7%94%A8%E4%BA%8E%E7%B1%BB%E5%AF%B9%E8%B1%A1"><span class="nav-text">8.2.5 将引用用于类对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-6-%E5%AF%B9%E8%B1%A1%E3%80%81%E7%BB%A7%E6%89%BF%E5%92%8C%E5%BC%95%E7%94%A8"><span class="nav-text">8.2.6 对象、继承和引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-7-%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E5%BC%95%E7%94%A8%E5%8F%82%E6%95%B0"><span class="nav-text">8.2.7 何时使用引用参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0"><span class="nav-text">8.3 默认参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-text">8.4 函数重载</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-1-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E7%A4%BA%E4%BE%8B"><span class="nav-text">8.4.1 函数重载示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-2-%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-text">8.4.2 何时使用函数重载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-5-%E5%87%BD%E6%95%B0%E6%A8%A1%E6%9D%BF"><span class="nav-text">8.5 函数模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-2-%E6%A8%A1%E6%9D%BF%E7%9A%84%E5%B1%80%E9%99%90"><span class="nav-text">8.5.2 模板的局限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-3-%E6%98%BE%E5%BC%8F%E5%85%B7%E4%BD%93%E5%8C%96"><span class="nav-text">8.5.3 显式具体化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-4-%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%92%8C%E5%85%B7%E4%BD%93%E5%8C%96"><span class="nav-text">8.5.4 实例化和具体化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-5-%E7%BC%96%E8%AF%91%E5%99%A8%E9%80%89%E6%8B%A9%E4%BD%BF%E7%94%A8%E5%93%AA%E4%B8%AA%E5%87%BD%E6%95%B0%E7%89%88%E6%9C%AC"><span class="nav-text">8.5.5 编译器选择使用哪个函数版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-6-%E6%A8%A1%E6%9D%BF%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-text">8.5.6 模板函数的发展</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-6-%E6%80%BB%E7%BB%93"><span class="nav-text">8.6 总结</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">A1ent. All Rights Reserved.</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalviews&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v1.0.0</a>
+        </div>
+        
+        
+        <script async  defer>
+            function odometer_init(){
+                    let el = document.getElementsByClassName('odometer');
+                    for (i = 0; i < el.length; i++) {
+                        od = new Odometer({
+                            el: el[i],
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    }
+            }
+            odometer_init();
+        </script>
+        <div id="start_time_div" style="display:none">
+            2022/8/17 11:45:14
+        </div>
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="unfolded-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="folded-tools-list">
+        <li class="right-bottom-tools tool-toggle-show flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+
+<script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/utils.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/main.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/menu-shrink.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/go-top-bottom.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/dark-light-toggle.js"></script>
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/local-search.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/code-block.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/runtime.js"></script>
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/odometer.min.js"></script>
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/odometer-theme-minimal.css">
+
+
+<div class="post-scripts">
+    
+        <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/toc-toggle.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/libs/anime.min.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/toc.js"></script>
+    
+    
+</div>
+
+
+
+</body>
+</html>

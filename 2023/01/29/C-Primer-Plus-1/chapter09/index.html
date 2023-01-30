@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="A1ent">
+    <link rel="canonical" href="http://example.com/2023/01/29/C-Primer-Plus-1/chapter09/" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
+    <link rel="icon" type="image/png" href="/images/QvQ.ico" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/QvQ.ico">
+    <link rel="shortcut icon" href="/images/QvQ.ico">
+    
+    <title>
+        
+            C++学习 |
+        
+        A1ent
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/fonts.css">
+    
+    <link rel="preconnect" href="https://evan.beee.top" crossorigin>
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"/images/Fkz3HkwaEAMhwza.svg","favicon":"/images/QvQ.ico","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#18545A","right":"#F1F2B5","transparency":35},"hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_image":{"light":"/images/101920049_p0.svg","dark":"/images/244.jpg"},"title_color":{"light":"#fff","dark":"#d1d1b6"},"description":"Game Can Make The World Better"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_block":{"copy":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"1.0.0","friend_links":{"columns":2}};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/brands.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/solid.min.css">
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/regular.min.css">
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="A1ent" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="menu-wrapper">
+    
+    <div class="menu-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                A1ent
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        ARCHIVES
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2021.3/ScriptReference/index.html"  >
+                                    
+                                        
+                                            <i class="fa-regular unity"></i>
+                                        
+                                        UNITY
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="menu-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                ARCHIVES
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        target="_blank" rel="noopener" href="https://docs.unity.cn/cn/2021.3/ScriptReference/index.html"  >
+                             
+                                
+                                    <i class="fa-regular unity"></i>
+                                
+                                UNITY
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+            <div class="article-title">
+                <span class="title-hover-animation"><h1 style="font-size:3rem; font-weight: bold; margin: 10px 0;">C++学习</h1></span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/Fkz3HkwaEAMhwza.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">A1ent</span>
+                            
+                                <span class="author-label">Lv3</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="pc">2023-01-29 13:45:15</span>
+        <span class="mobile">2023-01-29 13:45</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-file-word"></i>&nbsp;<span>5.6k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>19 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h1 id="第九章-内存模型和名称空间"><a href="#第九章-内存模型和名称空间" class="headerlink" title="第九章 内存模型和名称空间"></a>第九章 内存模型和名称空间</h1><p>本章内容包括：</p>
+<ul>
+<li>单独编译；</li>
+<li>存储持续性、作用域和链接性；</li>
+<li>定位（placement）new运算符；</li>
+<li>名称空间。</li>
+</ul>
+<h2 id="9-1-单独编译"><a href="#9-1-单独编译" class="headerlink" title="9.1 单独编译"></a>9.1 单独编译</h2><p>第1章介绍过，可以单独编译文件，然后将它们链接成可执行的程序。通常，C++编译器既编译程序，也管理链接器。如果只修改了一个文件，则可以只重新编译该文件，然后将它与其他文件的编译版本链接，这使得大程序的管理更便捷。</p>
+<p>例如，UNIX和Linux系统都具有make程 序，可以跟踪程序依赖的文件以及这些文件的最后修改时间。运行make 时，如果它检测到上次编译后修改了源文件，make将记住重新构建程序 所需的步骤。</p>
+<p>例如但需要将一个结构体在多个文件中复用时，与其将结构体声明加入到每一个文件 中，不如将其放在头文件中，然后在每一个源代码文件中包含该头文件。这样，要修改结构体声明时，只需在头文件中做一次改动即可。另外，也可以将函数原型放在头文件中。因此，可以将原来的程序分成三 部分。</p>
+<ul>
+<li>头文件：包含结构体声明和使用这些结构体的函数的声明；</li>
+<li>源代码文件：包含与结构体有关的函数代码；</li>
+<li>源代码文件：包含调用与结构体相关的函数代码；</li>
+</ul>
+<p>这是一种非常有用的组织程序的策略。例如，如果编写另一个程序 时，也需要使用这些函数，则只需包含头文件，并将函数文件添加到项 目列表或make列表中即可。另外，这种组织方式也与OOP方法一致。<strong>一个文件（头文件）包含了用户定义类型的定义；另一个文件包含操纵用 户定义类型的函数的代码。这两个文件组成了一个软件包，可用于各种程序中</strong>。</p>
+<p><strong>不要将函数定义或变量声明放到头文件中</strong>。这样做通常会引来麻烦，因为，如果在头文件包含了一个函数的定义，然后在（同一个程序的）另外两个文件中分别包含了该头文件，那么同一个程序中将包含同一个函数的两个定义，除非函数是内联的，否则这将出错。</p>
+<p>头文件常包含的内容：</p>
+<ul>
+<li>函数原型（也叫函数声明）；</li>
+<li>使用<code>#define</code>或<code>const</code>定义的符号常量；</li>
+<li>结构体声明；</li>
+<li>类声明；</li>
+<li>模板声明；</li>
+<li>内联函数。</li>
+</ul>
+<p>将结构体声明放在头文件中是可以的，因为它们不创建变量，而只是在源代码文件中声明结构体变量时，告诉编译器如何创建该结构体变量。同样，模板声明也不是将被编译的代码，它们指示编译器如何生成与源代码中函数调用相匹配的函数定义。被声明为<code>const</code>的常量和内联函数有特殊的链接属性（稍后将介绍），因此可以将其放在头文件中，而不会引 起问题。</p>
+<p>在包含头文件时，我们使 用<code>&quot;coordin.h&quot;</code>，而不是 <code>&lt;coodin.h&gt;</code>。如果文件名包含在尖括号中，则 C++编译器将在存储标准头文件的主机系统的文件系统中查找；但如果文件名包含在双引号中，<strong>则编译器将首先查找当前的工作目录或源代码目录（取决于编译器）</strong>，如果没有找到， 则将在标准位置查找。<strong>因此在包含自己的头文件时，应使用引号而不是 尖括号</strong>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210810163533843.png"
+                      alt="image-20210810163533843"
+                ></p>
+<blockquote>
+<p>在同一个文件中只能将同一个头文件包含一次。记住这个规则很容易，但很可能在不知 情的情况下将头文件包含多次。例如，可能使用包含了另外一个头文件的头文件。有一种标准的C&#x2F;C++技术可以避免多次包含同一个头文件。它是基于预处理器编译指令#ifndef（即if not defined）的。<code>#ifndef-#define-#endif</code> 语句的这种方法<strong>并不能防止编译器将文件包含两次，而只是让它忽略除第一次包含之外的所有内容</strong>。大多数标准C和C++头文件都使用这种防护 （guarding）方案。否则，可能在一个文件中定义同一个结构体、函数、类等两次，这将导致编译错误。</p>
+</blockquote>
+<h2 id="9-2-存储持续性、作用域和链接性"><a href="#9-2-存储持续性、作用域和链接性" class="headerlink" title="9.2 存储持续性、作用域和链接性"></a>9.2 存储持续性、作用域和链接性</h2><p>存储类别如何影响信息在文件间的共享？</p>
+<ul>
+<li>自动存储持续性：在<strong>函数定义中声明的变量</strong>（包括函数参数）的存 储持续性为自动的。在程序开始执行其所属的函数或代码块时 被创建，在执行完函数或代码块时，它们使用的内存被释放；</li>
+<li>静态存储持续性：在函数<strong>定义外</strong>定义的变量和使用关键字<code>static</code>定义 的变量的存储持续性都为静态。它们在程序整个运行过程中都存在；</li>
+<li>线程存储持续性（C++11）：如果变量是使用关键字<code>thread_local</code>声明的，则其生命 周期与所属的线程一样长；</li>
+<li>动态存储持续性：用<code>new</code>运算符分配的内存将一直存在，直到使用 <code>delete</code>运算符将其释放或程序结束为止。这种内存的存储持续性为动态，有时被称为自由存储（free store）或堆（heap）。</li>
+</ul>
+<h3 id="9-2-1-作用域和链接"><a href="#9-2-1-作用域和链接" class="headerlink" title="9.2.1 作用域和链接"></a>9.2.1 作用域和链接</h3><p>作用域（scope）描述了名称在文件（翻译单元）的多大范围内可见。链接性（linkage）描述了名称如何在不同单元间共享。链接性为外部的 名称可在文件间共享，链接性为内部的名称只能由一个文件中的函数共 享。自动变量的名称没有链接性，因为它们不能共享。</p>
+<p>作用域为局部的变量只在定义它的代码 块中可用。<strong>代码块是由花括号括起的一系列语句</strong>。例如函数体就是代码块，但可以在函数体中嵌入其他代码块。作用域为全局（也叫文件作用域）的变量在定义位置到文件结尾之间都可用。自动变量的作用域为局部，静态变量的作用域是全局还是局部取决于它是如何被定义的。在函数原型作用域（function prototype scope）中使用的名称只在包含参数列表的括号内可用（<strong>这就是为什么这些名称是什么以及是否出现都不重要的原因</strong>）。在类中声明的成员的作用域为整个类。在名 称空间中声明的变量的作用域为整个名称空间</p>
+<h3 id="9-2-2-自动存储持续性"><a href="#9-2-2-自动存储持续性" class="headerlink" title="9.2.2 自动存储持续性"></a>9.2.2 自动存储持续性</h3><p>在默认情况下，在函数中声明的函数参数和变量的存储持续性为自 动，作用域为局部，没有链接性。</p>
+<p>如果在代码块中定义了变量，则该变量的存在时间和作用域将被限 制在该代码块内。例子：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811100416035.png"
+                      alt="image-20210811100416035"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811100534389.png"
+                      alt="image-20210811100534389"
+                ></p>
+<p>1．自动变量的初始化<br>2．自动变量和栈</p>
+<p>由于自动变量的数目随函数的开始和结束而增减，因此程序必须 在运行时对自动变量进行管理。常用的方法是留出一段内存，并将其视为栈，以管理变量的增减。之所以被称为栈，是由于新数据被象征性地放在原有数据的上面（也就是说，在相邻的内存单元中，而不是在同一 个内存单元中），当程序使用完后，将其从栈中删除。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811110310770.png"
+                      alt="image-20210811110310770"
+                ></p>
+<p>3．寄存器变量<br>这旨在提高访问变量的速度。</p>
+<h3 id="9-2-3-静态持续变量"><a href="#9-2-3-静态持续变量" class="headerlink" title="9.2.3 静态持续变量"></a>9.2.3 静态持续变量</h3><p>要想创建链接性为外部的静态持续变量，必须在代码块的外面声明它；<br>要创建链接性为内部的静态持续变量，必须在代码块的外面声明它，并使用 <code>static</code> 限定符；<br>要创建没有链接性的静态持续变量，必须在代码块内声明它，并使用 <code>static</code> 限定符。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811110632232.png"
+                      alt="image-20210811110632232"
+                ></p>
+<p>正如前面指出的，所有静态持续变量（上述示例中的<code>global</code>、 <code>one_file</code>和 <code>count</code>）在整个程序执行期间都存在。在 <code>funct1()</code> 中声明的变量 <code>count</code> 的作用域为局部，没有链接性，这意味着只能在<code>funct1()</code> 函数中使用它，就像自动变量 <code>llama</code> 一样。然而，与<code>llama</code> 不同的是，即使在 <code>funct1()</code> 函数没有被执行时，<code>count</code> 也留在内存中。<code>global</code> 和 <code>one_file</code> 的作用域都为整个文件，即在从声明位置到文件结尾的范围内都可以被使 用。具体地说，可以在 <code>main()</code>、<code>funct1()</code> 和 <code>funct2()</code> 中使用它们。由于<code> one_file</code> 的链接性为内部，因此只能在包含上述代码的文件中使用它； 由于 <code>global</code> 的链接性为外部，因此可以在程序的其他文件中使用它。</p>
+<blockquote>
+<p>应少用静态外部变量，如使用最好都声明为内部连接性的静态变量。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811111319645.png"
+                      alt="image-20210811111319645"
+                ></p>
+<h3 id="9-2-4-静态持续性、外部链接性"><a href="#9-2-4-静态持续性、外部链接性" class="headerlink" title="9.2.4 静态持续性、外部链接性"></a>9.2.4 静态持续性、外部链接性</h3><p>链接性为外部的变量通常简称为外部变量，它们的存储持续性为静 态，作用域为整个文件。外部变量是在函数外部定义的，因此对所有函 数而言都是外部的。</p>
+<p>1．单定义规则<br>C++有“单定义规则”（One Definition Rule，ODR），该规则指出， 变量只能有一次定义。请注意，单定义规则并非意味着不能有多个变量的名称相同。例 如，在不同函数中声明的同名自动变量是彼此独立的，它们都有自己的 地址。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811111827133.png"
+                      alt="image-20210811111827133"
+                ></p>
+<h3 id="9-2-5-静态持续性、内部链接性"><a href="#9-2-5-静态持续性、内部链接性" class="headerlink" title="9.2.5 静态持续性、内部链接性"></a>9.2.5 静态持续性、内部链接性</h3><p>将static限定符用于作用域为整个文件的变量时，该变量的链接性将 为内部的。在多文件程序中，内部链接性和外部链接性之间的差别很有 意义。链接性为内部的变量只能在其所属的文件中使用；但常规外部变 量都具有外部链接性，即可以在其他文件中使用。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811112129019.png"
+                      alt="image-20210811112129019"
+                ></p>
+<blockquote>
+<p>在多文件程序中，可以在一个文件（且只能在一个文件）中定义一个外部变量。使用该变量的其他文件必须使用关键字 <code>extern</code> 声明它。</p>
+</blockquote>
+<p>可使用外部变量在多文件程序的不同部分之间共享数据；可使用链接性为内部的静态变量在同一个文件中的多个函数之间共享数据（名称空间提供了另外一种共享数据的方法）。另外，如果将作用域为整个文 件的变量变为静态的，就不必担心其名称与其他文件中的作用域为整个 文件的变量发生冲突。</p>
+<h3 id="9-2-6-静态存储持续性、无链接性"><a href="#9-2-6-静态存储持续性、无链接性" class="headerlink" title="9.2.6 静态存储持续性、无链接性"></a>9.2.6 静态存储持续性、无链接性</h3><p>这种变量是这样创建的，将static限定符用于在代码块中定义的变 量。在代码块中使用static时，将导致局部变量的存储持续性为静态的。 这意味着虽然该变量只在该代码块中可用，但它在该代码块不处于活动 状态时仍然存在。因此在两次函数调用之间，静态局部变量的值将保持 不变。（静态变量适用于再生——可以用它们将瑞士银行的秘密账号传 递到下一个要去的地方）。另外，如果初始化了静态局部变量，则程序 只在启动时进行一次初始化。以后再调用函数时，将不会像自动变量那样再次被初始化。</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// static.cpp -- using a static local variable</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="comment">// constants</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> ArSize = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// function prototype</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">strcount</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * str)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">char</span> input[ArSize];</span><br><span class="line">    <span class="type">char</span> next;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Enter a line:\n&quot;</span>;</span><br><span class="line">    cin.<span class="built_in">get</span>(input, ArSize);</span><br><span class="line">    <span class="keyword">while</span> (cin)</span><br><span class="line">    &#123;</span><br><span class="line">        cin.<span class="built_in">get</span>(next);</span><br><span class="line">        <span class="keyword">while</span> (next != <span class="string">&#x27;\n&#x27;</span>)    <span class="comment">// string didn&#x27;t fit!</span></span><br><span class="line">            cin.<span class="built_in">get</span>(next);      <span class="comment">// dispose of remainder</span></span><br><span class="line">        <span class="built_in">strcount</span>(input);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Enter next line (empty line to quit):\n&quot;</span>;</span><br><span class="line">        cin.<span class="built_in">get</span>(input, ArSize);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Bye\n&quot;</span>;</span><br><span class="line"><span class="comment">// code to keep window open for MSVC++</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">cin.clear();</span></span><br><span class="line"><span class="comment">    while (cin.get() != &#x27;\n&#x27;)</span></span><br><span class="line"><span class="comment">        continue;</span></span><br><span class="line"><span class="comment">    cin.get();</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">strcount</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> total = <span class="number">0</span>;        <span class="comment">// static local variable</span></span><br><span class="line">    <span class="type">int</span> count = <span class="number">0</span>;               <span class="comment">// automatic local variable</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;\&quot;&quot;</span> &lt;&lt; str &lt;&lt;<span class="string">&quot;\&quot; contains &quot;</span>;</span><br><span class="line">    <span class="keyword">while</span> (*str++)               <span class="comment">// go to end of string</span></span><br><span class="line">        count++;</span><br><span class="line">    total += count;</span><br><span class="line">    cout &lt;&lt; count &lt;&lt; <span class="string">&quot; characters\n&quot;</span>;</span><br><span class="line">    cout &lt;&lt; total &lt;&lt; <span class="string">&quot; characters total\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811112939105.png"
+                      alt="image-20210811112939105"
+                ></p>
+<p>注意，在这个程序中，由于数组长度为10，因此程序从每行读取的字符数都不超过 9个。另外还需要注意的是，每次函数被调用时，自动变量count都被重 置为0。然而，静态变量total只在程序运行时被设置为0，以后在两次函 数调用之间，其值将保持不变，因此能够记录读取的字符总数。</p>
+<h3 id="9-2-7-说明符和限定符"><a href="#9-2-7-说明符和限定符" class="headerlink" title="9.2.7 说明符和限定符"></a>9.2.7 说明符和限定符</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811113430209.png"
+                      alt="image-20210811113430209"
+                ></p>
+<ol start="3">
+<li>再谈const</li>
+</ol>
+<p>在C++（但不是在C语言）中，<code>const</code>限定符对默认存储类型稍有影响。在默认情况下全局变量的链接性为外部的，<strong>但<code>const</code>全局变量的链接性为内部的</strong>。也就是说，在C++看来，全局 <code>const</code> 定义就像使用了 <code>static</code> 说明符一样。</p>
+<p>C++修改了常量类型的规则，让程序员更轻松。例如，假设将一组 常量放在头文件中，并在同一个程序的多个文件中使用该头文件。那 么，预处理器将头文件的内容包含到每个源文件中后，所有的源文件都 将包含类似下面这样的定义：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> fingers = <span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span> *waring = <span class="string">&quot;wak!&quot;</span>;</span><br></pre></td></tr></table></figure></div>
+
+<p>如果全局const声明的链接性像常规变量那样是外部的，则根据单定 义规则，这将出错（幸亏不是）。</p>
+<p>由于外部定义的<code>const</code>数据的链接性为内部的，因此可以在所有文件中使用相同的声明。</p>
+<h3 id="9-2-8-函数和链接性"><a href="#9-2-8-函数和链接性" class="headerlink" title="9.2.8 函数和链接性"></a>9.2.8 函数和链接性</h3><p>和变量一样，函数也有链接性，虽然可选择的范围比变量小。和C 语言一样，C++不允许在一个函数中定义另外一个函数，因此所有函数 的存储持续性都自动为静态的，即在整个程序执行期间都一直存在。在 默认情况下，函数的链接性为外部的，即可以在文件间共享。实际上， 可以在函数原型中使用关键字extern来指出函数是在另一个文件中定义 的，不过这是可选的。<strong>还可以使用关键字<code>static</code>将函数的链接性设置为内部的，使之只能在一个文件中使用</strong>，但必须同时在原型和函数定义中使用该关键字。</p>
+<h3 id="9-2-9-语言链接性"><a href="#9-2-9-语言链接性" class="headerlink" title="9.2.9 语言链接性"></a>9.2.9 语言链接性</h3><p>在 C++中，同一个名称可能对应多个函数，必须将这些函数翻译为不同的 符号名称。因此，C++编译器执行名称矫正或名称修饰（参见第8 章），为重载函数生成不同的符号名称。例如，可能将<code>spiff(int)</code>转换 为 <code>_spoff_i</code>，而将 <code>spiff(double，double)</code> 转换为 <code>_spiff_d_d</code>。这种方法被称为C++语言链接（C++ language linkage）。</p>
+<h3 id="9-2-10-存储方案和动态分配"><a href="#9-2-10-存储方案和动态分配" class="headerlink" title="9.2.10 存储方案和动态分配"></a>9.2.10 存储方案和动态分配</h3><p>动态内存由运算符 <code>new</code> 和 <code>delete</code> 控制，而不是由作用域和链接性规则控制。因此，<strong>可以在一个函数中分配动态内存，而在另一个函数中将其释放</strong>。与自动内存不同，动态内存不是LIFO，其分配和释放顺序要取决于 <code>new</code> 和 <code>delete</code> 在何时以何种方式被使用。通常，编译器使用三块独立的内存：一块用 于静态变量（可能再细分），一块用于自动变量，另外一块用于动态存 储。</p>
+<h2 id="9-3-名称空间"><a href="#9-3-名称空间" class="headerlink" title="9.3 名称空间"></a>9.3 名称空间</h2><p>名称可以是变量、函数、结构体、枚举、类以及类和结构体的成员。C++标准提供了名称空间工具，以便更好地控制名称的作用域。</p>
+<h3 id="9-3-1-传统的C-名称空间"><a href="#9-3-1-传统的C-名称空间" class="headerlink" title="9.3.1 传统的C++名称空间"></a>9.3.1 传统的C++名称空间</h3><p>C++关于全局变量和局部变量的规则定义了一种名称空间层次。每 个声明区域都可以声明名称，这些名称独立于在其他声明区域中声明的 名称。在一个函数中声明的局部变量不会与在另一个函数中声明的局部 变量发生冲突。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811114957087.png"
+                      alt="image-20210811114957087"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811115021641.png"
+                      alt="image-20210811115021641"
+                ></p>
+<h3 id="9-3-2-新的名称空间特性"><a href="#9-3-2-新的名称空间特性" class="headerlink" title="9.3.2 新的名称空间特性"></a>9.3.2 新的名称空间特性</h3><p>C++新增了这样一种功能，即通过定义一种新的声明区域来创建命 名的名称空间，这样做的目的之一是提供一个声明名称的区域。一个名 称空间中的名称不会与另外一个名称空间的相同名称发生冲突，同时允 许程序的其他部分使用该名称空间中声明的东西。</p>
+<p>名称空间可以是全局的，也可以位于另一个名称空间中，<strong>但不能位于代码块中</strong>。因此，在默认情况下，在名称空间中声明的名称的链接性 为外部的（除非它引用了常量）。</p>
+<p>1．using声明和using编译指令</p>
+<p>using声明由被限定的名称和它前面的关键字using组成：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Jill::fetch;        <span class="comment">// a using declaration</span></span><br></pre></td></tr></table></figure></div>
+<p><code>using</code> 声明将特定的名称添加到它所属的声明区域中。例如 <code>main()</code> 中的 <code>using</code> 声明 <code>Jill::fetch</code> 将 <code>fetch</code> 添加到 <code>main()</code> 定义的声明区域中。完成该声明后，便可以使用名称 <code>fetch</code> 代替 <code>Jill::fetch</code>。</p>
+<p>using声明使一个名称可用，而using编译指令使所有的名称都可 用。using编译指令由名称空间名和它前面的关键字using namespace组成，它使名称空间中的所有名称都可用，而不需要使用作用域解析运算符。在全局声明区域中使用using编译指令，将使该名称空间的名称全局可用。</p>
+<p>2．using编译指令和using声明之比较</p>
+<p>一般说来，使用<code>using</code>声明比使用<code>using</code>编译指令更安全，这是由于它只导入指定的名称。如果该名称与局部名称发生冲突，编译器将发出 指示。<code>using</code> 编译指令导入所有名称，包括可能并不需要的名称。如果与局部名称发生冲突，则局部名称将覆盖名称空间版本，而编译器并不会发出警告。另外，名称空间的开放性意味着名称空间的名称可能分散在多个地方，这使得难以准确知道添加了哪些名称。</p>
+<p>3．名称空间的其他特性<br>可以将名称空间声明进行嵌套。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.fungenomics.com/images/2021/08/image-20210811135518193.png"
+                      alt="image-20210811135518193"
+                ></p>
+<p>这里，flame指的是element::fire::flame。同样，可以使用下面的 using编译指令使内部的名称可用。</p>
+<p>4．未命名的名称空间</p>
+<p>可以通过省略名称空间的名称来创建未命名的名称空间。</p>
+<p>该名称空间中声明的名称的潜在作用域为：从声明点到该声明区域末尾，这与全局变量相似。然而，这种名称空间没有名称，因此不能显式地使用 <code>using</code> 编译指令或 <code>using</code> 声明来使它在其他位置都可用。也就是说，不能在未命名名称空间所属文件之外的其他文件中，使用该名称空间中的名称。这相当于是一个链接性为内部的静态变量的替代品。</p>
+<h3 id="9-3-4-名称空间及其前途"><a href="#9-3-4-名称空间及其前途" class="headerlink" title="9.3.4 名称空间及其前途"></a>9.3.4 名称空间及其前途</h3><p>使用名称空间的原则：</p>
+<ul>
+<li>使用在已命名的名称空间中声明的变量，而不是使用外部全局变量；</li>
+<li>使用在已命名的名称空间中声明的变量，而不是使用静态全局变量；</li>
+<li>如果开发了一个函数库或类库，将其放在一个名称空间中；</li>
+<li>仅将编译指令using作为一种将旧代码转换为使用名称空间的权宜之计；</li>
+<li>不要在头文件中使用 <code>using</code> 编译指令。首先，这样做掩盖了要让哪些名称可用；另外，包含头文件的顺序可能影响程序的行为。如果非要使用编译指令 <code>using</code>，应将其放在所有预处理器编译指令 <code>#include</code> 之后；</li>
+<li>导入名称时，首选使用作用域解析运算符或using声明的方法；</li>
+<li>对于using声明，首选将其作用域设置为局部而不是全局。</li>
+</ul>
+<h2 id="9-4-总结"><a href="#9-4-总结" class="headerlink" title="9.4 总结"></a>9.4 总结</h2><p>C++提倡在开发程序时使用多个文件。一种有效的组织策略 是，使用头文件来定义用户类型，为操纵用户类型的函数提供函数原 型；并将函数定义放在一个独立的源代码文件中。头文件和源代码文件 一起定义和实现了用户定义的类型及其使用方式。</p>
+<p>C++的存储方案决定了变量保留在内存中的时间（储存持续性）以 及程序的哪一部分可以访问它（作用域和链接性）。</p>
+<p>动态内存分配和释放是使用new和delete进行的，它使用自由存储区 或堆来存储数据。调用new占用内存，而调用delete释放内存。程序使用 指针来跟踪这些内存单元。</p>
+<p>名称空间允许定义一个可在其中声明标识符的命名区域。这样做的 目的是减少名称冲突，尤其当程序非常大，并使用多个厂商的代码时。可以通过使用作用域解析运算符、using声明或using编译指令，来使名 称空间中的标识符可用。</p>
+
+            </div>
+
+            
+
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/C/">#C++</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023/01/29/C-Primer-Plus-1/chapter11/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">C++学习</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/01/29/C-Primer-Plus-1/chapter12/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">C++学习</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">C++学习</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4"><span class="nav-text">第九章 内存模型和名称空间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-%E5%8D%95%E7%8B%AC%E7%BC%96%E8%AF%91"><span class="nav-text">9.1 单独编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-%E5%AD%98%E5%82%A8%E6%8C%81%E7%BB%AD%E6%80%A7%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%93%BE%E6%8E%A5%E6%80%A7"><span class="nav-text">9.2 存储持续性、作用域和链接性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-1-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%93%BE%E6%8E%A5"><span class="nav-text">9.2.1 作用域和链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-2-%E8%87%AA%E5%8A%A8%E5%AD%98%E5%82%A8%E6%8C%81%E7%BB%AD%E6%80%A7"><span class="nav-text">9.2.2 自动存储持续性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-3-%E9%9D%99%E6%80%81%E6%8C%81%E7%BB%AD%E5%8F%98%E9%87%8F"><span class="nav-text">9.2.3 静态持续变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-4-%E9%9D%99%E6%80%81%E6%8C%81%E7%BB%AD%E6%80%A7%E3%80%81%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5%E6%80%A7"><span class="nav-text">9.2.4 静态持续性、外部链接性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-5-%E9%9D%99%E6%80%81%E6%8C%81%E7%BB%AD%E6%80%A7%E3%80%81%E5%86%85%E9%83%A8%E9%93%BE%E6%8E%A5%E6%80%A7"><span class="nav-text">9.2.5 静态持续性、内部链接性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-6-%E9%9D%99%E6%80%81%E5%AD%98%E5%82%A8%E6%8C%81%E7%BB%AD%E6%80%A7%E3%80%81%E6%97%A0%E9%93%BE%E6%8E%A5%E6%80%A7"><span class="nav-text">9.2.6 静态存储持续性、无链接性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-7-%E8%AF%B4%E6%98%8E%E7%AC%A6%E5%92%8C%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="nav-text">9.2.7 说明符和限定符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-8-%E5%87%BD%E6%95%B0%E5%92%8C%E9%93%BE%E6%8E%A5%E6%80%A7"><span class="nav-text">9.2.8 函数和链接性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-9-%E8%AF%AD%E8%A8%80%E9%93%BE%E6%8E%A5%E6%80%A7"><span class="nav-text">9.2.9 语言链接性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-10-%E5%AD%98%E5%82%A8%E6%96%B9%E6%A1%88%E5%92%8C%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D"><span class="nav-text">9.2.10 存储方案和动态分配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4"><span class="nav-text">9.3 名称空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-1-%E4%BC%A0%E7%BB%9F%E7%9A%84C-%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4"><span class="nav-text">9.3.1 传统的C++名称空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-2-%E6%96%B0%E7%9A%84%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4%E7%89%B9%E6%80%A7"><span class="nav-text">9.3.2 新的名称空间特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-4-%E5%90%8D%E7%A7%B0%E7%A9%BA%E9%97%B4%E5%8F%8A%E5%85%B6%E5%89%8D%E9%80%94"><span class="nav-text">9.3.4 名称空间及其前途</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-4-%E6%80%BB%E7%BB%93"><span class="nav-text">9.4 总结</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fa-solid fa-heart icon-animate"></i>&nbsp;<a href="/">A1ent. All Rights Reserved.</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalviews&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v1.0.0</a>
+        </div>
+        
+        
+        <script async  defer>
+            function odometer_init(){
+                    let el = document.getElementsByClassName('odometer');
+                    for (i = 0; i < el.length; i++) {
+                        od = new Odometer({
+                            el: el[i],
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    }
+            }
+            odometer_init();
+        </script>
+        <div id="start_time_div" style="display:none">
+            2022/8/17 11:45:14
+        </div>
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="unfolded-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="folded-tools-list">
+        <li class="right-bottom-tools tool-toggle-show flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+
+<script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/utils.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/main.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/menu-shrink.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/go-top-bottom.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/dark-light-toggle.js"></script>
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/local-search.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/code-block.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/runtime.js"></script>
+    <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/odometer.min.js"></script>
+    <link rel="stylesheet" href="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/css/odometer-theme-minimal.css">
+
+
+<div class="post-scripts">
+    
+        <script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/tools/toc-toggle.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/libs/anime.min.js"></script><script src="//evan.beee.top/projects/hexo-theme-redefine/v1.0.0/source/js/layouts/toc.js"></script>
+    
+    
+</div>
+
+
+
+</body>
+</html>
